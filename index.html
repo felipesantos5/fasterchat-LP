@@ -275,191 +275,243 @@
             </a>
           </div>
 
-          <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1200" class="relative mx-auto max-w-6xl mt-16">
-            <div class="absolute -inset-1 bg-gradient-to-r from-brand-primary to-brand-dark rounded-2xl blur opacity-20"></div>
+<div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1200" class="relative mx-auto max-w-6xl mt-16">
+                
+                <div class="absolute -inset-1 bg-gradient-to-r from-brand-primary to-brand-dark rounded-2xl blur-lg opacity-20"></div>
 
-            <div class="relative bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden flex h-[600px] text-left">
-              <div class="hidden md:flex flex-col w-20 bg-white border-r border-slate-100 py-6 items-center gap-6 z-20">
-                <div class="w-10 h-10 bg-brand-primary rounded-xl flex items-center justify-center text-white mb-4 shadow-lg shadow-brand-primary/30">
-                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
+                <div class="relative bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden flex h-[650px] text-left">
+                    
+                    <div class="hidden md:flex flex-col w-20 bg-slate-900 py-6 items-center gap-6 z-30 flex-shrink-0">
+                        <div class="w-10 h-10 bg-brand-primary rounded-xl flex items-center justify-center text-white mb-4 shadow-[0_0_15px_rgba(16,185,129,0.5)]">
+                            <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        </div>
 
-                <div class="flex flex-col gap-4 w-full px-4">
-                  <div
-                    class="w-full aspect-square rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-50 cursor-pointer transition-colors"
-                    title="Dashboard"
-                  >
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="w-full aspect-square rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-50 cursor-pointer transition-colors"
-                    title="Clientes"
-                  >
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="w-full aspect-square bg-slate-900 rounded-lg flex items-center justify-center text-white cursor-pointer shadow-lg"
-                    title="Conversas"
-                  >
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"
-                      />
-                    </svg>
-                  </div>
-                  <div
-                    class="w-full aspect-square rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-50 cursor-pointer transition-colors"
-                    title="Funil"
-                  >
-                    <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </div>
+                        <div class="flex flex-col gap-4 w-full px-4">
+                            <button onclick="window.switchTab('dashboard')" id="btn-dashboard" class="w-full aspect-square rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-800 hover:text-white cursor-pointer transition-all duration-300 group relative">
+                                <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" /></svg>
+                                <span class="absolute left-14 bg-slate-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">Dashboard</span>
+                            </button>
+                            
+                            <button class="w-full aspect-square rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-800 hover:text-white cursor-pointer transition-all duration-300 group relative">
+                                <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                            </button>
 
-              <div class="hidden lg:flex flex-col w-80 bg-white border-r border-slate-100">
-                <div class="p-5 border-b border-slate-100">
-                  <h4 class="font-bold text-slate-800 text-lg mb-4">Conversas</h4>
-                  <div class="relative">
-                    <input
-                      type="text"
-                      placeholder="Buscar..."
-                      class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2 px-4 text-sm focus:outline-none focus:border-brand-primary"
-                    />
-                    <svg class="w-4 h-4 text-slate-400 absolute right-3 top-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                  </div>
-                </div>
+                            <button onclick="window.switchTab('chat')" id="btn-chat" class="w-full aspect-square rounded-lg flex items-center justify-center bg-brand-primary text-white cursor-pointer shadow-[0_0_15px_rgba(16,185,129,0.3)] transition-all duration-300 group relative">
+                                <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg>
+                                <span class="absolute left-14 bg-slate-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">Conversas</span>
+                            </button>
 
-                <div class="flex-1 overflow-y-auto">
-                  <div class="p-4 border-l-4 border-brand-primary bg-brand-50/50 cursor-pointer hover:bg-brand-50 transition-colors">
-                    <div class="flex justify-between mb-1">
-                      <span class="font-bold text-slate-800 text-sm">Roberto Almeida</span>
-                      <span class="text-xs text-brand-primary font-bold">14:32</span>
+                            <button class="w-full aspect-square rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-800 hover:text-white cursor-pointer transition-all duration-300 group relative">
+                                <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" /></svg>
+                            </button>
+                        </div>
+                        
+                        <div class="mt-auto mb-2 w-10 h-10 rounded-full bg-slate-700 border-2 border-slate-600 flex items-center justify-center text-xs text-white font-bold cursor-pointer hover:border-brand-primary transition-colors">
+                            VC
+                        </div>
                     </div>
-                    <p class="text-xs text-slate-500 truncate">Agendamento confirmado para amanhã...</p>
-                    <div class="mt-2 flex gap-1">
-                      <span class="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold rounded">Lead Quente</span>
-                    </div>
-                  </div>
-                  <div class="p-4 border-l-4 border-transparent hover:bg-slate-50 cursor-pointer transition-colors border-b border-slate-50">
-                    <div class="flex justify-between mb-1">
-                      <span class="font-bold text-slate-600 text-sm">Carla Dias</span>
-                      <span class="text-xs text-slate-400">11:15</span>
-                    </div>
-                    <p class="text-xs text-slate-400 truncate">Eu sempre quis automatizar meus atendimentos e o gerenciamento com os clientes. Mas eu não sabia como começar.</p>
-                  </div>
-                  <div class="p-4 border-l-4 border-transparent hover:bg-slate-50 cursor-pointer transition-colors border-b border-slate-50">
-                    <div class="flex justify-between mb-1">
-                      <span class="font-bold text-slate-600 text-sm">Empresa Solar</span>
-                      <span class="text-xs text-slate-400">Ontem</span>
-                    </div>
-                    <p class="text-xs text-slate-400 truncate">Gostaria de de um atendente automático.</p>
-                  </div>
-                </div>
-              </div>
 
-              <div class="flex-1 flex flex-col bg-[#F0F2F5] relative">
-                <div class="bg-white p-4 border-b border-slate-200 flex justify-between items-center z-10 shadow-sm">
-                  <div class="flex items-center gap-3">
-                    <div
-                      class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold"
-                    >
-                      RA
-                    </div>
-                    <div>
-                      <h4 class="font-bold text-slate-800 text-sm">Roberto Almeida</h4>
-                      <span class="text-xs text-green-500 flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> Online
-                      </span>
-                    </div>
-                  </div>
-                  <div class="flex items-center gap-3">
-                    <div class="px-3 py-1.5 bg-brand-50 border border-brand-200 rounded-full flex items-center gap-2">
-                      <div class="relative w-8 h-4 bg-brand-primary rounded-full transition-colors">
-                        <div class="absolute right-0.5 top-0.5 w-3 h-3 bg-white rounded-full shadow-sm"></div>
-                      </div>
-                      <span class="text-xs font-bold text-brand-dark uppercase tracking-wider">IA Ativa</span>
-                    </div>
-                    <svg class="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
-                      />
-                    </svg>
-                  </div>
-                </div>
+                    <div id="view-dashboard" class="hidden flex-1 bg-[#F8FAFC] flex-col h-full overflow-hidden w-full absolute inset-0 md:static md:inset-auto pl-20 md:pl-0 z-10">
+                        <div class="bg-white px-8 py-5 border-b border-slate-200 flex justify-between items-center sticky top-0 z-20">
+                            <div>
+                                <h2 class="text-xl font-bold text-slate-800">Dashboard</h2>
+                                <p class="text-sm text-slate-500">Visão geral do sistema</p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="hidden sm:block px-3 py-1 bg-white border border-slate-200 rounded-md text-xs font-medium text-slate-600 shadow-sm">
+                                    Últimos 7 dias
+                                </div>
+                                <button class="p-2 bg-brand-primary text-white rounded-lg shadow hover:bg-brand-dark transition-colors">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                </button>
+                            </div>
+                        </div>
 
-                <div class="flex-1 p-6 overflow-y-auto space-y-4" id="chat-container">
-                  <div
-                    class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')]"
-                  ></div>
-                </div>
+                        <div class="p-6 h-full">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6">
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="p-2 bg-blue-50 text-blue-600 rounded-lg"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg></div>
+                                        <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">+12%</span>
+                                    </div>
+                                    <h3 class="text-slate-500 text-sm font-medium">Novos Clientes</h3>
+                                    <p class="text-2xl font-bold text-slate-800 mt-1 counter" data-target="124">0</p>
+                                </div>
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="p-2 bg-green-50 text-brand-primary rounded-lg"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" /></svg></div>
+                                        <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">+5%</span>
+                                    </div>
+                                    <h3 class="text-slate-500 text-sm font-medium">Conversas Ativas</h3>
+                                    <p class="text-2xl font-bold text-slate-800 mt-1 counter" data-target="48">0</p>
+                                </div>
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="p-2 bg-orange-50 text-orange-500 rounded-lg"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" /></svg></div>
+                                        <span class="text-xs font-bold text-green-600 bg-green-50 px-2 py-0.5 rounded-full">+24%</span>
+                                    </div>
+                                    <h3 class="text-slate-500 text-sm font-medium">Msg Recebidas</h3>
+                                    <p class="text-2xl font-bold text-slate-800 mt-1 counter" data-target="1892">0</p>
+                                </div>
+                                <div class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                                    <div class="flex justify-between items-start mb-4">
+                                        <div class="p-2 bg-purple-50 text-purple-600 rounded-lg"><svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg></div>
+                                        <span class="text-xs font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full">Auto</span>
+                                    </div>
+                                    <h3 class="text-slate-500 text-sm font-medium">Respostas da IA</h3>
+                                    <p class="text-2xl font-bold text-slate-800 mt-1 counter" data-target="98">0</p>
+                                    <p class="text-[10px] text-slate-400 mt-1">Economia de ~42h</p>
+                                </div>
+                            </div>
 
-                <div class="bg-[#F0F2F5] p-4 border-t border-slate-200">
-                  <div class="bg-white rounded-lg p-2 flex items-center gap-4 shadow-sm">
-                    <svg class="w-6 h-6 text-slate-400 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    <svg class="w-6 h-6 text-slate-400 cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"
-                      />
-                    </svg>
-                    <input
-                      type="text"
-                      placeholder="IA está respondendo..."
-                      disabled
-                      class="flex-1 bg-transparent focus:outline-none text-sm text-slate-500 italic"
-                    />
-                    <div class="w-8 h-8 rounded-full bg-brand-primary flex items-center justify-center text-white shadow-md">
-                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                          d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"
-                        />
-                      </svg>
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pb-6">
+                                <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm">
+                                    <h3 class="text-slate-800 font-bold mb-6 flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" /></svg>
+                                        Funil de Clientes
+                                    </h3>
+                                    <div class="space-y-5">
+                                        <div>
+                                            <div class="flex justify-between text-xs mb-1.5"><span class="font-bold text-slate-700">Novo Lead</span> <span class="text-slate-500 font-mono">120</span></div>
+                                            <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                                                <div class="bg-slate-400 h-2.5 rounded-full bar-anim shadow-sm" style="--w: 100%; width: 0;"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between text-xs mb-1.5"><span class="font-bold text-slate-700">Qualificado</span> <span class="text-slate-500 font-mono">85</span></div>
+                                            <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                                                <div class="bg-brand-primary h-2.5 rounded-full bar-anim shadow-sm" style="--w: 70%; width: 0;"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between text-xs mb-1.5"><span class="font-bold text-slate-700">Em Negociação</span> <span class="text-slate-500 font-mono">42</span></div>
+                                            <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                                                <div class="bg-yellow-400 h-2.5 rounded-full bar-anim shadow-sm" style="--w: 35%; width: 0;"></div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="flex justify-between text-xs mb-1.5"><span class="font-bold text-slate-700">Fechado</span> <span class="text-slate-500 font-mono">28</span></div>
+                                            <div class="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden">
+                                                <div class="bg-green-600 h-2.5 rounded-full bar-anim shadow-sm" style="--w: 23%; width: 0;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-white p-6 rounded-2xl pb-2 border border-slate-100 shadow-sm relative overflow-hidden">
+                                    <h3 class="text-slate-800 font-bold mb-2 flex items-center gap-2">
+                                        <svg class="w-5 h-5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" /></svg>
+                                        Volume de Mensagens
+                                    </h3>
+                                    <p class="text-xs text-slate-400 mb-6">Comparativo de tráfego nos últimos 30 dias.</p>
+                                    
+                                    <div class="relative h-48 w-full">
+                                        <div class="absolute inset-0 flex flex-col justify-between text-[10px] text-slate-300 pointer-events-none">
+                                            <div class="border-b border-slate-50 w-full h-0"></div>
+                                            <div class="border-b border-slate-50 w-full h-0"></div>
+                                            <div class="border-b border-slate-50 w-full h-0"></div>
+                                            <div class="border-b border-slate-50 w-full h-0"></div>
+                                        </div>
+
+                                        <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+                                            <defs>
+                                                <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                                    <stop offset="0%" style="stop-color:#10B981;stop-opacity:0.3" />
+                                                    <stop offset="100%" style="stop-color:#10B981;stop-opacity:0" />
+                                                </linearGradient>
+                                            </defs>
+                                            <path d="M0,150 C50,120 100,160 150,80 C200,40 250,90 300,50 C350,30 400,80 500,60" 
+                                                  fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                                                  class="line-anim" style="stroke-dasharray: 600; stroke-dashoffset: 600;" />
+                                            <path d="M0,150 C50,120 100,160 150,80 C200,40 250,90 300,50 C350,30 400,80 500,60 V200 H0 Z" 
+                                                  fill="url(#grad1)" />
+                                        </svg>
+                                    </div>
+                                    <div class="flex justify-between mt-2 text-[10px] text-slate-400 font-medium">
+                                        <span>23 Nov</span><span>01 Dez</span><span>09 Dez</span><span>17 Dez</span><span>Hoje</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+
+
+                    <div id="view-chat" class="flex flex-1 w-full h-full animate-fade-in">
+                        <div class="hidden lg:flex flex-col w-80 bg-white border-r border-slate-100 flex-shrink-0">
+                            <div class="p-5 border-b border-slate-100">
+                                <h3 class="font-bold text-slate-800 text-lg mb-4">Conversas</h3>
+                                <div class="relative">
+                                    <input type="text" placeholder="Buscar..." class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2 px-4 text-sm focus:outline-none focus:border-brand-primary transition-colors">
+                                    <svg class="w-4 h-4 text-slate-400 absolute right-3 top-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                                </div>
+                            </div>
+                            
+                            <div class="flex-1 overflow-y-auto">
+                                <div class="p-4 border-l-4 border-brand-primary bg-brand-50/50 cursor-pointer hover:bg-brand-50 transition-colors">
+                                    <div class="flex justify-between mb-1">
+                                        <span class="font-bold text-slate-800 text-sm">Roberto Almeida</span>
+                                        <span class="text-xs text-brand-primary font-bold">14:32</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500 truncate">Agendamento confirmado para amanhã...</p>
+                                    <div class="mt-2 flex gap-1">
+                                        <span class="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold rounded">Lead Quente</span>
+                                    </div>
+                                </div>
+                                <div class="p-4 border-l-4 border-transparent hover:bg-slate-50 cursor-pointer transition-colors border-b border-slate-50">
+                                    <div class="flex justify-between mb-1">
+                                        <span class="font-bold text-slate-600 text-sm">Carla Dias</span>
+                                        <span class="text-xs text-slate-400">11:15</span>
+                                    </div>
+                                    <p class="text-xs text-slate-400 truncate">Vou verificar com meu sócio e retorno.</p>
+                                </div>
+                                <div class="p-4 border-l-4 border-transparent hover:bg-slate-50 cursor-pointer transition-colors border-b border-slate-50">
+                                    <div class="flex justify-between mb-1">
+                                        <span class="font-bold text-slate-600 text-sm">Empresa Solar</span>
+                                        <span class="text-xs text-slate-400">Ontem</span>
+                                    </div>
+                                    <p class="text-xs text-slate-400 truncate">Gostaria de saber mais sobre a API.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex-1 flex flex-col bg-[#F0F2F5] relative w-full"> 
+                            <div class="bg-white p-4 border-b border-slate-200 flex justify-between items-center z-10 shadow-sm">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-500 to-purple-500 flex items-center justify-center text-white font-bold shadow-md">RA</div>
+                                    <div>
+                                        <h4 class="font-bold text-slate-800 text-sm">Roberto Almeida</h4>
+                                        <span class="text-xs text-green-500 flex items-center gap-1 font-medium">
+                                            <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Online
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-3">
+                                    <div class="px-3 py-1.5 bg-brand-50 border border-brand-200 rounded-full flex items-center gap-2 shadow-sm">
+                                        <div class="relative w-8 h-4 bg-brand-primary rounded-full transition-colors">
+                                            <div class="absolute right-0.5 top-0.5 w-3 h-3 bg-white rounded-full shadow-sm"></div>
+                                        </div>
+                                        <span class="text-xs font-bold text-brand-dark uppercase tracking-wider">IA Ativa</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flex-1 p-6 overflow-y-auto space-y-4 relative" id="chat-container">
+                                <div class="absolute inset-0 opacity-[0.04] pointer-events-none bg-[url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')]"></div>
+                            </div>
+
+                            <div class="bg-[#F0F2F5] p-4 border-t border-slate-200">
+                                <div class="bg-white rounded-xl p-2 flex items-center gap-4 shadow-sm border border-slate-100">
+                                    <svg class="w-6 h-6 text-slate-400 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    <input type="text" placeholder="IA está digitando uma resposta..." disabled class="flex-1 bg-transparent focus:outline-none text-sm text-slate-500 italic">
+                                    <div class="w-9 h-9 rounded-lg bg-brand-primary flex items-center justify-center text-white shadow-md hover:bg-brand-dark transition-colors cursor-pointer">
+                                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
       </section>
 
@@ -631,11 +683,11 @@
       </section>
 
       <!-- Seção de Preços -->
-      <section id="precos" class="py-24 pt-14 bg-slate-50 relative overflow-hidden" aria-labelledby="precos-title">
+      <section id="precos" class="py-14 pt-24 bg-slate-50 relative overflow-hidden" aria-labelledby="precos-title">
         <div class="absolute top-0 inset-x-0 h-64 bg-gradient-to-b from-white to-slate-50"></div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-          <div class="text-center mb-16" data-aos="fade-up">
+          <div class="text-center mb-4" data-aos="fade-up">
             <h2 id="precos-title" class="text-3xl lg:text-5xl font-display font-bold mb-6 text-slate-900">
               Quanto custa automatizar <br />
               seu negócio?
@@ -898,6 +950,17 @@
       </div>
     </footer>
 
+    <style>
+    .bar-anim { width: 0; transition: width 1.5s ease-out; }
+    .line-anim { stroke-dashoffset: 600; transition: stroke-dashoffset 2s ease-out; }
+    .animate-fade-in { animation: fadeIn 0.4s ease-out; }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       // Init Animações
@@ -936,85 +999,260 @@
         yearlyPrices.forEach((el) => el.classList.toggle("hidden"));
       });
 
-      document.addEventListener("DOMContentLoaded", () => {
-        const chatContainer = document.getElementById("chat-container");
+    let chatInitialized = false;
 
-        const messages = [
-          { type: "user", text: "Olá, vi o anúncio sobre automação. Como funciona?", time: "14:28" },
-          {
-            type: "ai",
-            text: "Olá Roberto! O FasterChat automatiza seu atendimento usando IA. Eu posso agendar reuniões, tirar dúvidas e qualificar leads 24h por dia. Gostaria de ver uma demonstração?",
-            time: "14:28",
-          },
-          { type: "user", text: "Sim, tenho uma clínica e perco muito tempo agendando.", time: "14:29" },
-          {
-            type: "ai",
-            text: "Entendo perfeitamente. Eu posso me conectar direto ao seu Google Calendar. Você tem disponibilidade amanhã às 15:00 para uma call rápida?",
-            time: "14:29",
-          },
-          { type: "user", text: "Amanhã 15h está ótimo.", time: "14:30" },
-          { type: "ai", text: "Perfeito! Agendamento confirmado para amanhã às 15:00. Já enviei o convite para seu e-mail.", time: "14:30" },
-          { type: "system", text: "🎉 Lead movido para fase: <strong>Agendamento Confirmado</strong>" },
-        ];
+    function initChat() {
+        if(chatInitialized) return;
+        const chatContainer = document.getElementById('chat-container');
+        chatContainer.innerHTML = '<div class="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url(\'https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png\')]"></div>';
+        
+        let delay = 500;
+        messages.forEach((msg) => {
+            setTimeout(() => {
+                const isAi = msg.type === 'ai';
+                const isSystem = msg.type === 'system';
+                const div = document.createElement('div');
+                
+                if (isSystem) {
+                    div.className = 'flex justify-center my-4 opacity-0 translate-y-4 transition-all duration-500 ease-out fill-mode-forwards';
+                    div.innerHTML = `<span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full border border-yellow-200 shadow-sm">${msg.text}</span>`;
+                } else {
+                    div.className = `flex w-full ${isAi ? 'justify-end' : 'justify-start'} opacity-0 translate-y-4 transition-all duration-500 ease-out fill-mode-forwards`;
+                    div.innerHTML = `
+                        <div class="max-w-[80%] rounded-lg p-3 shadow-sm text-sm relative ${isAi ? 'bg-brand-primary text-white rounded-tr-none' : 'bg-white text-slate-800 rounded-tl-none'}">
+                            ${msg.text}
+                            <span class="text-[10px] block text-right mt-1 ${isAi ? 'text-brand-100' : 'text-slate-400'}">${msg.time}</span>
+                        </div>
+                    `;
+                }
+                setTimeout(() => { div.classList.remove('opacity-0', 'translate-y-4'); }, 100);
+                chatContainer.appendChild(div);
+                chatContainer.scrollTo({ top: chatContainer.scrollHeight, behavior: 'smooth' });
+            }, delay);
+            delay += 1500;
+        });
+        chatInitialized = true;
+    }
 
-        let delay = 0;
-        let animationStarted = false;
+    // === SWITCH TABS LOGIC ===
+    function switchTab(tab) {
+        const dashboardView = document.getElementById('view-dashboard');
+        const chatView = document.getElementById('view-chat');
+        const navDashboard = document.getElementById('nav-dashboard');
+        const navChat = document.getElementById('nav-chat');
 
-        // Função para criar bolha de mensagem
-        const createBubble = (msg) => {
-          const isAi = msg.type === "ai";
-          const isSystem = msg.type === "system";
+        if (tab === 'dashboard') {
+            // Show Dashboard
+            chatView.classList.add('hidden');
+            chatView.classList.remove('flex');
+            dashboardView.classList.remove('hidden');
+            dashboardView.classList.add('flex');
 
-          const div = document.createElement("div");
+            // Style Sidebar
+            navDashboard.classList.add('bg-brand-primary', 'text-white', 'shadow-[0_0_15px_rgba(16,185,129,0.3)]');
+            navDashboard.classList.remove('text-slate-400', 'hover:bg-slate-800');
+            navChat.classList.remove('bg-brand-primary', 'text-white', 'shadow-[0_0_15px_rgba(16,185,129,0.3)]');
+            navChat.classList.add('text-slate-400', 'hover:bg-slate-800');
 
-          if (isSystem) {
-            div.className = "flex justify-center my-4 opacity-0 translate-y-4 transition-all duration-500 ease-out fill-mode-forwards";
-            div.innerHTML = `<span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full border border-yellow-200 shadow-sm">${msg.text}</span>`;
-          } else {
-            div.className = `flex w-full ${
-              isAi ? "justify-end" : "justify-start"
-            } opacity-0 translate-y-4 transition-all duration-500 ease-out fill-mode-forwards`;
-            div.innerHTML = `
-                    <div class="max-w-[80%] rounded-lg p-3 shadow-sm text-sm relative ${
-                      isAi ? "bg-brand-primary text-white rounded-tr-none" : "bg-white text-slate-800 rounded-tl-none"
-                    }">
-                        ${msg.text}
-                        <span class="text-[10px] block text-right mt-1 ${isAi ? "text-brand-100" : "text-slate-400"}">${msg.time}</span>
-                    </div>
-                `;
-          }
+            // Trigger Animations
+            animateDashboard();
+        } else {
+            // Show Chat
+            dashboardView.classList.add('hidden');
+            dashboardView.classList.remove('flex');
+            chatView.classList.remove('hidden');
+            chatView.classList.add('flex');
 
-          // Simples hack para animar a entrada
-          setTimeout(() => {
-            div.classList.remove("opacity-0", "translate-y-4");
-          }, 100);
+            // Style Sidebar
+            navChat.classList.add('bg-brand-primary', 'text-white', 'shadow-[0_0_15px_rgba(16,185,129,0.3)]');
+            navChat.classList.remove('text-slate-400', 'hover:bg-slate-800');
+            navDashboard.classList.remove('bg-brand-primary', 'text-white', 'shadow-[0_0_15px_rgba(16,185,129,0.3)]');
+            navDashboard.classList.add('text-slate-400', 'hover:bg-slate-800');
+        }
+    }
 
-          return div;
-        };
+    // === ANIMATE DASHBOARD LOGIC ===
+    function animateDashboard() {
+        // Animate Counters
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            let count = 0;
+            const inc = target / 50; 
+            const updateCount = () => {
+                count += inc;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count);
+                    requestAnimationFrame(updateCount);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCount();
+        });
 
-        // Intersection Observer para iniciar animação quando visível
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting && !animationStarted) {
-                animationStarted = true;
+        // Animate Bars
+        const bars = document.querySelectorAll('.bar-anim');
+        bars.forEach(bar => {
+            bar.style.width = '0'; // Reset
+            setTimeout(() => {
+                bar.style.width = bar.style.getPropertyValue('--w');
+            }, 100);
+        });
 
-                messages.forEach((msg, index) => {
-                  setTimeout(() => {
-                    const bubble = createBubble(msg);
-                    chatContainer.appendChild(bubble);
-                    chatContainer.scrollTo({ top: chatContainer.scrollHeight, behavior: "smooth" });
-                  }, delay);
-                  delay += 1500; // Tempo entre mensagens
+        // Animate Line Chart
+        const lines = document.querySelectorAll('.line-anim');
+        lines.forEach(line => {
+            line.style.strokeDashoffset = '600'; // Reset
+            setTimeout(() => {
+                line.style.strokeDashoffset = '0';
+            }, 300);
+        });
+    }
+
+    // Init Chat on Load (Intersection Observer)
+
+
+    window.switchTab = function(tab) {
+                    const dashboardView = document.getElementById('view-dashboard');
+                    const chatView = document.getElementById('view-chat');
+                    const btnDashboard = document.getElementById('btn-dashboard');
+                    const btnChat = document.getElementById('btn-chat');
+
+                    if (tab === 'dashboard') {
+                        // Esconde Chat, Mostra Dashboard
+                        chatView.classList.add('hidden');
+                        chatView.classList.remove('flex');
+                        
+                        dashboardView.classList.remove('hidden');
+                        dashboardView.classList.add('flex');
+
+                        // Estiliza Botões
+                        btnDashboard.classList.add('bg-brand-primary', 'text-white', 'shadow-[0_0_15px_rgba(16,185,129,0.3)]');
+                        btnDashboard.classList.remove('text-slate-400', 'hover:bg-slate-800');
+                        
+                        btnChat.classList.remove('bg-brand-primary', 'text-white', 'shadow-[0_0_15px_rgba(16,185,129,0.3)]');
+                        btnChat.classList.add('text-slate-400', 'hover:bg-slate-800');
+
+                        // Dispara animações
+                        requestAnimationFrame(() => animateDashboard());
+                    } else {
+                        // Esconde Dashboard, Mostra Chat
+                        dashboardView.classList.add('hidden');
+                        dashboardView.classList.remove('flex');
+                        
+                        chatView.classList.remove('hidden');
+                        chatView.classList.add('flex');
+
+                        // Estiliza Botões
+                        btnChat.classList.add('bg-brand-primary', 'text-white', 'shadow-[0_0_15px_rgba(16,185,129,0.3)]');
+                        btnChat.classList.remove('text-slate-400', 'hover:bg-slate-800');
+                        
+                        btnDashboard.classList.remove('bg-brand-primary', 'text-white', 'shadow-[0_0_15px_rgba(16,185,129,0.3)]');
+                        btnDashboard.classList.add('text-slate-400', 'hover:bg-slate-800');
+                    }
+                };
+
+                // 2. Lógica de Animação do Dashboard
+                function animateDashboard() {
+                    // Contadores Numéricos
+                    const counters = document.querySelectorAll('.counter');
+                    counters.forEach(counter => {
+                        counter.innerText = '0'; // Reset
+                        const target = +counter.getAttribute('data-target');
+                        let count = 0;
+                        const inc = target / 30; 
+                        
+                        const updateCount = () => {
+                            count += inc;
+                            if (count < target) {
+                                counter.innerText = Math.ceil(count);
+                                requestAnimationFrame(updateCount);
+                            } else {
+                                counter.innerText = target;
+                            }
+                        };
+                        updateCount();
+                    });
+
+                    // Barras de Progresso
+                    const bars = document.querySelectorAll('.bar-anim');
+                    bars.forEach(bar => {
+                        bar.style.width = '0';
+                        setTimeout(() => {
+                            bar.style.width = bar.style.getPropertyValue('--w');
+                        }, 100);
+                    });
+
+                    // Gráfico de Linha (SVG)
+                    const lines = document.querySelectorAll('.line-anim');
+                    lines.forEach(line => {
+                        line.style.strokeDashoffset = '600';
+                        line.style.transition = 'none'; // Remove transição para resetar
+                        
+                        setTimeout(() => {
+                            line.style.transition = 'stroke-dashoffset 2s ease-out'; // Reaplica transição
+                            line.style.strokeDashoffset = '0';
+                        }, 100);
+                    });
+                }
+
+                // 3. Simulação de Chat (Executa ao carregar)
+                document.addEventListener('DOMContentLoaded', () => {
+                    const messages = [
+                        { type: 'user', text: 'Olá, vi o anúncio sobre automação. Como funciona?', time: '14:28' },
+                        { type: 'ai', text: 'Olá Roberto! O FasterChat automatiza seu atendimento usando IA. Posso agendar reuniões, tirar dúvidas e qualificar leads 24h por dia. Quer ver uma demo?', time: '14:28' },
+                        { type: 'user', text: 'Sim, perco muito tempo agendando.', time: '14:29' },
+                        { type: 'ai', text: 'Entendo. Posso me conectar direto ao seu Google Calendar. Você tem disponibilidade amanhã às 15:00?', time: '14:29' },
+                        { type: 'user', text: 'Amanhã 15h está ótimo.', time: '14:30' },
+                        { type: 'ai', text: 'Agendamento confirmado para amanhã às 15:00! Já enviei o convite para seu e-mail.', time: '14:30' },
+                        { type: 'system', text: '🎉 Lead movido para fase: <strong>Agendamento Confirmado</strong>' }
+                    ];
+
+                    const chatContainer = document.getElementById('chat-container');
+                    // Limpa mensagens anteriores (exceto background)
+                    const bg = chatContainer.firstElementChild; 
+                    chatContainer.innerHTML = '';
+                    if(bg) chatContainer.appendChild(bg);
+
+                    let delay = 500;
+                    
+                    // Intersection Observer para iniciar chat quando visível
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting) {
+                                messages.forEach((msg) => {
+                                    setTimeout(() => {
+                                        const isAi = msg.type === 'ai';
+                                        const isSystem = msg.type === 'system';
+                                        const div = document.createElement('div');
+                                        
+                                        if (isSystem) {
+                                            div.className = 'flex justify-center my-4 opacity-0 translate-y-4 transition-all duration-500 ease-out fill-mode-forwards';
+                                            div.innerHTML = `<span class="bg-yellow-100 text-yellow-800 text-xs px-3 py-1 rounded-full border border-yellow-200 shadow-sm">${msg.text}</span>`;
+                                        } else {
+                                            div.className = `flex w-full ${isAi ? 'justify-end' : 'justify-start'} opacity-0 translate-y-4 transition-all duration-500 ease-out fill-mode-forwards`;
+                                            div.innerHTML = `
+                                                <div class="max-w-[85%] rounded-2xl p-3 px-4 shadow-sm text-sm relative ${isAi ? 'bg-brand-primary text-white rounded-br-none' : 'bg-white text-slate-800 rounded-bl-none'}">
+                                                    ${msg.text}
+                                                    <span class="text-[10px] block text-right mt-1 opacity-80">${msg.time}</span>
+                                                </div>
+                                            `;
+                                        }
+                                        
+                                        setTimeout(() => { div.classList.remove('opacity-0', 'translate-y-4'); }, 50);
+                                        chatContainer.appendChild(div);
+                                        chatContainer.scrollTo({ top: chatContainer.scrollHeight, behavior: 'smooth' });
+                                    }, delay);
+                                    delay += 1800;
+                                });
+                                observer.disconnect(); // Roda apenas uma vez
+                            }
+                        });
+                    }, { threshold: 0.2 });
+                    
+                    observer.observe(document.getElementById('view-chat'));
                 });
-              }
-            });
-          },
-          { threshold: 0.3 }
-        );
-
-        observer.observe(chatContainer);
-      });
     </script>
   </body>
 </html>
