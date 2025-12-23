@@ -1,0 +1,25 @@
+# Robots.txt - FasterChat
+# https://fasterchat.com.br/
+
+# Permitir todos os bots de busca
+User-agent: *
+Allow: /
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Bing
+User-agent: Bingbot
+Allow: /
+
+# Bloquear diretórios sensiveis (se existirem)
+Disallow: /admin/
+Disallow: /api/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://fasterchat.com.br/sitemap.xml
+
+# Crawl-delay para evitar sobrecarga (opcional)
+Crawl-delay: 1
