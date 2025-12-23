@@ -133,12 +133,20 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://unpkg.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+    <link rel="dns-prefetch" href="https://user-images.githubusercontent.com" />
+
+    <!-- Preload logo crítico -->
+    <link rel="preload" href="./assets/logo-crm.webp" as="image" type="image/webp" />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
       rel="stylesheet"
     />
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" /></noscript>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -185,7 +193,7 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
           <div class="flex justify-between items-center h-20">
             <a href="index.html" class="flex items-center gap-2 group" data-aos="fade-down" data-aos-duration="800">
-              <img src="./assets/logo-crm.webp" alt="Logo Faster Chat" width="70" height="70`" />
+              <img src="./assets/logo-crm.webp" alt="Logo Faster Chat" width="70" height="70" fetchpriority="high" decoding="async" />
               <span class="text-xl font-bold text-zinc-700 flex"><span class="text-green-500">Faster</span> Chat</span>
             </a>
 
@@ -216,7 +224,7 @@
     <!-- Conteúdo principal da página -->
     <main role="main">
       <!-- Hero Section -->
-      <section class="relative pt-20 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-hero-pattern" aria-labelledby="hero-title">
+      <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-hero-pattern" aria-labelledby="hero-title">
         <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
           <div
             data-aos="fade-up"
@@ -516,7 +524,7 @@
       </section>
 
       <!-- Seção de Funcionalidades -->
-      <section id="funcionalidades" class="py-24 bg-white relative z-20" aria-labelledby="funcionalidades-title">
+      <section id="funcionalidades" class="py-12 pb-0 md:py-24 bg-white relative z-20" aria-labelledby="funcionalidades-title">
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-50 rounded-full blur-3xl opacity-50 -translate-y-1/2"></div>
           <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-slate-50 rounded-full blur-3xl opacity-50 translate-y-1/2"></div>
@@ -909,7 +917,7 @@
         <div class="grid grid-cols-1 md:grid-cols-4 md:gap-12 mb-12 text-slate-600">
           <div class="col-span-1 md:col-span-2 md:mr-10">
             <a href="#" class="flex items-center gap-2 mb-4">
-              <img src="./assets/logo-crm.webp" alt="Logo Faster Chat" width="50" height="50" />
+              <img src="./assets/logo-crm.webp" alt="Logo Faster Chat" width="50" height="50" loading="lazy" decoding="async" />
               <span class="text-lg font-bold text-zinc-700 flex"><span class="text-green-500">Faster</span> Chat</span>
             </a>
             <p class="text-sm leading-relaxed mb-6">
@@ -951,24 +959,46 @@
     </footer>
 
     <style>
-    .bar-anim { width: 0; transition: width 1.5s ease-out; }
-    .line-anim { stroke-dashoffset: 600; transition: stroke-dashoffset 2s ease-out; }
+    /* Performance CSS */
+    * { -webkit-tap-highlight-color: transparent; }
+
+    /* Otimização de animações - usa GPU */
+    .bar-anim { width: 0; transition: width 1.5s ease-out; will-change: width; }
+    .line-anim { stroke-dashoffset: 600; transition: stroke-dashoffset 2s ease-out; will-change: stroke-dashoffset; }
     .animate-fade-in { animation: fadeIn 0.4s ease-out; }
-    
+
+    /* Content visibility para seções fora do viewport */
+    section:not(:first-of-type) { content-visibility: auto; contain-intrinsic-size: auto 500px; }
+    footer { content-visibility: auto; contain-intrinsic-size: auto 300px; }
+
+    /* Otimização de scroll */
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+        *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+    }
+
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
+
+    /* Otimização de hover em mobile */
+    @media (hover: none) {
+        .hover\:shadow-xl:hover, .hover\:-translate-y-1:hover { transform: none; box-shadow: inherit; }
+    }
 </style>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script>
-      // Init Animações
-      AOS.init({
-        once: true,
-        offset: 50,
-        duration: 800,
-        easing: "ease-out-cubic",
+      // Init Animações - executar quando DOM estiver pronto
+      document.addEventListener('DOMContentLoaded', function() {
+        AOS.init({
+          once: true,
+          offset: 50,
+          duration: 600,
+          easing: "ease-out-cubic",
+        });
       });
 
       // Toggle Preços
@@ -1201,7 +1231,7 @@
                 document.addEventListener('DOMContentLoaded', () => {
                     const messages = [
                         { type: 'user', text: 'Olá, vi o anúncio sobre automação. Como funciona?', time: '14:28' },
-                        { type: 'ai', text: 'Olá Roberto! O FasterChat automatiza seu atendimento usando IA. Posso agendar reuniões, tirar dúvidas e qualificar leads 24h por dia. Quer ver uma demo?', time: '14:28' },
+                        { type: 'ai', text: 'Olá Roberto! O FasterChat automatiza seu atendimento usando IA. Posso agendar reuniões, tirar dúvidas, fazer vendas e qualificar leads 24h por dia.', time: '14:28' },
                         { type: 'user', text: 'Sim, perco muito tempo agendando.', time: '14:29' },
                         { type: 'ai', text: 'Entendo. Posso me conectar direto ao seu Google Calendar. Você tem disponibilidade amanhã às 15:00?', time: '14:29' },
                         { type: 'user', text: 'Amanhã 15h está ótimo.', time: '14:30' },
