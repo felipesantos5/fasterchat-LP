@@ -187,7 +187,7 @@
     <!-- Header com navegação principal -->
     <header role="banner">
       <nav
-        class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300"
+        class="relative md:fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300"
         aria-label="Navegação principal"
       >
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -216,6 +216,16 @@
                 Adiquirir Já
               </a>
             </div>
+
+            <!-- Botão Acessar App (Mobile) -->
+            <div class="md:hidden">
+              <a
+                href="https://admin.fasterchat.com.br/login"
+                class="px-4 py-2 bg-brand-primary text-white rounded-full text-sm font-semibold hover:bg-brand-dark transition-all shadow-md"
+              >
+                Acessar App
+              </a>
+            </div>
           </div>
         </div>
       </nav>
@@ -224,7 +234,7 @@
     <!-- Conteúdo principal da página -->
     <main role="main">
       <!-- Hero Section -->
-      <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-hero-pattern" aria-labelledby="hero-title">
+      <section class="relative pt-12 pb-20 md:pt-32 lg:pt-40 lg:pb-32 overflow-hidden bg-hero-pattern" aria-labelledby="hero-title">
         <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
           <div
             data-aos="fade-up"
