@@ -14,6 +14,9 @@
 
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
+  <link rel="icon" type="image/webp" href="./assets/logo-fundo-branco.webp" />
+  <link rel="apple-touch-icon" href="./assets/logo-fundo-branco.webp" />
+
   <script src="https://cdn.tailwindcss.com"></script>
 
   <script>
@@ -122,7 +125,7 @@
             </svg>
             <span><strong class="text-slate-900">Integração com Google Calendar:</strong> Coletamos tokens de acesso e
               dados de agenda para sincronizar
-              seus compromissos e permitir que a IA agende reuniões em seu nome.</span>
+              seus compromissos e permitir que <strong>nossa automação</strong> agende reuniões em seu nome.</span>
           </li>
           <li class="flex items-start gap-3">
             <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor"
@@ -166,7 +169,11 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
             <strong class="block text-slate-900 mb-1">OpenAI / Anthropic</strong>
-            <span class="text-sm">Conteúdo das mensagens para processamento da Inteligência Artificial.</span>
+            <span class="text-sm block mb-2">Conteúdo das mensagens para processamento de IA.</span>
+            <span
+              class="text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-1 rounded border border-amber-100 inline-block">
+              ⚠️ Dados do Google Calendar NÃO são compartilhados aqui.
+            </span>
           </div>
           <div class="bg-slate-50 p-4 rounded-lg border border-slate-100">
             <strong class="block text-slate-900 mb-1">Google</strong>
@@ -203,6 +210,27 @@
         <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
           <span
             class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">6</span>
+          Conformidade com a Política do Google
+        </h2>
+        <div class="bg-blue-50 border border-blue-100 rounded-xl p-6 mb-8 text-sm text-blue-800">
+          <p class="mb-4 font-semibold">
+            O uso e a transferência de informações recebidas das APIs do Google para qualquer outro aplicativo aderem à
+            <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank"
+              rel="noopener noreferrer"
+              class="underline decoration-blue-300 underline-offset-2 hover:text-blue-900">Política de Dados do Usuário
+              dos Serviços de API do Google</a>, incluindo os requisitos de Uso Limitado.
+          </p>
+          <ul class="list-disc ml-4 space-y-2 text-blue-700/90">
+            <li>Não permitimos que humanos leiam esses dados, exceto em casos de segurança ou conformidade legal.</li>
+            <li>Não usamos esses dados para fins de publicidade.</li>
+            <li><strong>Não usamos esses dados para treinar modelos de Inteligência Artificial.</strong> O processamento
+              de agendamentos é feito exclusivamente por nossos algoritmos internos.</li>
+          </ul>
+        </div>
+
+        <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
+          <span
+            class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">7</span>
           Contato
         </h2>
         <p class="mb-4">Se você tiver dúvidas sobre esta política, entre em contato através do e-mail de suporte
