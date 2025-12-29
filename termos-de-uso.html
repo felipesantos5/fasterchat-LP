@@ -1,236 +1,259 @@
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Termos de Serviço - FasterChat</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Termos de Serviço - FasterChat</title>
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
 
-    <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ["Inter", "sans-serif"],
-              display: ["Plus Jakarta Sans", "sans-serif"],
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Inter", "sans-serif"],
+            display: ["Plus Jakarta Sans", "sans-serif"],
+          },
+          colors: {
+            brand: {
+              50: "#ECFDF5",
+              100: "#D1FAE5",
+              200: "#A7F3D0",
+              primary: "#10B981", // Verde principal
+              dark: "#059669", // Verde escuro
+              900: "#064E3B",
             },
-            colors: {
-              brand: {
-                50: "#ECFDF5",
-                100: "#D1FAE5",
-                200: "#A7F3D0",
-                primary: "#10B981", // Verde principal
-                dark: "#059669", // Verde escuro
-                900: "#064E3B",
-              },
-              slate: {
-                850: "#1e293b",
-              },
+            slate: {
+              850: "#1e293b",
             },
           },
         },
-      };
-    </script>
-  </head>
-  <body class="antialiased bg-slate-50 text-slate-600 font-sans">
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
-      <div class="max-w-4xl mx-auto px-6 h-20 flex justify-between items-center">
-        <a href="index.html" class="flex items-center gap-2 group">
-          <div
-            class="w-8 h-8 bg-gradient-to-br from-brand-primary to-brand-dark rounded-lg flex items-center justify-center shadow-lg shadow-brand-primary/20 group-hover:scale-105 transition-transform"
-          >
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <span class="text-xl font-display font-bold tracking-tight text-slate-850">FasterChat</span>
-        </a>
+      },
+    };
+  </script>
+</head>
 
-        <a href="index.html" class="text-sm font-semibold text-slate-500 hover:text-brand-primary transition-colors flex items-center gap-2">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+<body class="antialiased bg-slate-50 text-slate-600 font-sans">
+  <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-6 h-20 flex justify-between items-center">
+      <a href="index.html" class="flex items-center gap-2 group">
+        <img src="./assets/logo-png.webp" alt="Logo Faster Chat" width="42" height="42" fetchpriority="high"
+          decoding="async" />
+        <span class="text-xl font-display font-bold tracking-tight text-slate-850">FasterChat</span>
+      </a>
+
+      <a href="index.html"
+        class="text-sm font-semibold text-slate-500 hover:text-brand-primary transition-colors flex items-center gap-2">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        Voltar para o Início
+      </a>
+    </div>
+  </nav>
+
+  <main class="pt-32 pb-24 px-6 relative overflow-hidden">
+    <div
+      class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-primary/5 rounded-full blur-[100px] -z-10">
+    </div>
+
+    <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-sm border border-slate-100 p-8 md:p-12" data-aos="fade-up"
+      data-aos-duration="1000">
+      <div class="border-b border-slate-100 pb-8 mb-10">
+        <h1 class="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">Termos de Serviço</h1>
+        <p class="text-slate-500">Regras e responsabilidades ao utilizar nossa plataforma.</p>
+      </div>
+
+      <div class="prose prose-slate prose-lg max-w-none text-slate-700">
+        <p class="mb-6 leading-relaxed">
+          Bem-vindo ao <strong>FasterChat CRM</strong>. Ao acessar ou utilizar nossa plataforma, você concorda em
+          cumprir e estar vinculado aos
+          seguintes Termos de Serviço. Leia-os cuidadosamente antes de usar o sistema.
+        </p>
+
+        <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
+          <span
+            class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">1</span>
+          Descrição do Serviço
+        </h2>
+        <p class="mb-4">O FasterChat CRM é uma plataforma de gestão de relacionamento com o cliente que oferece:</p>
+        <ul class="list-none space-y-3 pl-2 mb-8">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Integração e gestão de instâncias de WhatsApp através de APIs de terceiros.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Automação de atendimento utilizando Inteligência Artificial (OpenAI/Anthropic).</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Sincronização de agendamentos com o Google Calendar.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Gestão de funil de vendas (Pipeline) e campanhas de mensagens.</span>
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
+          <span
+            class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">2</span>
+          Responsabilidades do Usuário
+        </h2>
+        <p class="mb-4">Ao utilizar nossa plataforma, você se compromete a:</p>
+        <ul class="list-none space-y-3 pl-2 mb-8">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span><strong class="text-slate-900">Conformidade com o WhatsApp:</strong> Cumprir integralmente os Termos
+              de Serviço do WhatsApp/Meta. O
+              FasterChat CRM não se responsabiliza por banimentos ou restrições de números decorrentes de uso indevido
+              ou envio de spam.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span><strong class="text-slate-900">Segurança da Conta:</strong> Manter a confidencialidade de suas
+              credenciais de acesso.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span><strong class="text-slate-900">Conteúdo das Mensagens:</strong> Assumir total responsabilidade pelo
+              conteúdo enviado através da
+              plataforma, garantindo que não viole leis de direitos autorais ou privacidade.</span>
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
+          <span
+            class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">3</span>
+          Integrações de Terceiros
+        </h2>
+        <p class="mb-4">O sistema utiliza serviços de terceiros para funcionar. Você reconhece que:</p>
+        <ul class="list-none space-y-3 pl-2 mb-8">
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span><strong class="text-slate-900">Google Calendar:</strong> O uso da integração depende da manutenção da
+              sua conta Google e dos termos
+              de uso da Google API.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span><strong class="text-slate-900">Provedores de IA:</strong> As respostas geradas pela IA podem conter
+              imprecisões. O usuário é
+              responsável por revisar as configurações de "Personalidade" e "Base de Conhecimento" para garantir a
+              qualidade do atendimento.</span>
+          </li>
+        </ul>
+
+        <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
+          <span
+            class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">4</span>
+          Limitação de Responsabilidade
+        </h2>
+        <p class="mb-8">
+          Em nenhuma circunstância o FasterChat CRM será responsável por quaisquer danos indiretos, incidentais ou
+          punitivos, incluindo, sem
+          limitação, perda de lucros, dados ou interrupção de negócios decorrentes do uso ou da incapacidade de usar o
+          serviço.
+        </p>
+
+        <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
+          <span
+            class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">5</span>
+          Modificações no Serviço e Termos
+        </h2>
+        <p class="mb-8">
+          Reservamo-nos o direito de modificar ou descontinuar qualquer parte do serviço a qualquer momento. Alterações
+          nestes termos entrarão em
+          vigor imediatamente após sua publicação na plataforma. O uso continuado do sistema após tais alterações
+          constitui sua aceitação dos novos
+          termos.
+        </p>
+
+        <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
+          <span
+            class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">6</span>
+          Rescisão
+        </h2>
+        <p class="mb-8">
+          Podemos encerrar ou suspender seu acesso ao serviço imediatamente, sem aviso prévio, caso haja violação destes
+          termos ou de políticas de
+          terceiros integrados (como as políticas de spam do WhatsApp).
+        </p>
+
+        <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
+          <span
+            class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">7</span>
+          Lei Aplicável
+        </h2>
+        <p class="mb-4">Estes termos são regidos pelas leis da República Federativa do Brasil.</p>
+
+        <div class="mt-16 pt-8 border-t border-slate-100 text-sm text-slate-400 italic">Última atualização: 22 de
+          Dezembro de 2024.</div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-slate-900 py-12">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+      <div class="flex justify-center items-center gap-2 mb-6">
+        <div class="w-6 h-6 bg-brand-primary rounded flex items-center justify-center">
+          <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
           </svg>
-          Voltar para o Início
-        </a>
-      </div>
-    </nav>
-
-    <main class="pt-32 pb-24 px-6 relative overflow-hidden">
-      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-primary/5 rounded-full blur-[100px] -z-10"></div>
-
-      <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-sm border border-slate-100 p-8 md:p-12" data-aos="fade-up" data-aos-duration="1000">
-        <div class="border-b border-slate-100 pb-8 mb-10">
-          <h1 class="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">Termos de Serviço</h1>
-          <p class="text-slate-500">Regras e responsabilidades ao utilizar nossa plataforma.</p>
         </div>
-
-        <div class="prose prose-slate prose-lg max-w-none text-slate-700">
-          <p class="mb-6 leading-relaxed">
-            Bem-vindo ao <strong>FasterChat CRM</strong>. Ao acessar ou utilizar nossa plataforma, você concorda em cumprir e estar vinculado aos
-            seguintes Termos de Serviço. Leia-os cuidadosamente antes de usar o sistema.
-          </p>
-
-          <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
-            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">1</span>
-            Descrição do Serviço
-          </h2>
-          <p class="mb-4">O FasterChat CRM é uma plataforma de gestão de relacionamento com o cliente que oferece:</p>
-          <ul class="list-none space-y-3 pl-2 mb-8">
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Integração e gestão de instâncias de WhatsApp através de APIs de terceiros.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Automação de atendimento utilizando Inteligência Artificial (OpenAI/Anthropic).</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Sincronização de agendamentos com o Google Calendar.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span>Gestão de funil de vendas (Pipeline) e campanhas de mensagens.</span>
-            </li>
-          </ul>
-
-          <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
-            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">2</span>
-            Responsabilidades do Usuário
-          </h2>
-          <p class="mb-4">Ao utilizar nossa plataforma, você se compromete a:</p>
-          <ul class="list-none space-y-3 pl-2 mb-8">
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span
-                ><strong class="text-slate-900">Conformidade com o WhatsApp:</strong> Cumprir integralmente os Termos de Serviço do WhatsApp/Meta. O
-                FasterChat CRM não se responsabiliza por banimentos ou restrições de números decorrentes de uso indevido ou envio de spam.</span
-              >
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span><strong class="text-slate-900">Segurança da Conta:</strong> Manter a confidencialidade de suas credenciais de acesso.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span
-                ><strong class="text-slate-900">Conteúdo das Mensagens:</strong> Assumir total responsabilidade pelo conteúdo enviado através da
-                plataforma, garantindo que não viole leis de direitos autorais ou privacidade.</span
-              >
-            </li>
-          </ul>
-
-          <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
-            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">3</span>
-            Integrações de Terceiros
-          </h2>
-          <p class="mb-4">O sistema utiliza serviços de terceiros para funcionar. Você reconhece que:</p>
-          <ul class="list-none space-y-3 pl-2 mb-8">
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span
-                ><strong class="text-slate-900">Google Calendar:</strong> O uso da integração depende da manutenção da sua conta Google e dos termos
-                de uso da Google API.</span
-              >
-            </li>
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-brand-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-              </svg>
-              <span
-                ><strong class="text-slate-900">Provedores de IA:</strong> As respostas geradas pela IA podem conter imprecisões. O usuário é
-                responsável por revisar as configurações de "Personalidade" e "Base de Conhecimento" para garantir a qualidade do atendimento.</span
-              >
-            </li>
-          </ul>
-
-          <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
-            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">4</span>
-            Limitação de Responsabilidade
-          </h2>
-          <p class="mb-8">
-            Em nenhuma circunstância o FasterChat CRM será responsável por quaisquer danos indiretos, incidentais ou punitivos, incluindo, sem
-            limitação, perda de lucros, dados ou interrupção de negócios decorrentes do uso ou da incapacidade de usar o serviço.
-          </p>
-
-          <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
-            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">5</span>
-            Modificações no Serviço e Termos
-          </h2>
-          <p class="mb-8">
-            Reservamo-nos o direito de modificar ou descontinuar qualquer parte do serviço a qualquer momento. Alterações nestes termos entrarão em
-            vigor imediatamente após sua publicação na plataforma. O uso continuado do sistema após tais alterações constitui sua aceitação dos novos
-            termos.
-          </p>
-
-          <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
-            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">6</span>
-            Rescisão
-          </h2>
-          <p class="mb-8">
-            Podemos encerrar ou suspender seu acesso ao serviço imediatamente, sem aviso prévio, caso haja violação destes termos ou de políticas de
-            terceiros integrados (como as políticas de spam do WhatsApp).
-          </p>
-
-          <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
-            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center">7</span>
-            Lei Aplicável
-          </h2>
-          <p class="mb-4">Estes termos são regidos pelas leis da República Federativa do Brasil.</p>
-
-          <div class="mt-16 pt-8 border-t border-slate-100 text-sm text-slate-400 italic">Última atualização: 22 de Dezembro de 2024.</div>
-        </div>
+        <span class="text-md font-display font-bold tracking-tight text-white">FasterChat</span>
       </div>
-    </main>
+      <div class="text-slate-500 text-sm">&copy; 2025 FasterChat. Todos os direitos reservados.</div>
+    </div>
+  </footer>
 
-    <footer class="bg-slate-900 py-12">
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <div class="flex justify-center items-center gap-2 mb-6">
-          <div class="w-6 h-6 bg-brand-primary rounded flex items-center justify-center">
-            <svg class="w-3 h-3 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <span class="text-md font-display font-bold tracking-tight text-white">FasterChat</span>
-        </div>
-        <div class="text-slate-500 text-sm">&copy; 2025 FasterChat. Todos os direitos reservados.</div>
-      </div>
-    </footer>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      once: true,
+      offset: 50,
+      duration: 800,
+      easing: "ease-out-cubic",
+    });
+  </script>
+</body>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        once: true,
-        offset: 50,
-        duration: 800,
-        easing: "ease-out-cubic",
-      });
-    </script>
-  </body>
 </html>
