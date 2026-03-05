@@ -804,7 +804,7 @@
                   d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 class="text-xl font-bold mb-3 text-slate-900">Múltiplos Números, Um Local</h3>
+            <h3 class="text-xl font-bold mb-3 text-slate-900">Atendente humanizado automático</h3>
             <p class="text-slate-500 leading-relaxed text-sm">
               Conecte todos os WhatsApps da sua empresa (Vendas, Suporte, Financeiro) em um único painel. Monitore quem
               está online e garanta que
@@ -1275,20 +1275,6 @@
       scroll-behavior: smooth;
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -1480,11 +1466,11 @@
 
       const messages = [
         { type: 'user', text: 'Olá, vi o anúncio sobre automação. Como funciona?', time: '14:28' },
-        { type: 'ai', text: 'Olá Roberto! O FasterChat automatiza seu atendimento usando IA. Posso agendar reuniões, tirar dúvidas e qualificar leads 24h por dia.', time: '14:28' },
-        { type: 'user', text: 'Sim, perco muito tempo agendando.', time: '14:29' },
-        { type: 'ai', text: 'Entendo. Posso me conectar direto ao seu Google Calendar. Você tem disponibilidade amanhã às 15:00?', time: '14:29' },
+        { type: 'ai', text: 'Olá Roberto! O FasterChat automatiza seu atendimento usando IA. Posso agendar reuniões, tirar dúvidas e qualificar clientes 24h por dia.', time: '14:28' },
+        { type: 'user', text: 'Era disso que eu precisava, eu perco muito tempo atendendo e marcando reuniões.', time: '14:29' },
+        { type: 'ai', text: 'Entendo. Que bom que atendemos suas necessidades. Vamos marcar uma reunião para tirar suas dúvidas, você tem disponibilidade amanhã às 15:00?', time: '14:29' },
         { type: 'user', text: 'Amanhã 15h está ótimo.', time: '14:30' },
-        { type: 'ai', text: 'Agendamento confirmado para amanhã às 15:00! Já enviei o convite para seu e-mail.', time: '14:30' },
+        { type: 'ai', text: 'Agendamento confirmado para amanhã às 15:00!', time: '14:30' },
         { type: 'system', text: '🎉 Lead movido para fase: <strong>Agendamento Confirmado</strong>' }
       ];
 
