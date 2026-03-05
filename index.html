@@ -60,7 +60,7 @@
           {
             "@type": "Offer",
             "name": "Plano Inicial",
-            "price": "97.00",
+            "price": "197.00",
             "priceCurrency": "BRL",
             "priceValidUntil": "2025-12-31",
             "availability": "https://schema.org/InStock"
@@ -68,7 +68,15 @@
           {
             "@type": "Offer",
             "name": "Plano Negócios 100% Automáticos",
-            "price": "197.00",
+            "price": "297.00",
+            "priceCurrency": "BRL",
+            "priceValidUntil": "2025-12-31",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "Plano Escala Total",
+            "price": "397.00",
             "priceCurrency": "BRL",
             "priceValidUntil": "2025-12-31",
             "availability": "https://schema.org/InStock"
@@ -117,7 +125,7 @@
             "name": "Quanto custa o FasterChat?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "O FasterChat oferece planos a partir de R$97/mês no plano Inicial e R$197/mês no plano Negócios 100% Automáticos, com desconto de 20% no pagamento anual."
+              "text": "O FasterChat oferece planos a partir de R$197/mês no plano Inicial, R$297/mês no plano Negócios 100% Automáticos e R$397/mês no plano Escala Total, com desconto de 20% no pagamento anual."
             }
           }
         ]
@@ -203,7 +211,7 @@
           <div class="hidden md:block" data-aos="fade-down" data-aos-delay="200" data-aos-duration="800">
             <a href="#precos"
               class="px-6 py-2.5 bg-brand-primary text-white rounded-full font-semibold hover:bg-brand-dark transition-all shadow-lg shadow-brand-primary/20 hover:shadow-xl hover:shadow-brand-primary/30 hover:-translate-y-0.5">
-              Adiquirir Já
+              Adquirir Já
             </a>
           </div>
 
@@ -925,15 +933,15 @@
           </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-3xl m-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-center max-w-6xl m-auto">
           <div
             class="bg-white border border-slate-200 rounded-3xl p-8 hover:border-brand-200 hover:shadow-lg transition-all duration-300 group"
             data-aos="fade-up" data-aos-delay="100">
             <h3 class="text-xl font-bold text-slate-800">Inicial</h3>
             <p class="text-slate-500 text-sm mb-6 font-medium">Primeiros passos de automatizar seu negócio.</p>
             <div class="mb-6">
-              <span class="text-4xl font-bold text-slate-900 tracking-tight price-monthly">R$ 97</span>
-              <span class="text-4xl font-bold text-slate-900 tracking-tight price-yearly hidden">R$ 77</span>
+              <span class="text-4xl font-bold text-slate-900 tracking-tight price-monthly">R$ 197</span>
+              <span class="text-4xl font-bold text-slate-900 tracking-tight price-yearly hidden">R$ 157</span>
               <span class="text-slate-500 font-medium">/mês</span>
             </div>
             <ul class="space-y-4 mb-8 text-slate-600 text-sm font-medium">
@@ -973,6 +981,12 @@
                 </svg>
                 Integração com Google Agenda
               </li>
+              <li class="flex gap-3 items-center text-slate-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                Geração de Imagem Nativa
+              </li>
             </ul>
             <a href="#"
               class="block w-full py-3 rounded-xl border-2 border-slate-200 text-center font-bold text-slate-700 hover:border-brand-primary hover:text-brand-primary transition-all">Começar
@@ -980,7 +994,7 @@
           </div>
 
           <div
-            class="bg-white border-2 border-brand-primary rounded-3xl p-8 relative shadow-xl shadow-brand-primary/10 scale-105 z-10"
+            class="bg-white border-2 border-brand-primary rounded-3xl p-8 relative shadow-xl shadow-brand-primary/10 lg:scale-105 z-10"
             data-aos="fade-up" data-aos-delay="200">
             <div
               class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-brand-primary text-white px-6 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider shadow-sm">
@@ -989,8 +1003,8 @@
             <h3 class="text-xl font-bold text-slate-900">Negócios 100% Automáticos</h3>
             <p class="text-slate-500 text-sm mb-6 font-medium">A solução completa para o seu negócio rodar sozinho.</p>
             <div class="mb-6">
-              <span class="text-5xl font-bold text-slate-900 tracking-tight price-monthly">R$ 197</span>
-              <span class="text-5xl font-bold text-slate-900 tracking-tight price-yearly hidden">R$ 157</span>
+              <span class="text-5xl font-bold text-slate-900 tracking-tight price-monthly">R$ 297</span>
+              <span class="text-5xl font-bold text-slate-900 tracking-tight price-yearly hidden">R$ 237</span>
               <span class="text-slate-500 font-medium">/mês</span>
             </div>
             <ul class="space-y-4 mb-8 text-slate-600 text-sm font-medium">
@@ -998,7 +1012,67 @@
                 <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                 </svg>
-                WhatsApp Conectado Ilimitado
+                5 WhatsApp Conectados
+              </li>
+              <li class="flex gap-3 items-center">
+                <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Gestão de Clientes (CRM)
+              </li>
+              <li class="flex gap-3 items-center">
+                <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Atendente Virtual com IA
+              </li>
+
+              <li class="flex gap-3 items-center">
+                <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Rastreamento Inteligente de Links
+              </li>
+              <li class="flex gap-3 items-center">
+                <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Integração com Google Agenda
+              </li>
+              <li class="flex gap-3 items-center text-slate-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                Disparador de campanhas
+              </li>
+              <li class="flex gap-3 items-center text-slate-400">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+                Geração de Imagem Nativa
+              </li>
+            </ul>
+            <a href="#"
+              class="block w-full py-3 rounded-xl bg-brand-primary text-center font-bold text-white hover:bg-brand-dark hover:shadow-lg transition-all">Testar
+              Grátis</a>
+          </div>
+
+          <div
+            class="bg-white border border-slate-200 rounded-3xl p-8 hover:border-brand-200 hover:shadow-lg transition-all duration-300 group"
+            data-aos="fade-up" data-aos-delay="300">
+            <h3 class="text-xl font-bold text-slate-800">Escala Total</h3>
+            <p class="text-slate-500 text-sm mb-6 font-medium">A potência máxima para grandes operações.</p>
+            <div class="mb-6">
+              <span class="text-4xl font-bold text-slate-900 tracking-tight price-monthly">R$ 397</span>
+              <span class="text-4xl font-bold text-slate-900 tracking-tight price-yearly hidden">R$ 317</span>
+              <span class="text-slate-500 font-medium">/mês</span>
+            </div>
+            <ul class="space-y-4 mb-8 text-slate-600 text-sm font-medium">
+              <li class="flex gap-3 items-center">
+                <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                WhatsApp Ilimitado
               </li>
               <li class="flex gap-3 items-center">
                 <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1030,10 +1104,16 @@
                 </svg>
                 Integração com Google Agenda
               </li>
+              <li class="flex gap-3 items-center">
+                <svg class="w-5 h-5 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Geração de Imagem Nativa
+              </li>
             </ul>
             <a href="#"
-              class="block w-full py-3 rounded-xl bg-brand-primary text-center font-bold text-white hover:bg-brand-dark hover:shadow-lg transition-all">Testar
-              Grátis</a>
+              class="block w-full py-3 rounded-xl border-2 border-slate-200 text-center font-bold text-slate-700 hover:border-brand-primary hover:text-brand-primary transition-all">Começar
+              Agora</a>
           </div>
 
           <!-- <div
