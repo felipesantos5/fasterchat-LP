@@ -47,23 +47,43 @@
 </head>
 
 <body class="antialiased bg-slate-50 text-slate-600 font-sans">
-  <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
-    <div class="max-w-4xl mx-auto px-6 h-20 flex justify-between items-center">
-      <a href="index.html" class="flex items-center gap-2 group">
-        <img src="./assets/logo-png.webp" alt="Logo Faster Chat" width="42" height="42" fetchpriority="high"
-          decoding="async" />
-        <span class="text-xl font-display font-bold tracking-tight text-slate-850">FasterChat</span>
-      </a>
+  <header role="banner">
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300"
+      aria-label="Navegação principal">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <a href="index.html" class="flex items-center gap-2 group" data-aos="fade-down" data-aos-duration="800">
+            <img src="./assets/logo-png.webp" alt="Logo Faster Chat" width="52" height="52" fetchpriority="high"
+              decoding="async" />
+            <span class="text-xl font-bold text-zinc-700 flex"><span class="text-green-500">Faster</span> Chat</span>
+          </a>
 
-      <a href="index.html"
-        class="text-sm font-semibold text-slate-500 hover:text-brand-primary transition-colors flex items-center gap-2">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-        </svg>
-        Voltar para o Início
-      </a>
-    </div>
-  </nav>
+          <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600" data-aos="fade-down"
+            data-aos-delay="100" data-aos-duration="800">
+            <a href="index.html#funcionalidades" class="hover:text-brand-primary transition-colors">Funcionalidades</a>
+            <a href="index.html#precos" class="hover:text-brand-primary transition-colors">Planos</a>
+            <a href="https://admin.fasterchat.com.br/login"
+              class="hover:text-brand-primary transition-colors">Entrar</a>
+          </div>
+
+          <div class="hidden md:block" data-aos="fade-down" data-aos-delay="200" data-aos-duration="800">
+            <a href="index.html#precos"
+              class="px-6 py-2.5 bg-brand-primary text-white rounded-full font-semibold hover:bg-brand-dark transition-all shadow-lg shadow-brand-primary/20 hover:shadow-xl hover:shadow-brand-primary/30 hover:-translate-y-0.5">
+              Adquirir Já
+            </a>
+          </div>
+
+          <!-- Botão Acessar App (Mobile) -->
+          <div class="md:hidden">
+            <a href="https://admin.fasterchat.com.br/login"
+              class="px-4 py-2 bg-brand-primary text-white rounded-full text-sm font-semibold hover:bg-brand-dark transition-all shadow-md">
+              Acessar App
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <main class="pt-32 pb-24 px-6 relative overflow-hidden">
     <div
