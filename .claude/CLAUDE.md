@@ -30,7 +30,7 @@
 - Tom, nome e personalidade configuráveis pelo dono do negócio
 - Transfere para humano em tempo real quando necessário (sem o cliente perceber)
 
-### 📊 CRM / Funil de Vendas Visual
+### 📊 CRM / Funil de vendas
 - Pipeline kanban drag-and-drop
 - Estágios configuráveis (Lead, Qualificado, Negociação, Fechado, etc.)
 - Tags automáticas por comportamento
