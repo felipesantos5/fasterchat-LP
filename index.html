@@ -1561,7 +1561,7 @@
                     FasterChat numa segunda e na sexta seguinte a IA tinha confirmado pedido, mandado Pix e avisado
                     tempo de
                     entrega sozinha.
-                    <strong class="text-slate-900"> +R$ 4.200 no caixa no primeiro mês. Paguei o plano 14x.</strong>"
+                    <strong class="text-slate-900"> +R$ 4.200 no caixa no primeiro mês.</strong>"
                   </blockquote>
                   <footer class="flex items-center gap-3">
                     <img src="./assets/prova-social/1.jpg" alt="Marcos Almeida" width="48" height="48" loading="lazy"
@@ -1602,7 +1602,7 @@
                     "Eu pagava R$ 1.800/mês de hora extra só pra recepcionista responder WhatsApp o dia inteiro. Agora a
                     IA
                     agenda, confirma e manda lembrete sozinha.
-                    <strong class="text-slate-900"> Cortei a hora extra e as faltas caíram 70%. É como ter uma
+                    <strong class="text-slate-900"> Cortei a hora extra e as faltas caíram 50%. É como ter uma
                       funcionária que
                       nunca falta.</strong>"
                   </blockquote>
@@ -1945,7 +1945,7 @@
               <div class="flex flex-col gap-2" style="min-height:224px;">
 
                 <!-- Balão cliente 1 — sempre visível -->
-                <div class="flex items-end gap-2 justify-end">
+                <div class="flex items-end gap-2 justify-end items-start">
                   <div
                     class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[180px] border border-emerald-100">
                     <p class="text-emerald-700 text-xs">Olá! Vi que vocês têm o produto. Qual o valor?</p>
@@ -1995,7 +1995,7 @@
                 </div>
 
                 <!-- Typing cliente -->
-                <div id="chat-typing-client" class="flex items-end gap-2 justify-end"
+                <div id="chat-typing-client" class="flex items-end gap-2 justify-end items-start"
                   style="display:none;opacity:0;transform:translateY(5px);transition:opacity 0.35s ease,transform 0.35s ease">
                   <div class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2.5 border border-emerald-100">
                     <div class="flex items-center gap-1">
@@ -2013,7 +2013,7 @@
                 </div>
 
                 <!-- Balão cliente 2 — aparece após segundo typing -->
-                <div id="chat-msg-client" class="flex items-end gap-2 justify-end"
+                <div id="chat-msg-client" class="flex items-end gap-2 justify-end items-start"
                   style="display:none;opacity:0;transform:translateY(5px);transition:opacity 0.4s ease,transform 0.4s ease">
                   <div
                     class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[180px] border border-emerald-100">
@@ -2815,7 +2815,7 @@
 
           <!-- PLANO 3 — Operação Completa R$397 -->
           <div
-            class="bg-white border border-slate-200 rounded-3xl p-6 hover:border-brand-200 hover:shadow-lg transition-all duration-300 group"
+            class="bg-white border border-slate-200 rounded-3xl p-6 hover:border-brand-200 hover:shadow-lg transition-all duration-300 group md:col-span-2 md:max-w-[calc(50%-10px)] md:mx-auto md:w-full lg:col-span-1 lg:max-w-none lg:mx-0"
             data-aos="fade-up" data-aos-delay="300">
             <h3 class="text-lg font-bold text-slate-800">Comando Total</h3>
             <p class="text-slate-500 text-sm leading-relaxed">Para quem lidera uma equipe e não quer teto. IA avançada,
@@ -3975,9 +3975,13 @@
       function showEl(id, delay) {
         setTimeout(function () {
           var el = document.getElementById(id);
+          el.style.transition = 'none';
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(10px)';
           el.style.display = 'flex';
           requestAnimationFrame(function () {
             requestAnimationFrame(function () {
+              el.style.transition = 'opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1)';
               el.style.opacity = '1';
               el.style.transform = 'translateY(0)';
             });
@@ -3987,10 +3991,10 @@
 
       function hideEl(id) {
         var el = document.getElementById(id);
-        el.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
+        el.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
         el.style.opacity = '0';
-        el.style.transform = 'translateY(5px)';
-        setTimeout(function () { el.style.display = 'none'; }, 260);
+        el.style.transform = 'translateY(-6px)';
+        setTimeout(function () { el.style.display = 'none'; }, 320);
       }
 
       function resetAll() {
