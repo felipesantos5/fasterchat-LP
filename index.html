@@ -29,7 +29,7 @@
   <meta property="og:title" content="FasterChat — Automação WhatsApp para Empresas com IA" />
   <meta property="og:description"
     content="Chatbot WhatsApp com IA que responde clientes, agenda e fecha pedidos 24h por dia. Automação WhatsApp para empresas de todos os segmentos. Ative em 5 minutos." />
-  <meta property="og:image" content="https://fasterchat.com.br/assets/logo-fundo-branco.webp" />
+  <meta property="og:image" content="https://fasterchat.com.br/capa.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="FasterChat — Automação de WhatsApp com Inteligência Artificial" />
@@ -43,7 +43,7 @@
   <meta name="twitter:title" content="FasterChat — Automação WhatsApp para Empresas com IA" />
   <meta name="twitter:description"
     content="Chatbot WhatsApp com IA que responde clientes, agenda e fecha pedidos 24h por dia. Ative em 5 minutos, sem técnico." />
-  <meta name="twitter:image" content="https://fasterchat.com.br/assets/logo-fundo-branco.webp" />
+  <meta name="twitter:image" content="https://fasterchat.com.br/capa.png" />
 
   <!-- Schema.org JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -527,7 +527,7 @@
         var TOTAL_TICKS = (SLIDE_COUNT + 1) * TICKS_PER_SLIDE; // 20 ticks
         var DELTA_PER_TICK = 100;
         var MAX_DELTA_EVT = 400;
-        var HEADER_GAP = 75;                       // folga mínima abaixo do nav
+        var HEADER_GAP = 55;                       // folga mínima abaixo do nav
         var activeSlide = 0;
 
         /* ── Utilitários ───────────────────────────────────── */
@@ -3106,6 +3106,9 @@
       var display = document.getElementById('fc-countdown');
       var nav = document.querySelector('nav');
       var closeBtn = document.getElementById('fc-bar-close');
+
+      // TEMPORARIAMENTE OCULTO — remova esta linha para reativar a top bar
+      bar.style.display = 'none'; return;
 
       // Não exibir se usuário já fechou
       if (localStorage.getItem(KEY_CLOSED)) {
