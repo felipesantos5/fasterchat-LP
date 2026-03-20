@@ -307,20 +307,10 @@
     }
   </script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://unpkg.com" crossorigin />
-  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
-  <link rel="dns-prefetch" href="https://user-images.githubusercontent.com" />
 
+  <link rel="stylesheet" href="./assets/fonts/fonts.css" />
   <link rel="stylesheet" href="./assets/styles.css" />
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
-    rel="stylesheet" media="print" onload="this.media='all'" />
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
-  </noscript>
 
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript>
@@ -1025,7 +1015,7 @@
         /* ── Init ──────────────────────────────────────────── */
         onScroll();
 
-        /* ── Anchor nav: libera o lock antes de scrollar ───── */
+        /* ── Anchor nav: bypassa o hero em qualquer estado ─── */
         document.addEventListener('click', function (e) {
           var a = e.target.closest('a[href^="#"]');
           if (!a) return;
@@ -1033,13 +1023,17 @@
           if (!id) return;
           var target = document.getElementById(id);
           if (!target) return;
-          if (heroState === 'locked' || heroState === 'locking') {
-            e.preventDefault();
-            releaseLock();
-            setTimeout(function () {
-              target.scrollIntoView({ behavior: 'smooth' });
-            }, 50);
-          }
+
+          e.preventDefault();
+
+          // Força saída do hero independente do estado atual
+          heroState = 'done';
+          hideHint();
+          unlockBodyScroll();
+
+          setTimeout(function () {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }, 50);
         });
       })();
     </script>
