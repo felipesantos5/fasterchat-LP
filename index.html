@@ -313,49 +313,19 @@
   <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
   <link rel="dns-prefetch" href="https://user-images.githubusercontent.com" />
 
+  <link rel="stylesheet" href="./assets/styles.css" />
+
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+  </noscript>
 
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'" />
   <noscript>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </noscript>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ["Inter", "sans-serif"],
-            display: ["Plus Jakarta Sans", "sans-serif"],
-          },
-          colors: {
-            brand: {
-              50: "#ECFDF5",
-              100: "#D1FAE5",
-              200: "#A7F3D0",
-              primary: "#059669", // Verde Vibrante (Emerald 600)
-              dark: "#047857", // Verde Profundo (Emerald 700)
-              900: "#064E3B",
-            },
-            slate: {
-              850: "#1e293b",
-            },
-          },
-          backgroundImage: {
-            "hero-pattern": "radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.08) 0%, transparent 60%)",
-          },
-          boxShadow: {
-            soft: "0 20px 40px -15px rgba(0, 0, 0, 0.05)",
-            "soft-hover": "0 30px 60px -15px rgba(16, 185, 129, 0.15)",
-          },
-        },
-      },
-    };
-  </script>
 </head>
 
 <body class="antialiased bg-slate-50 text-slate-600 font-sans overflow-x-hidden">
@@ -1054,6 +1024,23 @@
 
         /* ── Init ──────────────────────────────────────────── */
         onScroll();
+
+        /* ── Anchor nav: libera o lock antes de scrollar ───── */
+        document.addEventListener('click', function (e) {
+          var a = e.target.closest('a[href^="#"]');
+          if (!a) return;
+          var id = a.getAttribute('href').slice(1);
+          if (!id) return;
+          var target = document.getElementById(id);
+          if (!target) return;
+          if (heroState === 'locked' || heroState === 'locking') {
+            e.preventDefault();
+            releaseLock();
+            setTimeout(function () {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }, 50);
+          }
+        });
       })();
     </script>
 
@@ -3834,7 +3821,18 @@
       var SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzs-YJ4e7vATd9oKIJ9yf4E7VvEjBz-TDFD2Qf3aC0vqrQA5g1uc1zfA9U9hRMe_P88dA/exec';
       // ─────────────────────────────────────────────────────────────────────
 
-      if (sessionStorage.getItem(KEY)) return;
+      function setCookie(days) {
+        var d = new Date();
+        d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+        document.cookie = KEY + '=1;expires=' + d.toUTCString() + ';path=/;SameSite=Lax';
+      }
+
+      function getCookie() {
+        var m = document.cookie.match('(^|;)\\s*' + KEY + '\\s*=\\s*([^;]+)');
+        return m ? m.pop() : '';
+      }
+
+      if (getCookie()) return;
 
       var shown = false;
       var engaged = false;
@@ -3858,7 +3856,6 @@
         if (Date.now() - pageOpened < MIN_MS) return;
         if (!engaged) return;
         shown = true;
-        sessionStorage.setItem(KEY, '1');
         overlay.style.display = 'flex';
         requestAnimationFrame(function () {
           requestAnimationFrame(function () {
@@ -3871,6 +3868,7 @@
       }
 
       function hidePopup() {
+        setCookie(7);
         card.style.transform = 'translateY(24px) scale(.97)';
         card.style.opacity = '0';
         setTimeout(function () {
