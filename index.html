@@ -14,10 +14,10 @@
   <meta name="author" content="FasterChat Tecnologia" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="googlebot" content="index, follow" />
-  <meta name="language" content="pt-BR" />
-  <meta name="revisit-after" content="7 days" />
-  <meta name="rating" content="general" />
+  <meta name="format-detection" content="telephone=no, date=no, address=no" />
+  <meta name="theme-color" content="#10B981" />
   <link rel="canonical" href="https://fasterchat.com.br/" />
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/webp" href="./assets/logo-fundo-branco.webp" />
@@ -38,6 +38,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@fasterchat" />
   <meta name="twitter:url" content="https://fasterchat.com.br/" />
   <meta name="twitter:title" content="FasterChat — Automação WhatsApp para Empresas com IA" />
   <meta name="twitter:description"
@@ -205,6 +206,35 @@
     }
   </script>
 
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "FasterChat — Automação WhatsApp para Empresas com IA",
+      "url": "https://fasterchat.com.br/",
+      "description": "FasterChat: automação WhatsApp para empresas com chatbot IA 24h. Atendimento automático, CRM, disparos e agendamento. Ative em 5 minutos.",
+      "inLanguage": "pt-BR",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "FasterChat",
+        "url": "https://fasterchat.com.br/"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "FasterChat"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://fasterchat.com.br/"
+        }]
+      }
+    }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://unpkg.com" crossorigin />
@@ -213,6 +243,10 @@
 
   <!-- Preload logo crítico -->
   <link rel="preload" href="./assets/logo-fundo-branco.webp" as="image" type="image/webp" />
+  <!-- Preload fonte display (evita FOUT em headings) -->
+  <link rel="preload"
+    href="https://fonts.gstatic.com/s/plusjakartasans/v8/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yygg3IgX4n9HA.woff2" as="font"
+    type="font/woff2" crossorigin />
 
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
@@ -313,7 +347,7 @@
             data-aos-delay="100" data-aos-duration="800">
             <a href="#funcionalidades" class="hover:text-brand-primary transition-colors">Funcionalidades</a>
             <a href="#precos" class="hover:text-brand-primary transition-colors">Planos</a>
-            <a href="https://admin.fasterchat.com.br/login"
+            <a href="https://admin.fasterchat.com.br/login" rel="noopener noreferrer"
               class="hover:text-brand-primary transition-colors">Entrar</a>
           </div>
 
@@ -342,7 +376,7 @@
     <section class="relative pt-10 pb-12 md:pt-24 lg:pt-28 lg:pb-16 overflow-hidden bg-hero-pattern"
       aria-labelledby="hero-title">
       <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
-        <div data-aos="fade-up" data-aos-duration="800"
+        <!-- <div data-aos="fade-up" data-aos-duration="800"
           class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-100 text-brand-dark text-sm font-bold mb-4 shadow-sm">
           <span class="relative flex h-2.5 w-2.5">
             <span
@@ -350,7 +384,7 @@
             <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-primary"></span>
           </span>
           Enquanto você lê isso, alguém está mandando mensagem e não vai ter resposta
-        </div>
+        </div> -->
 
         <h1 id="hero-title" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000"
           class="text-4xl lg:text-6xl font-display font-bold tracking-tight leading-[1.1] mb-4 text-slate-900">
@@ -365,13 +399,13 @@
           por semana. Você conecta em 5 minutos e nunca mais perde cliente por demora.
         </p>
 
-        <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000"
+        <!-- <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000"
           class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-0">
           <a href="#precos"
             class="w-full sm:w-auto px-6 py-3 bg-brand-primary text-white text-base font-bold rounded-xl shadow-xl shadow-brand-primary/30 transition-all hover:bg-brand-dark hover:shadow-2xl hover:-translate-y-1">
             Quero parar de perder vendas
           </a>
-          <a href="https://wa.me/48991319311"
+          <a href="https://wa.me/48991319311" rel="noopener noreferrer" target="_blank"
             class="w-full sm:w-auto px-6 py-3 bg-white border-2 border-slate-100 text-slate-700 font-bold rounded-xl transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-lg flex items-center justify-center gap-2">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -379,7 +413,7 @@
             </svg>
             Testar com um atendente real
           </a>
-        </div>
+        </div> -->
 
         <!-- seção do app demonstação -->
 
@@ -1394,8 +1428,8 @@
                     <strong class="text-slate-900"> +R$ 4.200 no caixa no primeiro mês. Paguei o plano 14x.</strong>"
                   </blockquote>
                   <footer class="flex items-center gap-3">
-                    <img src="./assets/prova-social/1.jpg" alt="Marcos Almeida"
-                      class="w-12 h-12 rounded-full object-cover flex-shrink-0">
+                    <img src="./assets/prova-social/1.jpg" alt="Marcos Almeida" width="48" height="48" loading="lazy"
+                      decoding="async" class="w-12 h-12 rounded-full object-cover flex-shrink-0">
                     <div>
                       <p class="font-semibold text-slate-900 text-base">Marcos Almeida</p>
                       <p class="text-slate-400 text-xs">Empresa de Ar Condicionado · Belo Horizonte, MG</p>
@@ -1437,8 +1471,8 @@
                       nunca falta.</strong>"
                   </blockquote>
                   <footer class="flex items-center gap-3">
-                    <img src="./assets/prova-social/2.jpg" alt="Camila Rocha"
-                      class="w-12 h-12 rounded-full object-cover flex-shrink-0">
+                    <img src="./assets/prova-social/2.jpg" alt="Camila Rocha" width="48" height="48" loading="lazy"
+                      decoding="async" class="w-12 h-12 rounded-full object-cover flex-shrink-0">
                     <div>
                       <p class="font-semibold text-slate-900 text-base">Dra. Camila Rocha</p>
                       <p class="text-slate-400 text-xs">Clínica Saúde Plena · Curitiba, PR</p>
@@ -1478,8 +1512,8 @@
                     <strong class="text-slate-900"> +38% de vendas online em 6 semanas. Recuperei minha vida.</strong>"
                   </blockquote>
                   <footer class="flex items-center gap-3">
-                    <img src="./assets/prova-social/3.jpg" alt="Juliano Ferreira"
-                      class="w-12 h-12 rounded-full object-cover flex-shrink-0">
+                    <img src="./assets/prova-social/3.jpg" alt="Juliano Ferreira" width="48" height="48" loading="lazy"
+                      decoding="async" class="w-12 h-12 rounded-full object-cover flex-shrink-0">
                     <div>
                       <p class="font-semibold text-slate-900 text-base">Juliano Ferreira</p>
                       <p class="text-slate-400 text-xs">Empresa de Suplementos · Rio de Janeiro, RJ</p>
@@ -1524,8 +1558,8 @@
                       Era dinheiro que eu simplesmente jogava fora.</strong>"
                   </blockquote>
                   <footer class="flex items-center gap-3">
-                    <img src="./assets/prova-social/4.jpg" alt="Gabriel Souza"
-                      class="w-12 h-12 rounded-full object-cover flex-shrink-0">
+                    <img src="./assets/prova-social/4.jpg" alt="Gabriel Souza" width="48" height="48" loading="lazy"
+                      decoding="async" class="w-12 h-12 rounded-full object-cover flex-shrink-0">
                     <div>
                       <p class="font-semibold text-slate-900 text-base">Gabriel Souza</p>
                       <p class="text-slate-400 text-xs">Marketing Digital · Goiânia, GO</p>
@@ -1565,8 +1599,8 @@
                       celular. Nunca tinha tido uma Black Friday assim na vida.</strong>"
                   </blockquote>
                   <footer class="flex items-center gap-3">
-                    <img src="./assets/prova-social/5.jpg" alt="Amanda Costa"
-                      class="w-12 h-12 rounded-full object-cover flex-shrink-0">
+                    <img src="./assets/prova-social/5.jpg" alt="Amanda Costa" width="48" height="48" loading="lazy"
+                      decoding="async" class="w-12 h-12 rounded-full object-cover flex-shrink-0">
                     <div>
                       <p class="font-semibold text-slate-900 text-base">Amanda Costa</p>
                       <p class="text-slate-400 text-xs">Nutricionista · São Paulo, SP</p>
@@ -1606,8 +1640,8 @@
                       respondeu minha dúvida em menos de 5 minutos.</strong>"
                   </blockquote>
                   <footer class="flex items-center gap-3">
-                    <img src="./assets/prova-social/6.jpg" alt="Antônio Lima"
-                      class="w-12 h-12 rounded-full object-cover flex-shrink-0">
+                    <img src="./assets/prova-social/6.jpg" alt="Antônio Lima" width="48" height="48" loading="lazy"
+                      decoding="async" class="w-12 h-12 rounded-full object-cover flex-shrink-0">
                     <div>
                       <p class="font-semibold text-slate-900 text-base">Antônio Lima</p>
                       <p class="text-slate-400 text-xs">Clínica Odontológica · Recife, PE</p>
@@ -1841,15 +1875,15 @@
             <!-- Dashboard visual -->
             <div class="mb-5 rounded-2xl border border-slate-100 overflow-hidden bg-white"
               style="box-shadow:0 1px 10px rgba(0,0,0,0.05);">
-              <div class="flex" style="height:162px;">
+              <div class="flex" style="height:200px;">
 
                 <!-- 40% Grafico de area -->
                 <div class="flex flex-col p-3 pb-2.5 min-w-0" style="width:40%;border-right:1px solid #f1f5f9;">
                   <div class="flex items-center justify-between mb-2 flex-shrink-0">
-                    <span class="text-[7.5px] font-semibold text-slate-400 uppercase tracking-wide">Mensagens /
+                    <span class="text-[9px] font-semibold text-slate-400 uppercase tracking-wide">Mensagens /
                       dia</span>
                     <span
-                      class="text-[7px] font-bold text-emerald-500 bg-emerald-50 px-1.5 py-0.5 rounded-full leading-none">ao
+                      class="text-[9px] font-bold text-emerald-500 bg-emerald-50 px-1.5 py-0.5 rounded-full leading-none">ao
                       vivo</span>
                   </div>
                   <svg viewBox="0 0 160 72" class="w-full" style="display:block;flex:1;" preserveAspectRatio="none">
@@ -1878,19 +1912,13 @@
                     <span class="text-[6.5px] text-slate-300">18 mar</span>
                     <span class="text-[6.5px] text-slate-300">19 mar</span>
                   </div>
-                  <div class="flex items-center gap-1.5 mt-2 pt-2 flex-shrink-0" style="border-top:1px solid #f8fafc;">
-                    <span
-                      class="w-2 h-2 rounded-sm bg-emerald-100 border border-emerald-300 flex-shrink-0 inline-block"></span>
-                    <span class="text-[6.5px] text-slate-400">Pico: <strong class="text-slate-600">16 mar &middot; 459
-                        msg</strong></span>
-                  </div>
                 </div>
 
                 <!-- 30% Cards de metricas -->
                 <div class="flex flex-col min-w-0" style="width:30%;border-right:1px solid #f1f5f9;">
                   <div class="flex flex-col justify-between p-3" style="flex:1;border-bottom:1px solid #f8fafc;">
                     <div class="flex items-center justify-between">
-                      <span class="text-[7.5px] text-slate-400 font-medium">Mensagens Recebidas</span>
+                      <span class="text-[9px] text-slate-400 font-medium">Mensagens Recebidas</span>
                       <svg class="w-3 h-3 text-emerald-200 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -1908,13 +1936,13 @@
                           stroke="currentColor" stroke-width="3">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
                         </svg>
-                        <span class="text-[8px] font-bold text-emerald-500">+485.7%</span>
+                        <span class="text-[8px] font-bold text-emerald-500">+85.7%</span>
                       </div>
                     </div>
                   </div>
                   <div class="flex flex-col justify-between p-3" style="flex:1;">
                     <div class="flex items-center justify-between">
-                      <span class="text-[7.5px] text-slate-400 font-medium">Conversas Ativas</span>
+                      <span class="text-[9px] text-slate-400 font-medium">Conversas Ativas</span>
                       <svg class="w-3 h-3 text-emerald-200 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -1932,7 +1960,7 @@
                           stroke="currentColor" stroke-width="3">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
                         </svg>
-                        <span class="text-[8px] font-bold text-emerald-500">+302.5%</span>
+                        <span class="text-[8px] font-bold text-emerald-500">+22.5%</span>
                       </div>
                     </div>
                   </div>
@@ -1940,9 +1968,8 @@
 
                 <!-- 30% Pico de Mensagens -->
                 <div class="flex flex-col p-3 min-w-0" style="width:30%;">
-                  <p class="text-[7.5px] text-slate-400 font-medium flex-shrink-0">Pico de Mensagens</p>
+                  <p class="text-[10px] text-slate-400 font-medium flex-shrink-0">Pico de Mensagens</p>
                   <p class="text-[26px] font-extrabold text-slate-800 leading-none mt-0.5 flex-shrink-0">18:00</p>
-                  <p class="text-[6.5px] text-slate-300 mb-2 flex-shrink-0">Maior volume do dia</p>
                   <div class="flex items-end gap-[2px] flex-1">
                     <div class="flex-1 rounded-t-[2px] bg-emerald-50" style="height:12%"></div>
                     <div class="flex-1 rounded-t-[2px] bg-emerald-50" style="height:7%"></div>
@@ -1982,7 +2009,7 @@
             data-aos="fade-up" data-aos-delay="200">
             <!-- Mini funil visual -->
             <div class="mb-4 relative">
-              <div class="flex gap-1.5 items-end" style="height:200px;padding-top:20px;">
+              <div class="flex gap-1.5 items-end justify-center" style="height:200px;padding-top:20px;">
                 <!-- Lead -->
                 <div
                   class="w-[18%] flex-shrink-0 bg-emerald-400 rounded-t-lg h-full relative group-hover:bg-emerald-500 transition-colors">
@@ -2496,7 +2523,7 @@
               <li class="flex gap-3 items-start"><svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5"
                   fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>Até 3 WhatsApp conectados</li>
+                </svg>Até 4 WhatsApp conectados</li>
               <li class="flex gap-3 items-start"><svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5"
                   fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -2571,7 +2598,7 @@
               <li class="flex gap-3 items-start"><svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5"
                   fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>Até 5 WhatsApp conectados</li>
+                </svg>Até 6 WhatsApp conectados</li>
               <li class="flex gap-3 items-start"><svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5"
                   fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -2670,21 +2697,31 @@
             <div class="absolute inset-0 opacity-10"
               style="background:radial-gradient(ellipse at 20% 50%,#fff 0%,transparent 70%)"></div>
 
-            <!-- Ícone WhatsApp estilo FasterChat -->
-            <div class="relative flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center shadow-inner"
-              style="background:rgba(255,255,255,0.18);backdrop-filter:blur(4px);">
-              <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-9 h-9">
-                <!-- Bolha de chat arredondada -->
-                <rect x="2" y="2" width="36" height="30" rx="10" fill="white" fill-opacity="0.22" />
-                <!-- Rabinho da bolha -->
-                <path d="M8 32 C8 32 6 38 4 39 C8 38 14 36 14 32" fill="white" fill-opacity="0.22" />
-                <!-- Símbolo telefone estilizado -->
+            <!-- Ícone: múltiplos números conectados -->
+            <div class="relative flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center"
+              style="background:rgba(255,255,255,0.15);backdrop-filter:blur(6px);box-shadow:inset 0 1px 0 rgba(255,255,255,0.25),0 2px 12px rgba(0,0,0,0.12);">
+              <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-11 h-11">
+
+                <!-- Bolha 3 (fundo, direita) -->
+                <rect x="22" y="6" width="28" height="22" rx="7" fill="white" fill-opacity="0.18" />
+                <path d="M36 28 C36 28 34 33 32 34 C35 33 40 31 40 28" fill="white" fill-opacity="0.18" />
+
+                <!-- Bolha 2 (meio, esquerda) -->
+                <rect x="8" y="14" width="28" height="22" rx="7" fill="white" fill-opacity="0.28" />
+                <path d="M16 36 C16 36 14 41 12 42 C15 41 21 39 21 36" fill="white" fill-opacity="0.28" />
+
+                <!-- Ícone telefone na bolha principal -->
                 <path
-                  d="M13 14.5c0-.8.7-1.5 1.5-1.5h3c.4 0 .7.3.8.7l.6 2.5c.1.4-.1.8-.4 1l-1.2.8c1 2.1 2.7 3.8 4.8 4.8l.8-1.2c.2-.3.6-.5 1-.4l2.5.6c.4.1.7.4.7.8v3c0 .8-.7 1.5-1.5 1.5C17.1 27 13 22.9 13 17.5v-3z"
+                  d="M16 22.5c0-.7.6-1.3 1.3-1.3h2.5c.35 0 .65.25.72.6l.5 2.1c.08.35-.08.7-.38.88l-1 .65c.85 1.75 2.25 3.15 4 4l.65-1c.18-.3.53-.46.88-.38l2.1.5c.35.07.6.37.6.72v2.5c0 .7-.6 1.3-1.3 1.3C20.5 33 16 28.5 16 23.2v-.7z"
                   fill="white" />
-                <!-- Dois pontinhos de "online" no canto superior direito -->
-                <circle cx="32" cy="8" r="4" fill="#34D399" />
-                <circle cx="32" cy="8" r="2.2" fill="white" />
+
+                <!-- Badge "+" verde para indicar "adicionar" -->
+                <circle cx="43" cy="43" r="9" fill="#34D399" />
+                <path d="M43 39v8M39 43h8" stroke="white" stroke-width="2.2" stroke-linecap="round" />
+
+                <!-- Ponto de status online bolha 3 -->
+                <circle cx="44" cy="12" r="4" fill="#A7F3D0" fill-opacity="0.9" />
+                <circle cx="44" cy="12" r="2" fill="white" />
               </svg>
             </div>
 
@@ -2881,7 +2918,7 @@
             class="px-8 py-4 bg-white text-brand-dark text-lg font-bold rounded-xl shadow-xl hover:bg-brand-50 transition-all hover:-translate-y-1">
             Ativar minha IA agora
           </a>
-          <a href="https://wa.me/48991319311"
+          <a href="https://wa.me/48991319311" rel="noopener noreferrer" target="_blank"
             class="group px-8 py-4 bg-transparent border-2 border-white/30 text-white text-lg font-semibold rounded-xl hover:bg-white/10 transition-all flex items-center justify-center gap-2">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
               <path
@@ -2897,7 +2934,7 @@
   <!-- Rodapé -->
   <footer class="pt-10 pb-6 text-slate-400" role="contentinfo">
     <div class="max-w-7xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-4 md:gap-12 mb-12 text-slate-600">
+      <div class="grid grid-cols-1 md:grid-cols-4 md:gap-12 mb-4 text-slate-600">
         <div class="col-span-1 md:col-span-2 md:mr-10">
           <a href="#" class="flex items-center gap-2 mb-4">
             <img src="./assets/logo-png.webp" alt="Logo Faster Chat" width="40" height="40" loading="lazy"
@@ -2913,13 +2950,13 @@
           </p>
         </div>
 
-        <div>
+        <nav aria-label="Links do produto">
           <h4 class="text-slate-600 font-bold mb-4">Produto</h4>
           <ul class="space-y-2 text-sm">
             <li><a href="#funcionalidades" class="hover:text-brand-primary transition-colors">Funcionalidades</a></li>
             <li><a href="#precos" class="hover:text-brand-primary transition-colors">Planos</a></li>
           </ul>
-        </div>
+        </nav>
 
         <!-- <div>
             <h4 class="text-white font-bold mb-4">Suporte</h4>
@@ -2928,20 +2965,21 @@
             </ul>
           </div> -->
 
-        <div>
+        <nav aria-label="Links legais">
           <h4 class="text-slate-600 font-bold mb-4 mt-4 md:mt-0">Legal</h4>
           <ul class="space-y-2 text-sm">
             <li><a href="termos-de-uso.html" class="hover:text-brand-primary transition-colors">Termos de Uso</a></li>
             <li><a href="politica-privacidade.html" class="hover:text-brand-primary transition-colors">Política de
                 Privacidade</a></li>
           </ul>
-        </div>
+        </nav>
       </div>
 
       <div class="border-t border-slate-400 pt-8 flex flex-col md:flex-row justify-between items-center text-xs gap-4">
-        <p>&copy; 2025 FasterChat Tecnologia. Todos os direitos reservados.</p>
+        <p>&copy; 2026 FasterChat Tecnologia. Todos os direitos reservados.</p>
         <div class="flex gap-4">
-          <a href="https://www.instagram.com/fasterchat/" class="hover:text-green-500 transition-colors">Instagram</a>
+          <a href="https://www.instagram.com/fasterchat/" rel="noopener noreferrer" target="_blank"
+            class="hover:text-green-500 transition-colors">Instagram</a>
         </div>
       </div>
     </div>
