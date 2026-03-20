@@ -372,546 +372,599 @@
 
   <!-- Conteúdo principal da página -->
   <main role="main">
-    <!-- Hero Section -->
-    <section class="relative pt-10 pb-12 md:pt-24 lg:pt-28 lg:pb-16 overflow-hidden bg-hero-pattern"
-      aria-labelledby="hero-title">
-      <div class="max-w-7xl mx-auto px-6 text-center relative z-10">
-        <!-- <div data-aos="fade-up" data-aos-duration="800"
-          class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-100 text-brand-dark text-sm font-bold mb-4 shadow-sm">
-          <span class="relative flex h-2.5 w-2.5">
-            <span
-              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-primary"></span>
-          </span>
-          Enquanto você lê isso, alguém está mandando mensagem e não vai ter resposta
-        </div> -->
+    <!-- Seções após o hero precisam de z-index > 45 para cobrir o card fixed -->
+    <style>
+      #fc-scroll-hero~section,
+      #fc-scroll-hero~footer,
+      #fc-scroll-hero~div {
+        position: relative;
+        z-index: 46;
+      }
+    </style>
 
-        <h1 id="hero-title" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000"
-          class="text-4xl lg:text-6xl font-display font-bold tracking-tight leading-[1.1] mb-4 text-slate-900">
-          Seu WhatsApp perde vendas <br class="hidden lg:block" />
-          <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-dark">toda vez que
-            você demora pra responder.</span>
-        </h1>
+    <!-- Hero Section — Scroll 3D -->
+    <section id="fc-scroll-hero" class="relative overflow-hidden bg-hero-pattern"
+      style="min-height:calc(100vh + 700px);" aria-labelledby="hero-title">
 
-        <p data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000"
-          class="text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto mb-6 leading-relaxed font-medium">
-          O FasterChat coloca uma IA no seu WhatsApp que atende, qualifica, agenda e fecha vendas — 24h por dia, 7 dias
-          por semana. Você conecta em 5 minutos e nunca mais perde cliente por demora.
-        </p>
+      <!-- Container sticky: fica visível enquanto o usuário scrolla pela altura extra -->
+      <div id="fc-hero-sticky"
+        style="position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:7.5rem;padding-bottom:1.5rem;">
 
-        <!-- <div data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000"
-          class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-0">
-          <a href="#precos"
-            class="w-full sm:w-auto px-6 py-3 bg-brand-primary text-white text-base font-bold rounded-xl shadow-xl shadow-brand-primary/30 transition-all hover:bg-brand-dark hover:shadow-2xl hover:-translate-y-1">
-            Quero parar de perder vendas
-          </a>
-          <a href="https://wa.me/48991319311" rel="noopener noreferrer" target="_blank"
-            class="w-full sm:w-auto px-6 py-3 bg-white border-2 border-slate-100 text-slate-700 font-bold rounded-xl transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-lg flex items-center justify-center gap-2">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path
-                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-            </svg>
-            Testar com um atendente real
-          </a>
-        </div> -->
+        <!-- Fundo hero-pattern replicado no sticky -->
+        <div class="absolute inset-0 bg-hero-pattern pointer-events-none"></div>
 
-        <!-- seção do app demonstação -->
+        <!-- Header: título + subtítulo + CTAs -->
+        <div id="fc-hero-header" class="relative z-10 text-center max-w-4xl mx-auto px-6 mb-5"
+          style="will-change:transform;">
 
-        <div data-aos="fade-up" data-aos-delay="400" data-aos-duration="1200" class="relative mx-auto max-w-6xl mt-10">
+          <h1 id="hero-title"
+            class="text-4xl lg:text-6xl font-display font-bold tracking-tight leading-[1.1] mb-4 text-slate-900">
+            Seu WhatsApp perde vendas <br class="hidden lg:block" />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-dark">toda vez que
+              você demora pra responder.</span>
+          </h1>
 
-          <div
-            class="absolute -inset-1 bg-gradient-to-r from-brand-primary to-brand-dark rounded-2xl blur-lg opacity-20">
-          </div>
+          <p class="text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto mb-6 leading-relaxed font-medium">
+            O FasterChat coloca uma IA no seu WhatsApp que atende, qualifica, agenda e fecha vendas — 24h por dia, 7
+            dias por semana. Você conecta em 5 minutos e nunca mais perde cliente por demora.
+          </p>
 
-          <div
-            class="relative bg-white rounded-xl shadow-2xl border border-slate-200 overflow-hidden flex h-[520px] text-left">
-
-            <div class="hidden md:flex flex-col w-20 bg-slate-900 py-6 items-center gap-6 z-30 flex-shrink-0">
-              <div
-                class="w-10 h-10 bg-brand-primary rounded-xl flex items-center justify-center text-white mb-4 shadow-[0_0_15px_rgba(16,185,129,0.5)]">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
-
-              <div class="flex flex-col gap-4 w-full px-4">
-                <button onclick="window.switchTab('dashboard')" id="btn-dashboard"
-                  class="w-full aspect-square rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-800 hover:text-white cursor-pointer transition-all duration-300 group relative">
-                  <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
-                  </svg>
-                  <span
-                    class="absolute left-14 bg-slate-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">Dashboard</span>
-                </button>
-
-                <button onclick="window.switchTab('chat')" id="btn-chat"
-                  class="w-full aspect-square rounded-lg flex items-center justify-center bg-brand-primary text-white shadow-[0_0_15px_rgba(16,185,129,0.3)] cursor-pointer transition-all duration-300 group relative">
-                  <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
-                  </svg>
-                  <span
-                    class="absolute left-14 bg-slate-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">Conversas</span>
-                </button>
-
-                <button onclick="window.switchTab('funil')" id="btn-funil"
-                  class="w-full aspect-square rounded-lg flex items-center justify-center text-slate-400 hover:bg-slate-800 hover:text-white cursor-pointer transition-all duration-300 group relative">
-                  <svg class="w-6 h-6 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
-                  </svg>
-                  <span
-                    class="absolute left-14 bg-slate-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">Funil
-                    CRM</span>
-                </button>
-              </div>
-            </div>
-
-            <div id="view-dashboard"
-              class="hidden flex-1 bg-[#F8FAFC] flex-col h-full overflow-hidden w-full absolute inset-0 md:static md:inset-auto pl-0 z-10 animate-fade-in">
-              <div
-                class="bg-white px-6 py-4 border-b border-slate-200 flex justify-between items-center sticky top-0 z-20">
-                <div>
-                  <h2 class="text-lg font-bold text-slate-800">Visão Geral</h2>
-                  <p class="text-xs text-slate-500">Desempenho em Tempo Real</p>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div
-                    class="px-3 py-1 bg-white border border-slate-200 rounded-lg text-xs font-semibold text-slate-600 shadow-sm flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Sistema Online
-                  </div>
-                </div>
-              </div>
-              <div class="p-6 md:p-8 overflow-y-auto h-full pb-20">
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8">
-                  <div
-                    class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all relative overflow-hidden group">
-                    <div
-                      class="absolute right-0 top-0 w-24 h-24 bg-green-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110">
-                    </div>
-                    <div class="relative z-10">
-                      <div class="flex justify-between items-start mb-2"><span
-                          class="text-slate-500 text-xs font-bold uppercase tracking-wider">Faturamento
-                          (Mês)</span><span
-                          class="text-[10px] font-bold text-green-700 bg-green-100 px-2 py-0.5 rounded-full flex items-center gap-1"><svg
-                            class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                              d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-                          </svg> 15%</span></div>
-                      <h3 class="text-3xl font-bold text-slate-800 tracking-tight">R$ <span class="counter"
-                          data-target="45200">0</span></h3>
-                      <p class="text-xs text-slate-400 mt-1">vs R$ 39.400 mês anterior</p>
-                    </div>
-                  </div>
-                  <div
-                    class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
-                    <div class="flex justify-between items-start mb-2"><span
-                        class="text-slate-500 text-xs font-bold uppercase tracking-wider">Novos Leads</span>
-                      <div class="p-1.5 bg-blue-50 text-blue-600 rounded-lg"><svg class="w-4 h-4" fill="none"
-                          stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg></div>
-                    </div>
-                    <h3 class="text-3xl font-bold text-slate-800 counter" data-target="342">0</h3>
-                    <p class="text-xs text-green-600 font-bold mt-1">+12 novos hoje</p>
-                  </div>
-                  <div
-                    class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
-                    <div class="flex justify-between items-start mb-2"><span
-                        class="text-slate-500 text-xs font-bold uppercase tracking-wider">Contratos</span>
-                      <div class="p-1.5 bg-purple-50 text-purple-600 rounded-lg"><svg class="w-4 h-4" fill="none"
-                          stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg></div>
-                    </div>
-                    <h3 class="text-3xl font-bold text-slate-800 counter" data-target="28">0</h3>
-                    <p class="text-xs text-slate-400 mt-1">Taxa conv. <span
-                        class="text-slate-800 font-bold">18.5%</span></p>
-                  </div>
-                  <div
-                    class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
-                    <div class="flex justify-between items-start mb-2"><span
-                        class="text-slate-500 text-xs font-bold uppercase tracking-wider">Economia IA</span>
-                      <div class="p-1.5 bg-yellow-50 text-yellow-600 rounded-lg"><svg class="w-4 h-4" fill="none"
-                          stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg></div>
-                    </div>
-                    <h3 class="text-3xl font-bold text-slate-800">R$ <span class="counter" data-target="4200">0</span>
-                    </h3>
-                    <p class="text-xs text-slate-400 mt-1">~120h de trabalho salvas</p>
-                  </div>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 pb-6">
-                  <div class="lg:col-span-1 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-                    <h3 class="text-slate-800 font-bold mb-1 flex items-center gap-2">Funil de Vendas</h3>
-                    <p class="text-xs text-slate-400 mb-6">Conversão por etapa</p>
-                    <div class="space-y-6">
-                      <div class="relative group">
-                        <div class="flex justify-between text-xs mb-1.5"><span
-                            class="font-bold text-slate-700 flex items-center gap-1.5">
-                            <div class="w-2 h-2 rounded-full bg-slate-400"></div> Leads / Entrada
-                          </span><span class="text-slate-600 font-mono font-bold">342</span></div>
-                        <div class="w-full bg-slate-100 rounded-r-lg h-3 overflow-hidden">
-                          <div
-                            class="bg-slate-400 h-3 rounded-r-lg bar-anim shadow-sm relative group-hover:opacity-80 transition-opacity"
-                            style="--w: 100%; width: 0;"></div>
-                        </div>
-                      </div>
-                      <div class="relative group">
-                        <div class="flex justify-between text-xs mb-1.5"><span
-                            class="font-bold text-slate-700 flex items-center gap-1.5">
-                            <div class="w-2 h-2 rounded-full bg-blue-500"></div> Em Atendimento
-                          </span><span class="text-slate-600 font-mono font-bold">185</span></div>
-                        <div class="w-full bg-slate-100 rounded-r-lg h-3 overflow-hidden">
-                          <div
-                            class="bg-blue-500 h-3 rounded-r-lg bar-anim shadow-sm relative group-hover:opacity-80 transition-opacity"
-                            style="--w: 54%; width: 0;"></div>
-                        </div>
-                        <!-- <div class="absolute right-0 top-5 text-[9px] text-red-400 font-bold">-46%</div> -->
-                      </div>
-                      <div class="relative group">
-                        <div class="flex justify-between text-xs mb-1.5"><span
-                            class="font-bold text-slate-700 flex items-center gap-1.5">
-                            <div class="w-2 h-2 rounded-full bg-yellow-400"></div> Negociação
-                          </span><span class="text-slate-600 font-mono font-bold">64</span></div>
-                        <div class="w-full bg-slate-100 rounded-r-lg h-3 overflow-hidden">
-                          <div
-                            class="bg-yellow-400 h-3 rounded-r-lg bar-anim shadow-sm relative group-hover:opacity-80 transition-opacity"
-                            style="--w: 19%; width: 0;"></div>
-                        </div>
-                      </div>
-                      <div class="relative group">
-                        <div class="flex justify-between text-xs mb-1.5"><span
-                            class="font-bold text-slate-700 flex items-center gap-1.5">
-                            <div class="w-2 h-2 rounded-full bg-green-500"></div> Contrato Fechado
-                          </span><span class="text-green-700 font-mono font-bold bg-green-50 px-1.5 rounded">28</span>
-                        </div>
-                        <div class="w-full bg-slate-100 rounded-r-lg h-3 overflow-hidden">
-                          <div
-                            class="bg-green-500 h-3 rounded-r-lg bar-anim shadow-sm relative group-hover:opacity-80 transition-opacity"
-                            style="--w: 8%; width: 0;"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="lg:col-span-2 bg-white p-6 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden flex flex-col">
-                    <div class="flex justify-between items-center mb-6">
-                      <div>
-                        <h3 class="text-slate-800 font-bold mb-1">Aquisição de Clientes</h3>
-                        <p class="text-xs text-slate-400">Comparativo: Dezembro vs Novembro</p>
-                      </div>
-                      <div class="flex gap-4 text-[10px] font-bold uppercase tracking-wide">
-                        <div class="flex items-center gap-1.5"><span
-                            class="w-3 h-1 bg-brand-primary rounded-full"></span> Este Mês</div>
-                        <div class="flex items-center gap-1.5 text-slate-400"><span
-                            class="w-3 h-1 bg-slate-300 rounded-full"></span> Anterior</div>
-                      </div>
-                    </div>
-                    <div class="relative flex-1 w-full min-h-[200px]">
-                      <div
-                        class="absolute inset-0 flex flex-col justify-between text-[10px] text-slate-300 pointer-events-none">
-                        <div class="border-b border-slate-50 w-full h-0 flex justify-between"><span>100</span></div>
-                        <div class="border-b border-slate-50 w-full h-0 flex justify-between"><span>75</span></div>
-                        <div class="border-b border-slate-50 w-full h-0 flex justify-between"><span>50</span></div>
-                        <div class="border-b border-slate-50 w-full h-0 flex justify-between"><span>25</span></div>
-                        <div class="border-b border-slate-50 w-full h-0 flex justify-between"><span>0</span></div>
-                      </div>
-                      <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-                        <defs>
-                          <linearGradient id="gradArea" x1="0%" y1="0%" x2="0%" y2="100%">
-                            <stop offset="0%" style="stop-color:#10B981;stop-opacity:0.2" />
-                            <stop offset="100%" style="stop-color:#10B981;stop-opacity:0" />
-                          </linearGradient>
-                        </defs>
-                        <path d="M0,180 C50,160 100,190 150,140 C200,100 250,120 300,130 C350,110 400,160 500,150"
-                          fill="none" stroke="#CBD5E1" stroke-width="2" stroke-dasharray="5,5" stroke-linecap="round" />
-                        <path d="M0,150 C50,120 100,160 150,80 C200,40 250,90 300,50 C350,30 400,80 500,60" fill="none"
-                          stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
-                          class="line-anim" style="stroke-dasharray: 800; stroke-dashoffset: 800;" />
-                        <path d="M0,150 C50,120 100,160 150,80 C200,40 250,90 300,50 C350,30 400,80 500,60 V220 H0 Z"
-                          fill="url(#gradArea)" class="opacity-0 animate-fade-in delay-500"
-                          style="animation-delay: 0.5s; animation-fill-mode: forwards;" />
-                      </svg>
-                    </div>
-                    <div class="flex justify-between mt-2 text-[10px] text-slate-400 font-medium px-1"><span>01
-                        Dez</span><span>07 Dez</span><span>14 Dez</span><span>21 Dez</span><span>Hoje</span></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div id="view-funil"
-              class="hidden flex-1 bg-[#F3F4F6] flex-col h-full overflow-hidden w-full absolute inset-0 md:static md:inset-auto pl-0 z-10 animate-fade-in">
-              <div
-                class="bg-white px-6 py-4 border-b border-slate-200 flex justify-between items-center sticky top-0 z-20 shadow-sm">
-                <div>
-                  <h2 class="text-lg font-bold text-slate-800 flex items-center gap-2">Funil de Clientes/Vendas (CRM)
-                  </h2>
-                  <p class="text-xs text-slate-500 font-medium">Gestão de oportunidades</p>
-                </div>
-                <button
-                  class="px-3 py-1.5 bg-brand-primary text-white rounded-lg text-xs font-bold shadow hover:bg-brand-dark transition-colors flex items-center gap-2"><svg
-                    class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                  </svg> <span class="hidden sm:inline">Adicionar</span></button>
-              </div>
-              <div
-                class="flex-1 overflow-x-auto overflow-y-hidden p-6 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-100">
-                <div class="flex h-full gap-5">
-                  <div class="w-[240px] flex flex-col flex-shrink-0 group">
-                    <div class="flex items-center justify-between mb-3 px-1">
-                      <div class="flex items-center gap-2">
-                        <div class="w-2 h-2 rounded-full bg-slate-400 ring-2 ring-slate-200"></div><span
-                          class="font-bold text-slate-700 text-xs uppercase tracking-wide">Novo Lead</span>
-                      </div><span
-                        class="bg-slate-200 text-slate-600 text-[10px] font-bold px-2 py-0.5 rounded-full">3</span>
-                    </div>
-                    <div
-                      class="flex-1 bg-slate-100/80 rounded-xl p-2 space-y-3 overflow-y-auto border border-slate-200/60">
-                      <div
-                        class="bg-white p-3 rounded-xl shadow-sm border border-slate-200 cursor-grab hover:shadow-lg transition-all hover:-translate-y-1 relative overflow-hidden">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-slate-300"></div>
-                        <div class="flex items-center gap-2 mb-2">
-                          <div
-                            class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center text-[10px] font-bold text-blue-600">
-                            TS</div>
-                          <h4 class="font-bold text-slate-800 text-xs">TechSolutions Ltda</h4>
-                        </div>
-                        <p class="text-[10px] text-slate-500 mb-2 flex items-center gap-1">
-                          <span
-                            class="px-2 py-0.5 rounded border border-blue-100 bg-blue-50 text-blue-600 text-[9px] font-bold">Interessado</span>
-                      </div>
-                      <div
-                        class="bg-white p-3 rounded-xl shadow-sm border border-slate-200 cursor-grab hover:shadow-lg transition-all hover:-translate-y-1 relative overflow-hidden">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-slate-300"></div>
-                        <div class="flex items-center gap-2 mb-2">
-                          <div
-                            class="w-7 h-7 rounded-full bg-gradient-to-br from-pink-100 to-pink-200 flex items-center justify-center text-[10px] font-bold text-pink-600">
-                            DL</div>
-                          <h4 class="font-bold text-slate-800 text-xs">Doceria da Lu</h4>
-                        </div>
-                        <p class="text-[10px] text-slate-500 mb-2 flex items-center gap-1">
-
-                          <span
-                            class="px-2 py-0.5 rounded border border-slate-200 bg-slate-50 text-slate-500 text-[9px] font-bold">Frio</span>
-                      </div>
-                      <div
-                        class="bg-white p-3 rounded-xl shadow-sm border border-slate-200 cursor-grab hover:shadow-lg transition-all hover:-translate-y-1 relative overflow-hidden">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-slate-300"></div>
-                        <div class="flex items-center gap-2 mb-2">
-                          <div
-                            class="w-7 h-7 rounded-full bg-gradient-to-br from-orange-100 to-orange-200 flex items-center justify-center text-[10px] font-bold text-orange-600">
-                            TC</div>
-                          <h4 class="font-bold text-slate-800 text-xs">Transportadora Carga</h4>
-                        </div><span
-                          class="px-2 py-0.5 rounded border border-green-100 bg-green-50 text-green-600 text-[9px] font-bold">Ticket
-                          Alto</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w-[240px] flex flex-col flex-shrink-0 group">
-                    <div class="flex items-center justify-between mb-3 px-1">
-                      <div class="flex items-center gap-2">
-                        <div class="w-2 h-2 rounded-full bg-blue-500 ring-2 ring-blue-200"></div><span
-                          class="font-bold text-slate-700 text-xs uppercase tracking-wide">Qualificado</span>
-                      </div><span
-                        class="bg-slate-200 text-slate-600 text-[10px] font-bold px-2 py-0.5 rounded-full">2</span>
-                    </div>
-                    <div
-                      class="flex-1 bg-slate-100/80 rounded-xl p-2 space-y-3 overflow-y-auto border border-slate-200/60">
-                      <div
-                        class="bg-white p-3 rounded-xl shadow-sm border border-slate-200 cursor-grab hover:shadow-lg transition-all hover:-translate-y-1 relative overflow-hidden">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"></div>
-                        <div class="flex items-center gap-2 mb-2">
-                          <div
-                            class="w-7 h-7 rounded-full bg-gradient-to-br from-indigo-100 to-indigo-200 flex items-center justify-center text-[10px] font-bold text-indigo-600">
-                            CS</div>
-                          <h4 class="font-bold text-slate-800 text-xs">Construtora Silva</h4>
-                        </div>
-                        <p class="text-[10px] text-slate-500 mb-2 flex items-center gap-1">
-                        <div class="flex flex-wrap gap-1"><span
-                            class="px-2 py-0.5 rounded border border-yellow-100 bg-yellow-50 text-yellow-700 text-[9px] font-bold">Quente</span><span
-                            class="px-2 py-0.5 rounded border border-slate-200 bg-slate-50 text-slate-500 text-[9px] font-bold">Plano
-                            Pro</span></div>
-                      </div>
-                      <div
-                        class="bg-white p-3 rounded-xl shadow-sm border border-slate-200 cursor-grab hover:shadow-lg transition-all hover:-translate-y-1 relative overflow-hidden">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"></div>
-                        <div class="flex items-center gap-2 mb-2">
-                          <div
-                            class="w-7 h-7 rounded-full bg-gradient-to-br from-teal-100 to-teal-200 flex items-center justify-center text-[10px] font-bold text-teal-600">
-                            PJ</div>
-                          <h4 class="font-bold text-slate-800 text-xs">Pizzaria do João</h4>
-                        </div><span
-                          class="px-2 py-0.5 rounded border border-green-100 bg-green-50 text-green-600 text-[9px] font-bold">Mensalidade</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w-[240px] flex flex-col flex-shrink-0 group">
-                    <div class="flex items-center justify-between mb-3 px-1">
-                      <div class="flex items-center gap-2">
-                        <div class="w-2 h-2 rounded-full bg-purple-500 ring-2 ring-purple-200"></div><span
-                          class="font-bold text-slate-700 text-xs uppercase tracking-wide">Negociação</span>
-                      </div><span
-                        class="bg-slate-200 text-slate-600 text-[10px] font-bold px-2 py-0.5 rounded-full">1</span>
-                    </div>
-                    <div
-                      class="flex-1 bg-slate-100/80 rounded-xl p-2 space-y-3 overflow-y-auto border border-slate-200/60">
-                      <div
-                        class="bg-white p-3 rounded-xl shadow-sm border border-slate-200 cursor-grab hover:shadow-lg transition-all hover:-translate-y-1 relative overflow-hidden">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-purple-500"></div>
-                        <div class="flex items-center gap-2 mb-2">
-                          <div
-                            class="w-7 h-7 rounded-full bg-gradient-to-br from-purple-100 to-purple-200 flex items-center justify-center text-[10px] font-bold text-purple-600">
-                            CS</div>
-                          <h4 class="font-bold text-slate-800 text-xs">Clínica Sorriso</h4>
-                        </div>
-                        <div class="text-[10px] text-slate-500 space-y-1 mb-2 font-medium">
-                          <p>Contrato anual pendente.</p>
-                        </div><span
-                          class="px-2 py-0.5 rounded border border-purple-100 bg-purple-50 text-purple-600 text-[9px] font-bold">Cliente
-                          Fixo</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="w-[240px] flex flex-col flex-shrink-0 group">
-                    <div class="flex items-center justify-between mb-3 px-1">
-                      <div class="flex items-center gap-2">
-                        <div class="w-2 h-2 rounded-full bg-green-500 ring-2 ring-green-200"></div><span
-                          class="font-bold text-slate-700 text-xs uppercase tracking-wide">Fechado</span>
-                      </div><span
-                        class="bg-slate-200 text-slate-600 text-[10px] font-bold px-2 py-0.5 rounded-full">2</span>
-                    </div>
-                    <div
-                      class="flex-1 bg-slate-100/80 rounded-xl p-2 space-y-3 overflow-y-auto border border-slate-200/60">
-                      <div
-                        class="bg-white p-3 rounded-xl shadow-sm border border-green-200 cursor-grab hover:shadow-lg transition-all hover:-translate-y-1 relative overflow-hidden">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-green-500"></div>
-                        <div class="flex justify-between items-center mb-1">
-                          <h4 class="font-bold text-slate-800 text-xs">Barbearia VIP</h4><svg
-                            class="w-3 h-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                          </svg>
-                        </div>
-                        <p
-                          class="text-[9px] text-green-600 mt-1 font-bold bg-green-50 px-2 py-0.5 rounded inline-block">
-                          R$ 297/mês</p>
-                      </div>
-                      <div
-                        class="bg-white p-3 rounded-xl shadow-sm border border-green-200 cursor-grab hover:shadow-lg transition-all hover:-translate-y-1 relative overflow-hidden">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-green-500"></div>
-                        <div class="flex justify-between items-center mb-1">
-                          <h4 class="font-bold text-slate-800 text-xs">Academia Fit</h4><svg
-                            class="w-3 h-3 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                          </svg>
-                        </div>
-                        <p
-                          class="text-[9px] text-green-600 mt-1 font-bold bg-green-50 px-2 py-0.5 rounded inline-block">
-                          R$ 97/mês</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div id="view-chat" class="flex flex-1 w-full h-full animate-fade-in">
-              <div class="hidden lg:flex flex-col w-80 bg-white border-r border-slate-100 flex-shrink-0">
-                <div class="p-5 border-b border-slate-100">
-                  <h3 class="font-bold text-slate-800 text-lg mb-4">Conversas</h3>
-                  <div class="relative"><input type="text" placeholder="Buscar..."
-                      class="w-full bg-slate-50 border border-slate-200 rounded-lg py-2 px-4 text-sm focus:outline-none focus:border-brand-primary transition-colors"><svg
-                      class="w-4 h-4 text-slate-400 absolute right-3 top-2.5" fill="none" viewBox="0 0 24 24"
-                      stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg></div>
-                </div>
-                <div class="flex-1 overflow-y-auto">
-                  <div
-                    class="p-4 border-l-4 border-brand-primary bg-brand-50/50 cursor-pointer hover:bg-brand-50 transition-colors">
-                    <div class="flex justify-between mb-1"><span class="font-bold text-slate-800 text-sm">TechSolutions
-                        Ltda</span><span class="text-xs text-brand-primary font-bold">14:32</span></div>
-                    <p class="text-xs text-slate-500 truncate">Agendamento confirmado...</p>
-                    <div class="mt-2 flex gap-1"><span
-                        class="px-2 py-0.5 bg-green-100 text-green-700 text-[10px] font-bold rounded">Lead Quente</span>
-                    </div>
-                  </div>
-                  <div
-                    class="p-4 border-l-4 border-transparent hover:bg-slate-50 cursor-pointer transition-colors border-b border-slate-50">
-                    <div class="flex justify-between mb-1"><span class="font-bold text-slate-600 text-sm">Café do
-                        Ponto</span><span class="text-xs text-slate-400">11:15</span></div>
-                    <p class="text-xs text-slate-400 truncate">Sempre quis automatizar meu negócio.</p>
-                  </div>
-                  <div
-                    class="p-4 border-l-4 border-transparent hover:bg-slate-50 cursor-pointer transition-colors border-b border-slate-50">
-                    <div class="flex justify-between mb-1"><span class="font-bold text-slate-600 text-sm">Mercado
-                        Silva</span><span class="text-xs text-slate-400">Ontem</span></div>
-                    <p class="text-xs text-slate-400 truncate">Que aplicativo fenomenal, esta atendendo meus clientes de
-                      forma 100% automatica.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="flex-1 flex flex-col bg-[#F0F2F5] relative w-full">
-                <div class="bg-white p-4 border-b border-slate-200 flex justify-between items-center z-10 shadow-sm">
-                  <div class="flex items-center gap-3">
-                    <div
-                      class="w-10 h-10 rounded-full bg-gradient-to-r from-green-500 to-green-700 flex items-center justify-center text-white font-bold shadow-md">
-                      TS</div>
-                    <div>
-                      <h4 class="font-bold text-slate-800 text-sm">TechSolutions Ltda</h4><span
-                        class="text-xs text-green-500 flex items-center gap-1 font-medium"><span
-                          class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Online</span>
-                    </div>
-                  </div>
-                  <div class="flex items-center gap-3">
-                    <div
-                      class="px-3 py-1.5 bg-brand-50 border border-brand-200 rounded-full flex items-center gap-2 shadow-sm">
-                      <div class="relative w-8 h-4 bg-brand-primary rounded-full transition-colors">
-                        <div class="absolute right-0.5 top-0.5 w-3 h-3 bg-white rounded-full shadow-sm"></div>
-                      </div><span class="text-xs font-bold text-brand-dark uppercase tracking-wider">IA Ativa</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex-1 p-6 overflow-y-auto space-y-4 relative" id="chat-container">
-                  <div
-                    class="absolute inset-0 opacity-[0.04] pointer-events-none bg-[url('https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png')]">
-                  </div>
-                </div>
-                <div class="bg-[#F0F2F5] p-4 border-t border-slate-200">
-                  <div class="bg-white rounded-xl p-2 flex items-center gap-4 shadow-sm border border-slate-100"><svg
-                      class="w-6 h-6 text-slate-400 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg><input type="text" placeholder="IA está digitando uma resposta..." disabled
-                      class="flex-1 bg-transparent focus:outline-none text-sm text-slate-500 italic">
-                    <div
-                      class="w-9 h-9 rounded-lg bg-brand-primary flex items-center justify-center text-white shadow-md hover:bg-brand-dark transition-colors cursor-pointer">
-                      <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                        <path
-                          d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a href="#precos"
+              class="w-full sm:w-auto px-6 py-3 bg-brand-primary text-white text-base font-bold rounded-xl shadow-xl shadow-brand-primary/30 transition-all hover:bg-brand-dark hover:shadow-2xl hover:-translate-y-1">
+              Quero parar de perder vendas
+            </a>
+            <a href="https://wa.me/48991319311" rel="noopener noreferrer" target="_blank"
+              class="w-full sm:w-auto px-6 py-3 bg-white border-2 border-slate-100 text-slate-700 font-bold rounded-xl transition-all hover:border-brand-primary hover:text-brand-primary hover:shadow-lg flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.008-.57-.008-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+              </svg>
+              Falar com um consultor
+            </a>
           </div>
         </div>
-      </div>
-      </div>
-    </section>
+
+        <!-- Card 3D — perspective aplicada no pai -->
+        <div id="fc-card-scene" class="relative z-10 w-full mx-auto px-3 md:px-6"
+          style="max-width:1440px;perspective:1400px;perspective-origin:50% 0%;flex:1;min-height:0;display:flex;flex-direction:column;">
+          <div id="fc-hero-card"
+            style="transform-origin:center bottom;transform:rotateX(18deg) scale(1.04);will-change:transform;border:2px solid #374151;border-radius:20px;padding:6px;background:#0f172a;box-shadow:0 0 #0000004d,0 9px 20px rgba(0,0,0,.5),0 37px 37px rgba(0,0,0,.4),0 84px 50px rgba(0,0,0,.22),0 149px 60px rgba(0,0,0,.08);flex:1;min-height:0;display:flex;flex-direction:column;">
+            <div id="fc-slides-wrap" style="border-radius:14px;overflow:hidden;flex:1;min-height:0;position:relative;">
+
+              <!-- Slide 0 -->
+              <div class="fc-slide" data-slide="0"
+                style="position:absolute;inset:0;opacity:1;transform:translateX(0) scale(1);transition:opacity 0.6s ease,transform 0.6s ease;will-change:transform,opacity;">
+                <img src="./assets/dashboard.png" alt="Dashboard FasterChat — atendimento e funil"
+                  style="width:100%;height:100%;object-fit:fill;object-position:top center;display:block;"
+                  loading="eager" decoding="async" fetchpriority="high">
+                <!-- <div class="fc-slide-caption"
+                  style="position:absolute;bottom:0;left:0;right:0;padding:32px 28px 20px;background:linear-gradient(to top,rgba(0,0,0,0.72) 0%,transparent 100%);pointer-events:none;">
+                  <p
+                    style="color:#fff;font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;opacity:0.7;margin-bottom:4px;">
+                    01 / 03</p>
+                  <p style="color:#fff;font-size:1.1rem;font-weight:700;margin:0;">Atendimento & Funil de Vendas</p>
+                </div> -->
+              </div>
+
+              <!-- Slide 1 -->
+              <div class="fc-slide" data-slide="1"
+                style="position:absolute;inset:0;opacity:0;transform:translateX(4%) scale(1.02);transition:opacity 0.6s ease,transform 0.6s ease;will-change:transform,opacity;">
+                <img src="./assets/funil.png" alt="Funil FasterChat — automações com IA"
+                  style="width:100%;height:100%;object-fit:fill;object-position:top center;display:block;"
+                  loading="lazy" decoding="async">
+                <!-- <div class="fc-slide-caption"
+                  style="position:absolute;bottom:0;left:0;right:0;padding:32px 28px 20px;background:linear-gradient(to top,rgba(0,0,0,0.72) 0%,transparent 100%);pointer-events:none;">
+                  <p
+                    style="color:#fff;font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;opacity:0.7;margin-bottom:4px;">
+                    02 / 03</p>
+                  <p style="color:#fff;font-size:1.1rem;font-weight:700;margin:0;">Automações com IA 24h</p>
+                </div> -->
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="fc-slide" data-slide="2"
+                style="position:absolute;inset:0;opacity:0;transform:translateX(4%) scale(1.02);transition:opacity 0.6s ease,transform 0.6s ease;will-change:transform,opacity;">
+                <img src="./assets/work-flow.png" alt="Workflow FasterChat — campanhas e disparos"
+                  style="width:100%;height:100%;object-fit:fill;object-position:top center;display:block;"
+                  loading="lazy" decoding="async">
+                <!-- <div class="fc-slide-caption"
+                  style="position:absolute;bottom:0;left:0;right:0;padding:32px 28px 20px;background:linear-gradient(to top,rgba(0,0,0,0.72) 0%,transparent 100%);pointer-events:none;">
+                  <p
+                    style="color:#fff;font-size:0.8rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;opacity:0.7;margin-bottom:4px;">
+                    03 / 03</p>
+                  <p style="color:#fff;font-size:1.1rem;font-weight:700;margin:0;">Campanhas & Disparos em Massa</p>
+                </div> -->
+              </div>
+
+              <!-- Indicador de fase locked -->
+              <div id="fc-lock-hint"
+                style="position:absolute;bottom:56px;left:50%;transform:translateX(-50%) translateY(16px);opacity:0;transition:opacity 0.5s ease,transform 0.5s ease;z-index:30;pointer-events:none;white-space:nowrap;">
+                <div
+                  style="display:flex;align-items:center;gap:7px;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);border-radius:999px;padding:7px 14px;border:1px solid rgba(255,255,255,0.12);">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.75)"
+                    stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <polyline points="19 12 12 19 5 12" />
+                  </svg>
+                  <span
+                    style="color:rgba(255,255,255,0.8);font-size:0.72rem;font-weight:600;letter-spacing:0.05em;">Role
+                    para continuar</span>
+                </div>
+              </div>
+
+              <!-- Dot indicators -->
+              <div id="fc-slide-dots"
+                style="position:absolute;bottom:18px;right:20px;display:flex;flex-direction:column;gap:6px;z-index:20;">
+                <button class="fc-dot" data-dot="0" aria-label="Slide 1"
+                  style="width:6px;height:22px;border-radius:3px;background:rgba(255,255,255,0.9);border:none;cursor:pointer;transition:all 0.35s ease;padding:0;"></button>
+                <button class="fc-dot" data-dot="1" aria-label="Slide 2"
+                  style="width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,0.35);border:none;cursor:pointer;transition:all 0.35s ease;padding:0;"></button>
+                <button class="fc-dot" data-dot="2" aria-label="Slide 3"
+                  style="width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,0.35);border:none;cursor:pointer;transition:all 0.35s ease;padding:0;"></button>
+              </div>
+
+            </div>
+          </div><!-- /fc-hero-card -->
+        </div><!-- /perspective wrapper -->
+      </div><!-- /fc-hero-sticky -->
+    </section><!-- /fc-scroll-hero -->
+
+    <script>
+      (function () {
+        var section = document.getElementById('fc-scroll-hero');
+        var sticky = document.getElementById('fc-hero-sticky');
+        var scene = document.getElementById('fc-card-scene');
+        var card = document.getElementById('fc-hero-card');
+        var header = document.getElementById('fc-hero-header');
+        var hint = document.getElementById('fc-lock-hint');
+        var slides = Array.from(document.querySelectorAll('.fc-slide'));
+        var dots = Array.from(document.querySelectorAll('.fc-dot'));
+        if (!section || !card || !scene) return;
+
+        var SLIDE_COUNT = slides.length;            // 3 slides
+        var TICKS_PER_SLIDE = 5;                        // 5 "scrolls" por troca
+        var TOTAL_TICKS = (SLIDE_COUNT + 1) * TICKS_PER_SLIDE; // 20 ticks
+        var DELTA_PER_TICK = 100;
+        var MAX_DELTA_EVT = 400;
+        var HEADER_GAP = 75;                       // folga mínima abaixo do nav
+        var activeSlide = 0;
+
+        /* ── Utilitários ───────────────────────────────────── */
+        function lerp(a, b, t) { return a + (b - a) * t; }
+        function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+        /* ── Troca de slide ────────────────────────────────── */
+        function setSlide(idx) {
+          if (idx === activeSlide) return;
+          activeSlide = idx;
+          slides.forEach(function (sl, i) {
+            if (i === idx) {
+              sl.style.transition = 'none';
+              sl.style.opacity = '0';
+              sl.style.transform = 'translateX(4%) scale(1.02)';
+              sl.offsetHeight;
+              sl.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+              sl.style.opacity = '1';
+              sl.style.transform = 'translateX(0) scale(1)';
+            } else {
+              sl.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+              sl.style.opacity = '0';
+              sl.style.transform = i < idx
+                ? 'translateX(-4%) scale(0.98)'
+                : 'translateX(4%) scale(1.02)';
+            }
+          });
+          dots.forEach(function (dot, i) {
+            dot.style.background = i === idx ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.35)';
+            dot.style.height = i === idx ? '22px' : '6px';
+          });
+        }
+
+        /* ── Medidas dinâmicas ─────────────────────────────── */
+        // Retorna o bottom da nav (announcement + nav) em px do viewport
+        function getNavBottom() {
+          var nav = document.querySelector('header nav');
+          return nav ? nav.getBoundingClientRect().bottom : 0;
+        }
+
+        // Dimensões e posição-alvo do scene quando centralizado
+        function getSceneLayout() {
+          var vw = window.innerWidth;
+          var vh = window.innerHeight;
+          var navB = getNavBottom();
+          var pad = vw < 768 ? 16 : 24;
+          var maxW = 1440;
+          var w = Math.min(vw - pad * 2, maxW);
+          var topMin = navB + HEADER_GAP;            // teto absoluto
+          var botPad = 40;
+          var availH = vh - topMin - botPad;
+          var h = Math.min(Math.round(w * 0.595), availH);
+          var left = Math.round((vw - w) / 2);
+          var centerT = Math.round(topMin);
+          return { w: w, h: h, left: left, centerTop: centerT, topMin: topMin };
+        }
+
+        /* ── Captura posição natural do scene e fixa ────────── */
+        // Mede antes de tirar do fluxo — garante zero pulo visual
+        var initRect = scene.getBoundingClientRect();
+        var sceneStartT = initRect.top;              // posição inicial (abaixo do texto)
+        var lay = getSceneLayout();
+
+        scene.style.position = 'fixed';
+        scene.style.top = sceneStartT + 'px';
+        scene.style.left = lay.left + 'px';
+        scene.style.width = lay.w + 'px';
+        scene.style.height = lay.h + 'px';
+        scene.style.zIndex = '45';
+        scene.style.flex = 'none';
+        scene.style.maxWidth = 'none';
+        scene.style.padding = '0';
+        scene.style.margin = '0';
+
+        /* ── Lerp state ────────────────────────────────────── */
+        var curRot = 18, tgtRot = 18;
+        var curScl = 1.04, tgtScl = 1.04;
+        var curHTY = 0, tgtHTY = 0;          // header translateY
+        var curHOp = 1, tgtHOp = 1;          // header opacity
+        var curTop = sceneStartT, tgtTop = sceneStartT; // scene.top (px)
+        var curSOp = 1, tgtSOp = 1;          // scene opacity
+        var rafId = null;
+
+        function applyTransforms() {
+          card.style.transform =
+            'rotateX(' + curRot.toFixed(3) + 'deg) ' +
+            'scale(' + curScl.toFixed(4) + ')';
+          scene.style.top = curTop.toFixed(1) + 'px';
+          scene.style.opacity = curSOp.toFixed(3);
+          if (header) {
+            header.style.transform = 'translateY(' + curHTY.toFixed(2) + 'px)';
+            header.style.opacity = curHOp.toFixed(3);
+          }
+        }
+
+        function tick() {
+          var sp = 0.12;
+          curRot = lerp(curRot, tgtRot, sp);
+          curScl = lerp(curScl, tgtScl, sp);
+          curHTY = lerp(curHTY, tgtHTY, sp);
+          curHOp = lerp(curHOp, tgtHOp, sp);
+          curTop = lerp(curTop, tgtTop, sp);
+          curSOp = lerp(curSOp, tgtSOp, sp);
+          // Safety clamp: card nunca acima da posição inicial (abaixo do header do hero)
+          if (heroState === 'scroll') {
+            var l = getSceneLayout();
+            curTop = Math.max(curTop, l.topMin);
+          }
+          applyTransforms();
+          var done =
+            Math.abs(curRot - tgtRot) < 0.01 &&
+            Math.abs(curScl - tgtScl) < 0.0001 &&
+            Math.abs(curHTY - tgtHTY) < 0.05 &&
+            Math.abs(curHOp - tgtHOp) < 0.004 &&
+            Math.abs(curTop - tgtTop) < 0.2 &&
+            Math.abs(curSOp - tgtSOp) < 0.004;
+          if (!done) rafId = requestAnimationFrame(tick);
+          else rafId = null;
+        }
+        function scheduleRaf() { if (!rafId) rafId = requestAnimationFrame(tick); }
+
+        /* ── Hint visual ───────────────────────────────────── */
+        function showHint() {
+          if (!hint) return;
+          hint.style.opacity = '1';
+          hint.style.transform = 'translateX(-50%) translateY(0)';
+        }
+        function hideHint() {
+          if (!hint) return;
+          hint.style.opacity = '0';
+          hint.style.transform = 'translateX(-50%) translateY(16px)';
+        }
+
+        /* ── State machine ─────────────────────────────────── */
+        // 'scroll'  → Phase A: card sobe + desinclina via scroll
+        // 'locking' → animação assentando
+        // 'locked'  → Phase B: wheel events trocam imagens
+        // 'done'    → liberado, scroll normal retoma
+        var heroState = 'scroll';
+        var accDelta = 0;
+        var tickCount = 0;
+
+        // Calcula scroll exato onde o hero deve travar
+        function getHeroLockScroll() {
+          var extraH = section.offsetHeight - window.innerHeight;
+          // p=0.95 é o threshold, então o scroll exato é section.offsetTop + extraH * 0.95
+          return section.offsetTop + Math.round(extraH * 0.95);
+        }
+
+        function lockBodyScroll() {
+          document.body.style.overflow = 'hidden';
+          document.documentElement.style.overflow = 'hidden';
+        }
+        function unlockBodyScroll() {
+          document.body.style.overflow = '';
+          document.documentElement.style.overflow = '';
+        }
+
+        function enterLocking() {
+          if (heroState !== 'scroll') return;
+          heroState = 'locking';
+          var mobile = window.innerWidth < 768;
+          var l = getSceneLayout();
+          tgtRot = 0;
+          tgtScl = mobile ? 0.97 : 1.0;
+          tgtHTY = -140;
+          tgtHOp = 0;
+          // SNAP imediato — sem lerp, sem delay posicional
+          curTop = l.centerTop;
+          tgtTop = l.centerTop;
+          scene.style.top = l.centerTop + 'px';
+          // Força scroll na posição exata e TRAVA o body
+          window.scrollTo(0, getHeroLockScroll());
+          lockBodyScroll();
+          scheduleRaf();
+          setTimeout(function () {
+            if (heroState !== 'locking') return;
+            heroState = 'locked';
+            accDelta = 0;
+            tickCount = 0;
+            setSlide(0);
+            showHint();
+          }, 400);
+        }
+
+        // Libera para frente — NÃO faz fade nem pula scroll.
+        // O card fica fixo no centro; a próxima seção (z-index > 45)
+        // sobe por cima dele naturalmente conforme o usuário scrolla.
+        function releaseLock() {
+          if (heroState !== 'locked') return;
+          heroState = 'done';
+          hideHint();
+          unlockBodyScroll();
+        }
+
+        // Re-entra no locked quando o usuário scrolla de volta pra cima
+        // vindo da seção de baixo. O card ainda está no centro.
+        function reenterLocked() {
+          heroState = 'locked';
+          lockBodyScroll();
+          scene.style.pointerEvents = '';
+          curSOp = 1; tgtSOp = 1;
+          scene.style.opacity = '1';
+          var l = getSceneLayout();
+          curTop = l.centerTop; tgtTop = l.centerTop;
+          scene.style.top = l.centerTop + 'px';
+          // Força scroll na posição exata de lock
+          window.scrollTo(0, getHeroLockScroll());
+          // Posiciona no último slide, pronto pra voltar
+          tickCount = TOTAL_TICKS - 1;
+          accDelta = 0;
+          backAccum = 0;
+          activeSlide = -1; // força setSlide a aplicar
+          setSlide(SLIDE_COUNT - 1);
+          showHint();
+        }
+
+        // Libera para trás (volta para o topo / seção anterior)
+        function releaseBack() {
+          if (heroState !== 'locked') return;
+          heroState = 'scroll';
+          hideHint();
+          unlockBodyScroll();
+          // Restaura header e card ao estado inicial
+          tgtRot = 18;
+          tgtScl = 1.04;
+          tgtHTY = 0;
+          tgtHOp = 1;
+          tgtSOp = 1;
+          scene.style.pointerEvents = '';
+          // SNAP posição direto para sceneStartT — sem lerp
+          // Evita que o card passe por cima do título do hero durante a animação
+          curTop = sceneStartT;
+          tgtTop = sceneStartT;
+          scene.style.top = sceneStartT + 'px';
+          // Volta o scroll para o topo da seção hero
+          window.scrollTo(0, section.offsetTop);
+          scheduleRaf();
+        }
+
+        /* ── Processamento de delta (wheel + touch) ────────── */
+        var backAccum = 0;              // acumula delta negativo para soltar pra trás
+        var BACK_THRESHOLD = 5;         // ticks negativos para liberar
+
+        function processDelta(rawDelta) {
+          var delta = clamp(rawDelta, -MAX_DELTA_EVT, MAX_DELTA_EVT);
+          accDelta += delta;
+          var ticks = Math.floor(Math.abs(accDelta) / DELTA_PER_TICK);
+          if (!ticks) return;
+          var sign = accDelta >= 0 ? 1 : -1;
+          accDelta -= sign * ticks * DELTA_PER_TICK;
+
+          if (sign < 0 && tickCount === 0) {
+            // Já está no slide 0, acumulando scroll pra cima
+            backAccum += ticks;
+            if (backAccum >= BACK_THRESHOLD) {
+              backAccum = 0;
+              releaseBack();
+            }
+            return;
+          }
+
+          // Reset do acumulador quando scrolla pra frente
+          if (sign > 0) backAccum = 0;
+
+          tickCount = clamp(tickCount + sign * ticks, 0, TOTAL_TICKS);
+          var newSlide = clamp(Math.floor(tickCount / TICKS_PER_SLIDE), 0, SLIDE_COUNT - 1);
+          setSlide(newSlide);
+          if (tickCount >= TOTAL_TICKS) releaseLock();
+        }
+
+        /* ── Phase A: scroll handler ───────────────────────── */
+        var lastScrollY = window.scrollY;
+
+        function onScroll() {
+          var scrollY = window.scrollY;
+          var goingUp = scrollY < lastScrollY;
+          lastScrollY = scrollY;
+
+          // Re-entry: voltando de 'done' ao scrollar pra cima
+          if (heroState === 'done' && goingUp) {
+            var r = section.getBoundingClientRect();
+            // Se o fundo da seção hero voltou a ser visível na tela
+            if (r.bottom > window.innerHeight * 0.7) {
+              reenterLocked();
+            }
+            return;
+          }
+
+          if (heroState !== 'scroll') return;
+          var rect = section.getBoundingClientRect();
+          var extraH = section.offsetHeight - window.innerHeight;
+          var p = extraH > 0 ? clamp(-rect.top / extraH, 0, 1) : 1;
+          var mobile = window.innerWidth < 768;
+          var l = getSceneLayout();
+
+          // Card desinclina e sobe para o centro
+          tgtRot = 18 * (1 - p);
+          tgtScl = mobile ? 0.97 + 0.09 * p : 1.04 - 0.04 * p;
+
+          // Header sobe e some
+          tgtHTY = -140 * p;
+          tgtHOp = clamp(1 - p * 1.6, 0, 1);
+
+          // Card top: DIRETO baseado em p — sem lerp, sem lag
+          // Isso garante que mesmo em scroll rápido o card acompanha 1:1
+          var directTop = Math.max(
+            l.topMin,
+            sceneStartT + (l.centerTop - sceneStartT) * p
+          );
+          curTop = directTop;
+          tgtTop = directTop;
+          scene.style.top = directTop + 'px';
+
+          scheduleRaf();
+
+          // Dispara travamento ao final da Phase A
+          if (p >= 0.95) enterLocking();
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', function () {
+          lay = getSceneLayout();
+          scene.style.left = lay.left + 'px';
+          scene.style.width = lay.w + 'px';
+          scene.style.height = lay.h + 'px';
+          if (heroState === 'scroll') {
+            onScroll();
+          } else if (heroState === 'locked') {
+            curTop = lay.centerTop;
+            tgtTop = lay.centerTop;
+            scene.style.top = lay.centerTop + 'px';
+          }
+        }, { passive: true });
+
+        /* ── Phase B: wheel ────────────────────────────────── */
+        window.addEventListener('wheel', function (e) {
+          // Re-entry imediato: scroll pra cima no estado 'done'
+          if (heroState === 'done' && e.deltaY < 0) {
+            var r = section.getBoundingClientRect();
+            if (r.bottom > window.innerHeight * 0.7) {
+              e.preventDefault();
+              reenterLocked();
+              lockBodyScroll();
+              return;
+            }
+          }
+          // INTERCEPTAÇÃO ANTECIPADA: durante scroll, se estamos perto
+          // do ponto de trava e scrollando pra baixo, bloqueia o scroll
+          // ANTES que o browser execute — impede overshoot em scroll rápido
+          if (heroState === 'scroll' && e.deltaY > 0) {
+            var rect = section.getBoundingClientRect();
+            var extraH = section.offsetHeight - window.innerHeight;
+            var p = extraH > 0 ? clamp(-rect.top / extraH, 0, 1) : 1;
+            if (p >= 0.97) {
+              e.preventDefault();
+              enterLocking();
+              return;
+            }
+          }
+          // Bloqueia scroll em locking/locked
+          if (heroState !== 'locked' && heroState !== 'locking') return;
+          e.preventDefault();
+          if (heroState === 'locked') processDelta(e.deltaY);
+        }, { passive: false });
+
+        /* ── Phase B: touch ────────────────────────────────── */
+        var touchY0 = 0;
+        window.addEventListener('touchstart', function (e) {
+          touchY0 = e.touches[0].clientY;
+        }, { passive: true });
+        window.addEventListener('touchmove', function (e) {
+          // Re-entry touch: arrasta pra baixo (scroll up) no done
+          if (heroState === 'done') {
+            var dy = touchY0 - e.touches[0].clientY;
+            touchY0 = e.touches[0].clientY;
+            if (dy < 0) {
+              var r = section.getBoundingClientRect();
+              if (r.bottom > window.innerHeight * 0.7) {
+                e.preventDefault();
+                reenterLocked();
+                lockBodyScroll();
+                return;
+              }
+            }
+            return;
+          }
+          // INTERCEPTAÇÃO ANTECIPADA touch: perto do threshold scrollando pra baixo
+          if (heroState === 'scroll') {
+            var dyScroll = touchY0 - e.touches[0].clientY;
+            touchY0 = e.touches[0].clientY;
+            if (dyScroll > 0) { // scrollando pra baixo
+              var rect = section.getBoundingClientRect();
+              var extraH = section.offsetHeight - window.innerHeight;
+              var p = extraH > 0 ? clamp(-rect.top / extraH, 0, 1) : 1;
+              if (p >= 0.97) {
+                e.preventDefault();
+                enterLocking();
+                return;
+              }
+            }
+            return;
+          }
+          if (heroState !== 'locked' && heroState !== 'locking') return;
+          e.preventDefault();
+          if (heroState === 'locked') {
+            var dy2 = touchY0 - e.touches[0].clientY;
+            touchY0 = e.touches[0].clientY;
+            processDelta(dy2 * 2.5);
+          }
+        }, { passive: false });
+
+        /* ── Phase B: teclado ──────────────────────────────── */
+        window.addEventListener('keydown', function (e) {
+          if (heroState !== 'locked' && heroState !== 'locking') return;
+          if (e.key === 'ArrowDown' || e.key === ' ' || e.key === 'PageDown') {
+            e.preventDefault();
+            if (heroState === 'locked') processDelta(DELTA_PER_TICK);
+          } else if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+            e.preventDefault();
+            if (heroState === 'locked') processDelta(-DELTA_PER_TICK);
+          }
+        });
+
+        /* ── Dots: clicáveis na fase locked ────────────────── */
+        dots.forEach(function (dot, i) {
+          dot.addEventListener('click', function () {
+            if (heroState !== 'locked') return;
+            tickCount = i * TICKS_PER_SLIDE;
+            setSlide(i);
+          });
+        });
+
+        /* ── Init ──────────────────────────────────────────── */
+        onScroll();
+      })();
+    </script>
 
     <!-- Seção Como Funciona -->
     <section id="como-funciona" class="relative py-10 md:py-14 overflow-hidden" aria-labelledby="como-funciona-title"
@@ -1275,14 +1328,7 @@
                     <rect x="62" y="36" width="14" height="40" rx="3" fill="url(#ic3b3)" />
                     <rect x="82" y="24" width="14" height="52" rx="3" fill="url(#ic3b4)" />
                     <!-- Trend line -->
-                    <path d="M29 60L49 48L69 36L89 24" stroke="rgba(52,211,153,.45)" stroke-width="1.5"
-                      stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 2" fill="none" />
                     <!-- Growth arrow -->
-                    <circle cx="96" cy="22" r="8" fill="rgba(16,185,129,.12)" stroke="rgba(52,211,153,.22)"
-                      stroke-width=".7" />
-                    <path d="M96 26L96 19" stroke="#34d399" stroke-width="1.8" stroke-linecap="round" />
-                    <path d="M93.5 21L96 18.5L98.5 21" stroke="#34d399" stroke-width="1.8" stroke-linecap="round"
-                      stroke-linejoin="round" fill="none" />
                   </svg>
                 </div>
               </div>
@@ -1760,7 +1806,7 @@
 
     <!-- Seção de Funcionalidades -->
     <section id="funcionalidades"
-      class="py-10 pb-4 md:py-14 bg-gradient-to-b from-white via-slate-50/30 to-white relative z-20 overflow-hidden"
+      class="py-10 pb-4 md:py-14 bg-gradient-to-b from-white via-slate-50 to-white relative z-20 overflow-hidden"
       aria-labelledby="funcionalidades-title">
       <!-- Background decorativo -->
       <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -2376,7 +2422,7 @@
                 </div>
               </div>
             </div>
-            <h3 class="text-2xl font-display font-extrabold mb-3 text-slate-900">Pare de perder tempo agendando pelo
+            <h3 class="text-2xl font-display font-extrabold mb-3 text-slate-900">SEM tempo agendando pelo
               WhatsApp</h3>
             <p class="text-slate-600 leading-relaxed text-base">
               <strong class="text-slate-800">O cliente pede um horário. A IA consulta sua agenda, marca e bloqueia no
@@ -2932,7 +2978,7 @@
   </main>
 
   <!-- Rodapé -->
-  <footer class="pt-10 pb-6 text-slate-400" role="contentinfo">
+  <footer class="pt-10 pb-6 text-slate-400 bg-white" role="contentinfo">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-1 md:grid-cols-4 md:gap-12 mb-4 text-slate-600">
         <div class="col-span-1 md:col-span-2 md:mr-10">
@@ -2975,7 +3021,8 @@
         </nav>
       </div>
 
-      <div class="border-t border-slate-400 pt-8 flex flex-col md:flex-row justify-between items-center text-xs gap-4">
+      <div
+        class="border-t border-slate-400 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-600 gap-4">
         <p>&copy; 2026 FasterChat Tecnologia. Todos os direitos reservados.</p>
         <div class="flex gap-4">
           <a href="https://www.instagram.com/fasterchat/" rel="noopener noreferrer" target="_blank"
