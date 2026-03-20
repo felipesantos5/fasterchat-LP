@@ -394,17 +394,17 @@
         <div class="absolute inset-0 bg-hero-pattern pointer-events-none"></div>
 
         <!-- Header: título + subtítulo + CTAs -->
-        <div id="fc-hero-header" class="relative z-10 text-center max-w-4xl mx-auto px-6 mb-5"
+        <div id="fc-hero-header" class="relative z-10 text-center max-w-4xl mx-auto px-4 md:px-6 mb-2 md:mb-5"
           style="will-change:transform;">
 
           <h1 id="hero-title"
-            class="text-4xl lg:text-6xl font-display font-bold tracking-tight leading-[1.1] mb-4 text-slate-900">
+            class="text-3xl md:text-4xl lg:text-6xl font-display font-bold tracking-tight leading-[1.1] mb-4 lg:mb-4 text-slate-900">
             Seu WhatsApp perde vendas <br class="hidden lg:block" />
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-dark">toda vez que
               você demora pra responder.</span>
           </h1>
 
-          <p class="text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto mb-6 leading-relaxed font-medium">
+          <p class="text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto mb-3 md:mb-6 leading-relaxed font-medium">
             O FasterChat coloca uma IA no seu WhatsApp que atende, qualifica, agenda e fecha vendas — 24h por dia, 7
             dias por semana. Você conecta em 5 minutos e nunca mais perde cliente por demora.
           </p>
@@ -562,8 +562,17 @@
         }
 
         /* ── Medidas dinâmicas ─────────────────────────────── */
-        // Retorna o bottom da nav (announcement + nav) em px do viewport
+        // Retorna o bottom fixo da área bloqueada no topo (barra + nav quando fixo)
         function getNavBottom() {
+          var vw = window.innerWidth;
+          var isMob = vw < 768;
+          if (isMob) {
+            // No mobile a nav é relative e some com o scroll.
+            // Usar apenas a altura da barra de anúncio (sempre fixed).
+            var bar = document.getElementById('announcement-bar');
+            var barH = bar ? bar.offsetHeight : 0;
+            return barH; // fixo, não muda com o scroll
+          }
           var nav = document.querySelector('header nav');
           return nav ? nav.getBoundingClientRect().bottom : 0;
         }
@@ -572,14 +581,18 @@
         function getSceneLayout() {
           var vw = window.innerWidth;
           var vh = window.innerHeight;
+          var isMob = vw < 768;
           var navB = getNavBottom();
-          var pad = vw < 768 ? 16 : 24;
+          var pad = isMob ? 12 : 24;
           var maxW = 1440;
           var w = Math.min(vw - pad * 2, maxW);
-          var topMin = navB + HEADER_GAP;            // teto absoluto
-          var botPad = 40;
+          var gap = isMob ? Math.round(vh * 0.20) : HEADER_GAP;
+          var topMin = navB + gap;
+          var botPad = isMob ? 16 : 40;
           var availH = vh - topMin - botPad;
-          var h = Math.min(Math.round(w * 0.595), availH);
+          var h = isMob
+            ? Math.min(Math.round(availH * 0.62), availH)
+            : Math.min(Math.round(w * 0.595), availH);
           var left = Math.round((vw - w) / 2);
           var centerT = Math.round(topMin);
           return { w: w, h: h, left: left, centerTop: centerT, topMin: topMin };
@@ -589,6 +602,11 @@
         // Mede antes de tirar do fluxo — garante zero pulo visual
         var initRect = scene.getBoundingClientRect();
         var sceneStartT = initRect.top;              // posição inicial (abaixo do texto)
+        // No mobile, ancora o card direto abaixo do header (elimina gap do flex)
+        if (window.innerWidth < 768) {
+          var hdrEl = document.getElementById('fc-hero-header');
+          if (hdrEl) sceneStartT = hdrEl.getBoundingClientRect().bottom + 12;
+        }
         var lay = getSceneLayout();
 
         scene.style.position = 'fixed';
@@ -1852,23 +1870,31 @@
             data-aos="fade-up" data-aos-delay="100">
             <!-- Ilustração visual do chat personalizado -->
             <div class="mb-4 relative">
-              <div class="flex flex-col gap-2" style="min-height:220px;">
+              <div class="flex flex-col gap-2" style="min-height:224px;">
 
                 <!-- Balão cliente 1 — sempre visível -->
                 <div class="flex items-end gap-2 justify-end">
-                  <div class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[180px] border border-emerald-100">
+                  <div
+                    class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[180px] border border-emerald-100">
                     <p class="text-emerald-700 text-xs">Olá! Vi que vocês têm o produto. Qual o valor?</p>
                     <p class="text-[10px] text-emerald-400 text-right mt-1 leading-none">14:32</p>
                   </div>
                   <div class="w-7 h-7 rounded-full bg-emerald-100 flex-shrink-0 flex items-center justify-center">
-                    <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
                   </div>
                 </div>
 
                 <!-- Typing IA -->
-                <div id="chat-typing-ia" class="flex items-end gap-2" style="display:none;opacity:0;transform:translateY(5px);transition:opacity 0.35s ease,transform 0.35s ease">
+                <div id="chat-typing-ia" class="flex items-end gap-2"
+                  style="display:none;opacity:0;transform:translateY(5px);transition:opacity 0.35s ease,transform 0.35s ease">
                   <div class="w-7 h-7 rounded-full bg-emerald-500 flex-shrink-0 flex items-center justify-center">
-                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                      stroke-width="2">
+                      <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
                   </div>
                   <div class="bg-emerald-500/10 rounded-2xl rounded-tl-sm px-3 py-2.5 border border-emerald-200">
                     <div class="flex items-center gap-1">
@@ -1880,18 +1906,25 @@
                 </div>
 
                 <!-- Balão IA — aparece após typing -->
-                <div id="chat-msg-ia" class="flex items-end gap-2" style="display:none;opacity:0;transform:translateY(5px);transition:opacity 0.4s ease,transform 0.4s ease">
+                <div id="chat-msg-ia" class="flex items-end gap-2"
+                  style="display:none;opacity:0;transform:translateY(5px);transition:opacity 0.4s ease,transform 0.4s ease">
                   <div class="w-7 h-7 rounded-full bg-emerald-500 flex-shrink-0 flex items-center justify-center">
-                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                      stroke-width="2">
+                      <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
                   </div>
-                  <div class="bg-emerald-500/10 rounded-2xl rounded-tl-sm px-3 py-2 max-w-[200px] border border-emerald-200">
-                    <p class="text-emerald-800 text-xs">Oi! O produto está por R$ 297 com frete grátis. Posso reservar pra você?</p>
+                  <div
+                    class="bg-emerald-500/10 rounded-2xl rounded-tl-sm px-3 py-2 max-w-[200px] border border-emerald-200">
+                    <p class="text-emerald-800 text-xs">Oi! O produto está por R$ 297 com frete grátis. Posso reservar
+                      pra você?</p>
                     <p class="text-[10px] text-emerald-500/60 text-right mt-1 leading-none">14:32</p>
                   </div>
                 </div>
 
                 <!-- Typing cliente -->
-                <div id="chat-typing-client" class="flex items-end gap-2 justify-end" style="display:none;opacity:0;transform:translateY(5px);transition:opacity 0.35s ease,transform 0.35s ease">
+                <div id="chat-typing-client" class="flex items-end gap-2 justify-end"
+                  style="display:none;opacity:0;transform:translateY(5px);transition:opacity 0.35s ease,transform 0.35s ease">
                   <div class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2.5 border border-emerald-100">
                     <div class="flex items-center gap-1">
                       <span class="chat-dot" style="background:#34d399"></span>
@@ -1900,18 +1933,26 @@
                     </div>
                   </div>
                   <div class="w-7 h-7 rounded-full bg-emerald-100 flex-shrink-0 flex items-center justify-center">
-                    <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
                   </div>
                 </div>
 
                 <!-- Balão cliente 2 — aparece após segundo typing -->
-                <div id="chat-msg-client" class="flex items-end gap-2 justify-end" style="display:none;opacity:0;transform:translateY(5px);transition:opacity 0.4s ease,transform 0.4s ease">
-                  <div class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[180px] border border-emerald-100">
+                <div id="chat-msg-client" class="flex items-end gap-2 justify-end"
+                  style="display:none;opacity:0;transform:translateY(5px);transition:opacity 0.4s ease,transform 0.4s ease">
+                  <div
+                    class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[180px] border border-emerald-100">
                     <p class="text-emerald-700 text-xs">Sim! Pode reservar, vou pagar agora 🙌</p>
                     <p class="text-[10px] text-emerald-400 text-right mt-1 leading-none">14:32</p>
                   </div>
                   <div class="w-7 h-7 rounded-full bg-emerald-100 flex-shrink-0 flex items-center justify-center">
-                    <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
+                      <path
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                    </svg>
                   </div>
                 </div>
 
@@ -1956,9 +1997,8 @@
                     <path id="mc-area-fill"
                       d="M0,56 C22,52 36,14 56,10 C74,7 94,24 116,40 C136,52 150,56 160,58 L160,72 L0,72 Z"
                       fill="url(#mcAreaG2)" style="opacity:0" />
-                    <path id="mc-area-line"
-                      d="M0,56 C22,52 36,14 56,10 C74,7 94,24 116,40 C136,52 150,56 160,58" fill="none"
-                      stroke="#10b981" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
+                    <path id="mc-area-line" d="M0,56 C22,52 36,14 56,10 C74,7 94,24 116,40 C136,52 150,56 160,58"
+                      fill="none" stroke="#10b981" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
                       style="stroke-dasharray:500;stroke-dashoffset:500" />
                     <circle cx="56" cy="10" r="5" fill="#10b981" opacity="0.12" />
                     <circle cx="56" cy="10" r="2.2" fill="#10b981" />
@@ -1967,10 +2007,10 @@
                       opacity="0.25" />
                   </svg>
                   <div class="flex justify-between flex-shrink-0 mt-1.5">
-                    <span class="text-[6.5px] text-slate-300">16 mar</span>
-                    <span class="text-[6.5px] text-slate-300">17 mar</span>
-                    <span class="text-[6.5px] text-slate-300">18 mar</span>
-                    <span class="text-[6.5px] text-slate-300">19 mar</span>
+                    <span class="text-[6.5px] text-slate-700">16 mar</span>
+                    <span class="text-[6.5px] text-slate-700">17 mar</span>
+                    <span class="text-[6.5px] text-slate-700">18 mar</span>
+                    <span class="text-[6.5px] text-slate-700">19 mar</span>
                   </div>
                 </div>
 
@@ -2035,18 +2075,30 @@
                   <p class="text-[10px] text-slate-400 font-medium flex-shrink-0">Pico de Mensagens</p>
                   <p class="text-[26px] font-extrabold text-slate-800 leading-none mt-0.5 flex-shrink-0">18:00</p>
                   <div class="flex items-end gap-[2px] flex-1">
-                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-50"  style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.05s"  data-h="12%"></div>
-                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-50"  style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.10s"  data-h="7%"></div>
-                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-100" style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.15s"  data-h="10%"></div>
-                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-100" style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.20s"  data-h="14%"></div>
-                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-200" style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.25s"  data-h="23%"></div>
-                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-200" style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.30s"  data-h="32%"></div>
-                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-300" style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.35s"  data-h="44%"></div>
-                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-300" style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.40s"  data-h="57%"></div>
-                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-400" style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.45s"  data-h="72%"></div>
-                    <div class="mc-bar flex-1 rounded-t-[3px] bg-emerald-600" style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.50s"  data-h="100%"></div>
-                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-300" style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.55s"  data-h="51%"></div>
-                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-100" style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.60s"  data-h="24%"></div>
+                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-50"
+                      style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.05s" data-h="12%"></div>
+                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-50"
+                      style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.10s" data-h="7%"></div>
+                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-100"
+                      style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.15s" data-h="10%"></div>
+                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-100"
+                      style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.20s" data-h="14%"></div>
+                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-200"
+                      style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.25s" data-h="23%"></div>
+                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-200"
+                      style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.30s" data-h="32%"></div>
+                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-300"
+                      style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.35s" data-h="44%"></div>
+                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-300"
+                      style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.40s" data-h="57%"></div>
+                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-400"
+                      style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.45s" data-h="72%"></div>
+                    <div class="mc-bar flex-1 rounded-t-[3px] bg-emerald-600"
+                      style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.50s" data-h="100%"></div>
+                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-300"
+                      style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.55s" data-h="51%"></div>
+                    <div class="mc-bar flex-1 rounded-t-[2px] bg-emerald-100"
+                      style="height:0%;transition:height 1.1s cubic-bezier(0.4,0,0.2,1) 0.60s" data-h="24%"></div>
                   </div>
                   <div class="flex justify-between flex-shrink-0" style="margin-top:5px;">
                     <span class="text-[6.5px] text-slate-300">00h</span>
@@ -2177,7 +2229,8 @@
                         <span id="rev-vip" class="text-[8px] font-bold text-amber-600">R$ 0</span>
                       </div>
                       <div class="w-full h-[3px] bg-slate-100 rounded-full overflow-hidden">
-                        <div id="bar-vip" class="h-full bg-amber-400 rounded-full" style="width:0%;transition:width 1.8s cubic-bezier(0.4,0,0.2,1)"></div>
+                        <div id="bar-vip" class="h-full bg-amber-400 rounded-full"
+                          style="width:0%;transition:width 1.8s cubic-bezier(0.4,0,0.2,1)"></div>
                       </div>
                     </div>
                   </div>
@@ -2233,7 +2286,8 @@
                         <span id="rev-bf" class="text-[8px] font-bold text-orange-500">R$ 0</span>
                       </div>
                       <div class="w-full h-[3px] bg-slate-100 rounded-full overflow-hidden">
-                        <div id="bar-bf" class="h-full bg-orange-400 rounded-full" style="width:0%;transition:width 1.8s cubic-bezier(0.4,0,0.2,1) 0.3s"></div>
+                        <div id="bar-bf" class="h-full bg-orange-400 rounded-full"
+                          style="width:0%;transition:width 1.8s cubic-bezier(0.4,0,0.2,1) 0.3s"></div>
                       </div>
                     </div>
                   </div>
@@ -2247,7 +2301,7 @@
                       stroke-width="2.2">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
-                    <span class="text-[8px] font-medium text-emerald-100">Último disparo gerou</span>
+                    <span class="text-[10px] font-medium text-emerald-100">Último disparo gerou</span>
                   </div>
                   <span class="text-[11px] font-extrabold text-white">R$ 14.800 em 1 dia</span>
                 </div>
@@ -2309,16 +2363,26 @@
                         </svg>
                       </div>
                       <div id="audio-wave-container" class="flex items-center gap-[2px] h-5 flex-1">
-                        <div class="audio-bar w-[3px] rounded-full bg-green-400" style="height:35%;--bar-delay:0s"></div>
-                        <div class="audio-bar w-[3px] rounded-full bg-green-500" style="height:60%;--bar-delay:-0.18s"></div>
-                        <div class="audio-bar w-[3px] rounded-full bg-green-600" style="height:90%;--bar-delay:-0.36s"></div>
-                        <div class="audio-bar w-[3px] rounded-full bg-green-500" style="height:100%;--bar-delay:-0.54s"></div>
-                        <div class="audio-bar w-[3px] rounded-full bg-green-400" style="height:70%;--bar-delay:-0.72s"></div>
-                        <div class="audio-bar w-[3px] rounded-full bg-green-600" style="height:85%;--bar-delay:-0.90s"></div>
-                        <div class="audio-bar w-[3px] rounded-full bg-green-400" style="height:50%;--bar-delay:-1.08s"></div>
-                        <div class="audio-bar w-[3px] rounded-full bg-green-500" style="height:65%;--bar-delay:-1.26s"></div>
-                        <div class="audio-bar w-[3px] rounded-full bg-green-400" style="height:40%;--bar-delay:-1.44s"></div>
-                        <div class="audio-bar w-[3px] rounded-full bg-green-300" style="height:30%;--bar-delay:-1.62s"></div>
+                        <div class="audio-bar w-[3px] rounded-full bg-green-400" style="height:35%;--bar-delay:0s">
+                        </div>
+                        <div class="audio-bar w-[3px] rounded-full bg-green-500" style="height:60%;--bar-delay:-0.18s">
+                        </div>
+                        <div class="audio-bar w-[3px] rounded-full bg-green-600" style="height:90%;--bar-delay:-0.36s">
+                        </div>
+                        <div class="audio-bar w-[3px] rounded-full bg-green-500" style="height:100%;--bar-delay:-0.54s">
+                        </div>
+                        <div class="audio-bar w-[3px] rounded-full bg-green-400" style="height:70%;--bar-delay:-0.72s">
+                        </div>
+                        <div class="audio-bar w-[3px] rounded-full bg-green-600" style="height:85%;--bar-delay:-0.90s">
+                        </div>
+                        <div class="audio-bar w-[3px] rounded-full bg-green-400" style="height:50%;--bar-delay:-1.08s">
+                        </div>
+                        <div class="audio-bar w-[3px] rounded-full bg-green-500" style="height:65%;--bar-delay:-1.26s">
+                        </div>
+                        <div class="audio-bar w-[3px] rounded-full bg-green-400" style="height:40%;--bar-delay:-1.44s">
+                        </div>
+                        <div class="audio-bar w-[3px] rounded-full bg-green-300" style="height:30%;--bar-delay:-1.62s">
+                        </div>
                       </div>
                       <span class="text-[8px] text-green-700 flex-shrink-0 font-medium">0:12</span>
                     </div>
@@ -2333,8 +2397,9 @@
                       </svg>
                     </div>
                     <div class="bg-white rounded-2xl rounded-tl-sm px-2.5 py-2.5 shadow-sm" style="max-width:82%;">
-                      <p class="text-[8px] font-semibold text-green-700 mb-1">IA FasterChat</p>
-                      <p class="text-[8.5px] text-slate-700 leading-relaxed">Entendi! Esse produto está por <strong>R$
+                      <p class="text-[10px] font-semibold text-green-700 mb-1">IA FasterChat</p>
+                      <p id="ia-chat-text" class="text-[9px] text-slate-700 leading-relaxed"
+                        style="filter:blur(5px);opacity:0.2;">Entendi! Esse produto está por <strong>R$
                           189</strong>. Posso enviar o link de pagamento? 😊</p>
                     </div>
                   </div>
@@ -2366,11 +2431,17 @@
                   <div class="flex-1 flex flex-col gap-1 p-2.5 overflow-hidden">
                     <div class="flex items-stretch gap-2">
                       <span class="text-[8px] text-slate-400 w-6 flex-shrink-0 pt-1">09h</span>
-                      <div class="flex-1 rounded-lg px-2 py-1.5 border-l-2 border-teal-500 flex items-center justify-between"
+                      <div
+                        class="flex-1 rounded-lg px-2 py-1.5 border-l-2 border-teal-500 flex items-center justify-between"
                         style="background:rgba(20,184,166,0.08);">
                         <p class="text-[8px] font-semibold text-teal-700 truncate">João Silva — Consulta</p>
-                        <span id="cal-check-1" class="cal-check flex-shrink-0 ml-1 w-4 h-4 rounded-full flex items-center justify-center" style="background:#065f46;">
-                          <svg class="w-2 h-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        <span id="cal-check-1"
+                          class="cal-check flex-shrink-0 ml-1 w-4 h-4 rounded-full flex items-center justify-center"
+                          style="background:#065f46;">
+                          <svg class="w-2 h-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="3.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
                         </span>
                       </div>
                     </div>
@@ -2383,32 +2454,47 @@
                     </div>
                     <div class="flex items-stretch gap-2">
                       <span class="text-[8px] text-slate-400 w-6 flex-shrink-0 pt-1">11h</span>
-                      <div class="flex-1 rounded-lg px-2 py-1.5 border-l-2 border-emerald-500 flex items-center justify-between"
+                      <div
+                        class="flex-1 rounded-lg px-2 py-1.5 border-l-2 border-emerald-500 flex items-center justify-between"
                         style="background:rgba(16,185,129,0.08);">
                         <p class="text-[8px] font-semibold text-emerald-700 truncate">Maria Costa — Retorno</p>
-                        <span id="cal-check-2" class="cal-check flex-shrink-0 ml-1 w-4 h-4 rounded-full flex items-center justify-center" style="background:#065f46;">
-                          <svg class="w-2 h-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        <span id="cal-check-2"
+                          class="cal-check flex-shrink-0 ml-1 w-4 h-4 rounded-full flex items-center justify-center"
+                          style="background:#065f46;">
+                          <svg class="w-2 h-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="3.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
                         </span>
                       </div>
                     </div>
                     <div class="flex items-stretch gap-2">
                       <span class="text-[8px] text-slate-400 w-6 flex-shrink-0 pt-1">14h</span>
-                      <div class="flex-1 rounded-lg px-2 py-1.5 border-l-2 border-teal-500 flex items-center justify-between"
+                      <div
+                        class="flex-1 rounded-lg px-2 py-1.5 border-l-2 border-teal-500 flex items-center justify-between"
                         style="background:rgba(20,184,166,0.08);">
                         <p class="text-[8px] font-semibold text-teal-700 truncate">Ana Lima — Avaliação</p>
-                        <span id="cal-check-3" class="cal-check flex-shrink-0 ml-1 w-4 h-4 rounded-full flex items-center justify-center" style="background:#065f46;">
-                          <svg class="w-2 h-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+                        <span id="cal-check-3"
+                          class="cal-check flex-shrink-0 ml-1 w-4 h-4 rounded-full flex items-center justify-center"
+                          style="background:#065f46;">
+                          <svg class="w-2 h-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                            stroke-width="3.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
                         </span>
                       </div>
                     </div>
                     <div class="flex items-stretch gap-2">
                       <span class="text-[8px] text-slate-400 w-6 flex-shrink-0 pt-1">16h</span>
-                      <div id="cal-ia-row" class="flex-1 rounded-lg px-2 py-1.5 border-l-2 border-amber-400 flex items-center gap-1.5 transition-all duration-700"
+                      <div id="cal-ia-row"
+                        class="flex-1 rounded-lg px-2 py-1.5 border-l-2 border-amber-400 flex items-center gap-1.5 transition-all duration-700"
                         style="background:rgba(251,191,36,0.08);">
                         <span id="cal-ia-ping" class="relative flex h-1.5 w-1.5 flex-shrink-0"><span
                             class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span><span
                             class="relative inline-flex rounded-full h-1.5 w-1.5 bg-amber-400"></span></span>
-                        <p id="cal-ia-text" class="text-[8px] font-semibold text-amber-700 truncate">Agendando via IA<span class="cal-dot">.</span><span class="cal-dot">.</span><span class="cal-dot">.</span></p>
+                        <p id="cal-ia-text" class="text-[8px] font-semibold text-amber-700 truncate">Agendando via
+                          IA<span class="cal-dot">.</span><span class="cal-dot">.</span><span class="cal-dot">.</span>
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -2480,13 +2566,13 @@
 
       <div class="max-w-7xl mx-auto px-6 relative z-10">
         <div class="text-center mb-4" data-aos="fade-up">
-          <h2 id="precos-title" class="text-2xl lg:text-4xl font-display font-bold mb-4 text-slate-900">
+          <h2 id="precos-title" class="text-2xl lg:text-4xl font-display font-bold mb-6 text-slate-900">
             Quanto custa perder <br />
             vendas todo dia?
           </h2>
           <!-- <p class="text-slate-500 text-lg">Menos que um café por dia para ter um funcionário 24 horas.</p> -->
 
-          <div
+          <!-- <div
             class="flex items-center justify-center gap-4 mt-8 mb-4 bg-white p-1.5 rounded-full border border-slate-200 shadow-sm w-fit mx-auto">
             <span class="text-slate-500 font-bold px-4 cursor-pointer text-sm" id="label-monthly">Mensal</span>
             <button id="toggle-price"
@@ -2501,7 +2587,7 @@
               <span
                 class="text-[10px] bg-brand-100 text-brand-dark px-2 py-0.5 rounded-full font-extrabold tracking-wide uppercase">-20%</span>
             </span>
-          </div>
+          </div> -->
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 mt-6 lg:grid-cols-3 gap-5 items-start max-w-6xl m-auto">
@@ -3105,6 +3191,18 @@
         box-shadow: inherit;
       }
     }
+
+    /* Hero mobile: compacta espaçamentos e corrige imagem */
+    @media (max-width: 767px) {
+      #fc-hero-sticky {
+        padding-top: 2rem !important;
+      }
+
+      .fc-slide img {
+        object-fit: cover !important;
+        object-position: top center !important;
+      }
+    }
   </style>
 
   <style>
@@ -3116,9 +3214,20 @@
       border-radius: 50%;
       animation: chatDotBounce 1.1s ease-in-out infinite;
     }
+
     @keyframes chatDotBounce {
-      0%, 80%, 100% { transform: translateY(0); opacity: 0.45; }
-      40%           { transform: translateY(-5px); opacity: 1; }
+
+      0%,
+      80%,
+      100% {
+        transform: translateY(0);
+        opacity: 0.45;
+      }
+
+      40% {
+        transform: translateY(-5px);
+        opacity: 1;
+      }
     }
 
     /* Calendar check animation */
@@ -3129,56 +3238,152 @@
       align-items: center;
       justify-content: center;
     }
+
     .cal-check.cal-check-show {
       animation: calCheckPop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
-                 calCheckBounce 0.6s ease-in-out 0.45s 2;
+        calCheckBounce 0.5s ease-out 0.45s 1 forwards;
     }
+
     @keyframes calCheckPop {
-      0%   { opacity: 0; transform: scale(0.2); }
-      70%  { opacity: 1; transform: scale(1.15); }
-      100% { opacity: 1; transform: scale(1); }
+      0% {
+        opacity: 0;
+        transform: scale(0.2);
+      }
+
+      70% {
+        opacity: 1;
+        transform: scale(1.15);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
+
     @keyframes calCheckBounce {
-      0%, 100% { transform: scale(1) translateY(0); }
-      40%      { transform: scale(1) translateY(-2px); }
-      70%      { transform: scale(1) translateY(1px); }
+
+      0%,
+      100% {
+        transform: scale(1) translateY(0);
+      }
+
+      40% {
+        transform: scale(1) translateY(-2px);
+      }
+
+      70% {
+        transform: scale(1) translateY(1px);
+      }
     }
+
+    /* IA text blur-reveal animation */
+    @keyframes iaTextReveal {
+      0% {
+        filter: blur(5px);
+        opacity: 0.2;
+      }
+
+      55% {
+        filter: blur(1.5px);
+        opacity: 0.8;
+      }
+
+      100% {
+        filter: blur(0px);
+        opacity: 1;
+      }
+    }
+
+    #ia-chat-text.ia-revealed {
+      animation: iaTextReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
     /* Dots fade in/out sequentially */
     .cal-dot {
       opacity: 0;
       animation: calDotBlink 1.2s ease-in-out infinite;
     }
-    .cal-dot:nth-child(1) { animation-delay: 0s; }
-    .cal-dot:nth-child(2) { animation-delay: 0.3s; }
-    .cal-dot:nth-child(3) { animation-delay: 0.6s; }
-    @keyframes calDotBlink {
-      0%, 100% { opacity: 0; }
-      40%, 60%  { opacity: 1; }
+
+    .cal-dot:nth-child(1) {
+      animation-delay: 0s;
     }
+
+    .cal-dot:nth-child(2) {
+      animation-delay: 0.3s;
+    }
+
+    .cal-dot:nth-child(3) {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes calDotBlink {
+
+      0%,
+      100% {
+        opacity: 0;
+      }
+
+      40%,
+      60% {
+        opacity: 1;
+      }
+    }
+
     /* Row final state — applied via JS inline styles */
   </style>
 
   <style>
     /* Audio waveform animation */
     @keyframes audioBarWave {
-      0%, 100% { transform: scaleY(1); }
-      50%       { transform: scaleY(0.2); }
+
+      0%,
+      100% {
+        transform: scaleY(1);
+      }
+
+      50% {
+        transform: scaleY(0.2);
+      }
     }
+
     @keyframes audioColorCycle {
-      0%   { background-color: #4ade80; } /* green-400 */
-      25%  { background-color: #16a34a; } /* green-600 */
-      50%  { background-color: #22c55e; } /* green-500 */
-      75%  { background-color: #86efac; } /* green-300 */
-      100% { background-color: #4ade80; } /* green-400 */
+      0% {
+        background-color: #4ade80;
+      }
+
+      /* green-400 */
+      25% {
+        background-color: #16a34a;
+      }
+
+      /* green-600 */
+      50% {
+        background-color: #22c55e;
+      }
+
+      /* green-500 */
+      75% {
+        background-color: #86efac;
+      }
+
+      /* green-300 */
+      100% {
+        background-color: #4ade80;
+      }
+
+      /* green-400 */
     }
+
     .audio-bar {
       transform-origin: center;
       transition: transform 0.1s;
       animation:
-        audioBarWave   1.4s ease-in-out infinite var(--bar-delay, 0s),
-        audioColorCycle 6s  ease-in-out infinite;
+        audioBarWave 1.4s ease-in-out infinite var(--bar-delay, 0s),
+        audioColorCycle 6s ease-in-out infinite;
       animation-play-state: paused;
     }
+
     #audio-wave-container.audio-wave-active .audio-bar {
       animation-play-state: running;
     }
@@ -3884,12 +4089,12 @@
 
             // Count up numbers
             var dur = 1800;
-            countUp(document.getElementById('cnt-vip'),    342,    dur, '· ', '',    0);
-            countUp(document.getElementById('rev-vip'),    19800,  dur, 'R$ ', '',   0);
-            countUp(document.getElementById('cnt-bf'),     1614,   dur + 300, '· ', '', 0);
-            countUp(document.getElementById('rev-bf'),     8700,   dur + 300, 'R$ ', '', 0);
-            countUp(document.getElementById('total-revenue'),  47200, dur + 400, 'R$ ', '', 0);
-            countUp(document.getElementById('total-contacts'), 2847,  dur + 400, '', '',   0);
+            countUp(document.getElementById('cnt-vip'), 342, dur, '· ', '', 0);
+            countUp(document.getElementById('rev-vip'), 19800, dur, 'R$ ', '', 0);
+            countUp(document.getElementById('cnt-bf'), 1614, dur + 300, '· ', '', 0);
+            countUp(document.getElementById('rev-bf'), 8700, dur + 300, 'R$ ', '', 0);
+            countUp(document.getElementById('total-revenue'), 47200, dur + 400, 'R$ ', '', 0);
+            countUp(document.getElementById('total-contacts'), 2847, dur + 400, '', '', 0);
           }
         });
       }, { threshold: 0.5 });
@@ -3928,9 +4133,9 @@
 
         // After all checks, transform the amber row into a confirmed booking
         setTimeout(function () {
-          var row  = document.getElementById('cal-ia-row');
+          var row = document.getElementById('cal-ia-row');
           var ping = document.getElementById('cal-ia-ping');
-          var txt  = document.getElementById('cal-ia-text');
+          var txt = document.getElementById('cal-ia-text');
           if (!row || !ping || !txt) return;
 
           // Hide ping dot
@@ -3947,6 +4152,21 @@
           }, 450);
         }, 2600);
       }
+    })();
+  </script>
+
+  <script>
+    /* ── IA text blur-reveal ── */
+    (function () {
+      var el = document.getElementById('ia-chat-text');
+      if (!el || !window.IntersectionObserver) return;
+      var obs = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          setTimeout(function () { el.classList.add('ia-revealed'); }, 1300);
+          obs.disconnect();
+        }
+      }, { threshold: 0.8 });
+      obs.observe(el);
     })();
   </script>
 
