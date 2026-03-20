@@ -225,13 +225,85 @@
       },
       "breadcrumb": {
         "@type": "BreadcrumbList",
-        "itemListElement": [{
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://fasterchat.com.br/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Planos e Preços",
+            "item": "https://fasterchat.com.br/#precos"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Funcionalidades",
+            "item": "https://fasterchat.com.br/#funcionalidades"
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "Acessar App",
+            "item": "https://admin.fasterchat.com.br/login"
+          }
+        ]
+      }
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "FasterChat",
+      "alternateName": "FasterChat — Automação WhatsApp com IA",
+      "url": "https://fasterchat.com.br/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://fasterchat.com.br/?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  </script>
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Acesso Rápido — FasterChat",
+      "itemListElement": [
+        {
           "@type": "ListItem",
           "position": 1,
-          "name": "Home",
-          "item": "https://fasterchat.com.br/"
-        }]
-      }
+          "name": "Ver Planos e Preços",
+          "url": "https://fasterchat.com.br/#precos"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Acessar Aplicativo",
+          "url": "https://admin.fasterchat.com.br/login"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Funcionalidades da IA",
+          "url": "https://fasterchat.com.br/#funcionalidades"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Como Funciona",
+          "url": "https://fasterchat.com.br/#como-funciona"
+        }
+      ]
     }
   </script>
 
@@ -3194,6 +3266,9 @@
 
     /* Hero mobile: compacta espaçamentos e corrige imagem */
     @media (max-width: 767px) {
+      #fc-scroll-hero {
+        min-height: calc(100vh + 450px) !important;
+      }
       #fc-hero-sticky {
         padding-top: 2rem !important;
       }
