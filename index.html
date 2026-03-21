@@ -620,14 +620,14 @@
           var maxW = 1440;
           var w = Math.min(vw - pad * 2, maxW);
           var gap = isMob ? Math.round(vh * 0.20) : HEADER_GAP;
-          var topMin = navB + gap;
+          var topMin = isMob ? 466 : navB + gap;
           var botPad = isMob ? 16 : 40;
           var availH = vh - topMin - botPad;
           var h = isMob
             ? Math.min(Math.round(availH * 0.62), availH)
             : Math.min(Math.round(w * 0.595), availH);
           var left = Math.round((vw - w) / 2);
-          var centerT = Math.round(topMin);
+          var centerT = isMob ? 466 : Math.round(navB + gap);
           return { w: w, h: h, left: left, centerTop: centerT, topMin: topMin };
         }
 
@@ -2331,7 +2331,7 @@
                       stroke-width="2.2">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                     </svg>
-                    <span class="text-[10px] font-medium text-emerald-100">Último disparo gerou</span>
+                    <span class="text-[8px] md:text-[10px] font-medium text-emerald-100">Último disparo gerou</span>
                   </div>
                   <span class="text-[11px] font-extrabold text-white">R$ 14.800 em 1 dia</span>
                 </div>
@@ -2464,7 +2464,7 @@
                       <div
                         class="flex-1 rounded-lg px-2 py-1.5 border-l-2 border-teal-500 flex items-center justify-between"
                         style="background:rgba(20,184,166,0.08);">
-                        <p class="text-[8px] font-semibold text-teal-700 truncate">João Silva — Consulta</p>
+                        <p class="text-[8px] font-semibold text-teal-700 truncate">João Silva</p>
                         <span id="cal-check-1"
                           class="cal-check flex-shrink-0 ml-1 w-4 h-4 rounded-full flex items-center justify-center"
                           style="background:#065f46;">
@@ -2487,7 +2487,7 @@
                       <div
                         class="flex-1 rounded-lg px-2 py-1.5 border-l-2 border-emerald-500 flex items-center justify-between"
                         style="background:rgba(16,185,129,0.08);">
-                        <p class="text-[8px] font-semibold text-emerald-700 truncate">Maria Costa — Retorno</p>
+                        <p class="text-[8px] font-semibold text-emerald-700 truncate">Maria Costa</p>
                         <span id="cal-check-2"
                           class="cal-check flex-shrink-0 ml-1 w-4 h-4 rounded-full flex items-center justify-center"
                           style="background:#065f46;">
@@ -2503,7 +2503,7 @@
                       <div
                         class="flex-1 rounded-lg px-2 py-1.5 border-l-2 border-teal-500 flex items-center justify-between"
                         style="background:rgba(20,184,166,0.08);">
-                        <p class="text-[8px] font-semibold text-teal-700 truncate">Ana Lima — Avaliação</p>
+                        <p class="text-[8px] font-semibold text-teal-700 truncate">Ana Lima</p>
                         <span id="cal-check-3"
                           class="cal-check flex-shrink-0 ml-1 w-4 h-4 rounded-full flex items-center justify-center"
                           style="background:#065f46;">
@@ -3081,14 +3081,17 @@
       <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100">
       </div>
 
-      <div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="fade-up" data-aos-duration="900" data-aos-offset="60">
+      <div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="fade-up" data-aos-duration="900"
+        data-aos-offset="60">
         <h2 id="cta-title" class="text-3xl lg:text-4xl font-display font-bold mb-4 text-white leading-tight">
           Cada minuto sem IA é um cliente que vai pro concorrente.
         </h2>
-        <p class="text-lg text-brand-50 mb-6 font-medium" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100" data-aos-offset="60">Centenas de empresas já pararam de perder vendas por demora. A
+        <p class="text-lg text-brand-50 mb-6 font-medium" data-aos="fade-up" data-aos-duration="900"
+          data-aos-delay="100" data-aos-offset="60">Centenas de empresas já pararam de perder vendas por demora. A
           pergunta é: quanto tempo mais você vai esperar?</p>
 
-        <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-duration="900" data-aos-delay="200" data-aos-offset="60">
+        <div class="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-duration="900"
+          data-aos-delay="200" data-aos-offset="60">
           <a href="#precos"
             class="px-8 py-4 bg-white text-brand-dark text-lg font-bold rounded-xl shadow-xl hover:bg-brand-50 transition-all hover:-translate-y-1">
             Ativar minha IA agora
@@ -3152,7 +3155,7 @@
 
       <div
         class="border-t border-slate-400 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-600 gap-4">
-        <p>&copy; 2026 FasterChat Tecnologia. Todos os direitos reservados.</p>
+        <p class="text-center">&copy; 2026 FasterChat Tecnologia. Todos os direitos reservados.</p>
         <div class="flex gap-4">
           <a href="https://www.instagram.com/fasterchat/" rel="noopener noreferrer" target="_blank"
             class="hover:text-green-700 transition-colors">Instagram</a>
@@ -3225,7 +3228,7 @@
     /* Hero mobile: compacta espaçamentos e corrige imagem */
     @media (max-width: 767px) {
       #fc-scroll-hero {
-        min-height: calc(100vh + 450px) !important;
+        min-height: calc(100vh + 80px) !important;
       }
 
       #fc-hero-sticky {
@@ -4191,7 +4194,7 @@
 
           // Swap text + style to dark green booked state
           setTimeout(function () {
-            txt.innerHTML = 'Carlos Mendes \u2014 Avalia\u00e7\u00e3o';
+            txt.innerHTML = 'Carlos Mendes';
             txt.style.color = '#ffffff';
             row.style.background = '#065f46';
             row.style.borderLeftColor = '#034732';
