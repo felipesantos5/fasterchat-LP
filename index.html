@@ -1273,7 +1273,7 @@
           <div class="text-center mb-12 md:mb-16" data-aos="fade-up">
             <h2 class="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-slate-900 leading-tight mb-4">
               Veja exatamente o que você<br class="hidden md:block" />
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600">ganha ao começar hoje</span>
+              <span class="text-emerald-600">ganha ao começar hoje</span>
             </h2>
             <p class="text-slate-500 text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-6">
               Cada recurso foi pensado para colocar <strong class="text-slate-700">mais dinheiro no seu bolso</strong> com menos esforço.
@@ -1284,6 +1284,7 @@
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             <!-- Card 1: IA Atendente 24h -->
             <div
+              id="atendente-card"
               class="oqvr-card group bg-white rounded-3xl border border-slate-200 p-6 relative overflow-hidden transition-all duration-500 hover:border-emerald-300 hover:shadow-2xl hover:shadow-emerald-100/60 hover:-translate-y-2"
               data-aos="fade-up"
               data-aos-delay="0"
@@ -1292,78 +1293,121 @@
                 class="absolute -top-20 -right-20 w-48 h-48 bg-emerald-100 rounded-full blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-700"
               ></div>
 
-              <!-- Ilustração: mini chat simulado -->
-              <div class="mb-5 rounded-2xl border border-slate-100 bg-slate-50/60 p-3 overflow-hidden" style="height: 240px">
-                <div class="flex flex-col gap-2.5 h-full justify-center" id="oqvr-chat-msgs">
-                  <!-- Msg 1: cliente (fixa) -->
-                  <div class="flex items-end justify-end gap-1.5 oqvr-msg-in">
-                    <div class="bg-emerald-50 border border-emerald-100 rounded-xl rounded-tr-sm px-3 py-1.5 max-w-[78%]">
-                      <p class="text-sm text-emerald-700">Quanto custa o plano mensal?</p>
+              <!-- Ilustração visual do chat personalizado -->
+              <div class="mb-5 rounded-2xl border border-slate-100 bg-slate-50/60 overflow-hidden relative" style="height: 240px">
+                <div class="flex flex-col gap-2 p-4 h-full justify-center">
+                  <!-- Balão cliente 1 — sempre visível -->
+                  <div class="flex items-end gap-2 justify-end items-start">
+                    <div class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[230px] border border-emerald-100">
+                      <p class="text-emerald-700 text-xs">Olá! Vi que vocês têm o produto. Qual o valor?</p>
+                      <p class="text-[10px] text-emerald-400 text-right mt-1 leading-none">14:32</p>
                     </div>
-                    <div
-                      class="w-6 h-6 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 flex-shrink-0 flex items-center justify-center shadow-sm"
-                    >
-                      <span class="text-[7px] font-bold text-white">C</span>
-                    </div>
-                  </div>
-
-                  <!-- Msg 2: IA responde (animada) -->
-                  <div class="flex items-end justify-start gap-1.5" id="oqvr-msg2-row">
-                    <div
-                      class="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex-shrink-0 flex items-center justify-center shadow-sm"
-                    >
-                      <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"
-                        />
+                    <div class="w-7 h-7 rounded-full bg-emerald-100 flex-shrink-0 flex items-center justify-center">
+                      <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                       </svg>
                     </div>
-                    <!-- Typing indicator -->
-                    <div
-                      id="oqvr-typing2"
-                      class="bg-white border border-slate-200 rounded-xl rounded-tl-sm px-3 py-2.5 inline-flex items-center gap-1 shadow-sm"
-                      style="display: none"
-                    >
-                      <span class="oqvr-dot w-1.5 h-1.5 bg-slate-400 rounded-full"></span>
-                      <span class="oqvr-dot w-1.5 h-1.5 bg-slate-400 rounded-full" style="animation-delay: 0.15s"></span>
-                      <span class="oqvr-dot w-1.5 h-1.5 bg-slate-400 rounded-full" style="animation-delay: 0.3s"></span>
+                  </div>
+
+                  <!-- Typing IA -->
+                  <div
+                    id="atendente-typing-ia"
+                    class="flex items-end gap-2"
+                    style="
+                      display: none;
+                      opacity: 0;
+                      transform: translateY(5px);
+                      transition:
+                        opacity 0.35s ease,
+                        transform 0.35s ease;
+                    "
+                  >
+                    <div class="w-7 h-7 rounded-full bg-emerald-500 flex-shrink-0 flex items-center justify-center">
+                      <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
                     </div>
-                    <!-- Mensagem real -->
-                    <div
-                      id="oqvr-reply2"
-                      class="bg-white border border-slate-200 rounded-xl rounded-tl-sm px-3 py-1.5 max-w-[82%] shadow-sm"
-                      style="display: none"
-                    >
-                      <p class="text-sm text-slate-700">Olá! O plano sai por R$297/mês e inclui tudo. Quer que eu reserve sua vaga?</p>
+                    <div class="bg-emerald-500/10 rounded-2xl rounded-tl-sm px-3 py-2.5 border border-emerald-200">
+                      <div class="flex items-center gap-1">
+                        <span class="chat-dot" style="background: #10b981"></span>
+                        <span class="chat-dot" style="background: #10b981; animation-delay: 0.2s"></span>
+                        <span class="chat-dot" style="background: #10b981; animation-delay: 0.4s"></span>
+                      </div>
                     </div>
                   </div>
 
-                  <!-- Msg 3: cliente responde (animada) -->
-                  <div class="flex items-end justify-end gap-1.5" id="oqvr-msg3-row" style="display: none">
-                    <!-- Typing indicator -->
-                    <div
-                      id="oqvr-typing3"
-                      class="bg-emerald-50 border border-emerald-100 rounded-xl rounded-tr-sm px-3 py-2.5 inline-flex items-center gap-1"
-                      style="display: none"
-                    >
-                      <span class="oqvr-dot w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-                      <span class="oqvr-dot w-1.5 h-1.5 bg-emerald-400 rounded-full" style="animation-delay: 0.15s"></span>
-                      <span class="oqvr-dot w-1.5 h-1.5 bg-emerald-400 rounded-full" style="animation-delay: 0.3s"></span>
+                  <!-- Balão IA — aparece após typing -->
+                  <div
+                    id="atendente-msg-ia"
+                    class="flex items-end gap-2"
+                    style="
+                      display: none;
+                      opacity: 0;
+                      transform: translateY(5px);
+                      transition:
+                        opacity 0.4s ease,
+                        transform 0.4s ease;
+                    "
+                  >
+                    <div class="w-7 h-7 rounded-full bg-emerald-500 flex-shrink-0 flex items-center justify-center">
+                      <svg class="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
                     </div>
-                    <!-- Mensagem real -->
-                    <div
-                      id="oqvr-reply3"
-                      class="bg-emerald-50 border border-emerald-100 rounded-xl rounded-tr-sm px-3 py-1.5 max-w-[78%]"
-                      style="display: none"
-                    >
-                      <p class="text-sm text-emerald-700">Sim, reserva pra mim!</p>
+                    <div class="bg-emerald-500/10 rounded-2xl rounded-tl-sm px-3 py-2 max-w-[260px] border border-emerald-200">
+                      <p class="text-emerald-800 text-xs">Oi! O produto está por R$ 297 com frete grátis. Posso reservar pra você?</p>
+                      <p class="text-[10px] text-emerald-500/60 text-right mt-1 leading-none">14:32</p>
                     </div>
-                    <div
-                      class="w-6 h-6 rounded-full bg-gradient-to-br from-amber-300 to-amber-500 flex-shrink-0 flex items-center justify-center shadow-sm"
-                    >
-                      <span class="text-[7px] font-bold text-white">C</span>
+                  </div>
+
+                  <!-- Typing cliente -->
+                  <div
+                    id="atendente-typing-client"
+                    class="flex items-end gap-2 justify-end items-start"
+                    style="
+                      display: none;
+                      opacity: 0;
+                      transform: translateY(5px);
+                      transition:
+                        opacity 0.35s ease,
+                        transform 0.35s ease;
+                    "
+                  >
+                    <div class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2.5 border border-emerald-100">
+                      <div class="flex items-center gap-1">
+                        <span class="chat-dot" style="background: #34d399"></span>
+                        <span class="chat-dot" style="background: #34d399; animation-delay: 0.2s"></span>
+                        <span class="chat-dot" style="background: #34d399; animation-delay: 0.4s"></span>
+                      </div>
+                    </div>
+                    <div class="w-7 h-7 rounded-full bg-emerald-100 flex-shrink-0 flex items-center justify-center">
+                      <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  <!-- Balão cliente 2 — aparece após segundo typing -->
+                  <div
+                    id="atendente-msg-client"
+                    class="flex items-end gap-2 justify-end items-start"
+                    style="
+                      display: none;
+                      opacity: 0;
+                      transform: translateY(5px);
+                      transition:
+                        opacity 0.4s ease,
+                        transform 0.4s ease;
+                    "
+                  >
+                    <div class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[230px] border border-emerald-100">
+                      <p class="text-emerald-700 text-xs">Sim! Pode reservar, vou pagar agora 🙌</p>
+                      <p class="text-[10px] text-emerald-400 text-right mt-1 leading-none">14:32</p>
+                    </div>
+                    <div class="w-7 h-7 rounded-full bg-emerald-100 flex-shrink-0 flex items-center justify-center">
+                      <svg class="w-4 h-4 text-emerald-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                      </svg>
                     </div>
                   </div>
                 </div>
@@ -1423,7 +1467,7 @@
                   viewBox="0 0 280 260"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  style="width: 100%; max-width: 300px; height: auto; display: block"
+                  style="width: 100%; max-width: 250px; height: auto; display: block"
                 >
                   <!-- Formas do funil (renderizadas primeiro) -->
                   <g class="oqvr-funnel-step" style="opacity: 0; transform: translateY(-10px)">
@@ -1561,77 +1605,18 @@
                 class="absolute -bottom-20 -right-20 w-48 h-48 bg-emerald-100 rounded-full blur-3xl opacity-0 group-hover:opacity-50 transition-opacity duration-700"
               ></div>
 
-              <!-- Ilustração: mini chat campanha -->
-              <div class="mb-5 rounded-2xl border border-slate-100 bg-slate-50/60 p-3 overflow-hidden" style="height: 240px">
-                <div class="flex flex-col gap-2.5 h-full justify-center" id="oqvr-camp-msgs">
-                  <!-- Msg 1: dono do negócio (fixa) -->
-                  <div class="flex items-end justify-end gap-1.5 oqvr-msg-in">
-                    <div class="bg-emerald-50 border border-emerald-100 rounded-xl rounded-tr-sm px-3 py-1.5 max-w-[78%]">
-                      <p class="text-sm text-emerald-700">Quero disparar uma promoção pros meus contatos</p>
-                    </div>
-                    <div
-                      class="w-6 h-6 rounded-full bg-gradient-to-br from-blue-300 to-blue-500 flex-shrink-0 flex items-center justify-center shadow-sm"
-                    >
-                      <span class="text-[7px] font-bold text-white">D</span>
-                    </div>
-                  </div>
-
-                  <!-- Msg 2: IA responde (animada) -->
-                  <div class="flex items-end justify-start gap-1.5" id="oqvr-camp-msg2-row">
-                    <div
-                      class="w-6 h-6 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 flex-shrink-0 flex items-center justify-center shadow-sm"
-                    >
-                      <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"
-                        />
-                      </svg>
-                    </div>
-                    <div
-                      id="oqvr-camp-typing2"
-                      class="bg-white border border-slate-200 rounded-xl rounded-tl-sm px-3 py-2.5 inline-flex items-center gap-1 shadow-sm"
-                      style="display: none"
-                    >
-                      <span class="oqvr-dot w-1.5 h-1.5 bg-slate-400 rounded-full"></span>
-                      <span class="oqvr-dot w-1.5 h-1.5 bg-slate-400 rounded-full" style="animation-delay: 0.15s"></span>
-                      <span class="oqvr-dot w-1.5 h-1.5 bg-slate-400 rounded-full" style="animation-delay: 0.3s"></span>
-                    </div>
-                    <div
-                      id="oqvr-camp-reply2"
-                      class="bg-white border border-slate-200 rounded-xl rounded-tl-sm px-3 py-1.5 max-w-[82%] shadow-sm"
-                      style="display: none"
-                    >
-                      <p class="text-sm text-slate-700">Pronto! 1.200 contatos segmentados. Campanha disparada com sucesso!</p>
-                    </div>
-                  </div>
-
-                  <!-- Msg 3: dono comemora (animada) -->
-                  <div class="flex items-end justify-end gap-1.5" id="oqvr-camp-msg3-row" style="display: none">
-                    <div
-                      id="oqvr-camp-typing3"
-                      class="bg-emerald-50 border border-emerald-100 rounded-xl rounded-tr-sm px-3 py-2.5 inline-flex items-center gap-1"
-                      style="display: none"
-                    >
-                      <span class="oqvr-dot w-1.5 h-1.5 bg-emerald-400 rounded-full"></span>
-                      <span class="oqvr-dot w-1.5 h-1.5 bg-emerald-400 rounded-full" style="animation-delay: 0.15s"></span>
-                      <span class="oqvr-dot w-1.5 h-1.5 bg-emerald-400 rounded-full" style="animation-delay: 0.3s"></span>
-                    </div>
-                    <div
-                      id="oqvr-camp-reply3"
-                      class="bg-emerald-50 border border-emerald-100 rounded-xl rounded-tr-sm px-3 py-1.5 max-w-[78%]"
-                      style="display: none"
-                    >
-                      <p class="text-sm text-emerald-700">Já chegaram 38 respostas em 10 min!</p>
-                    </div>
-                    <div
-                      class="w-6 h-6 rounded-full bg-gradient-to-br from-blue-300 to-blue-500 flex-shrink-0 flex items-center justify-center shadow-sm"
-                    >
-                      <span class="text-[7px] font-bold text-white">D</span>
-                    </div>
-                  </div>
-                </div>
+              <!-- Ilustração: imagem campanhas lucrativas -->
+              <div
+                class="mb-5 rounded-2xl border border-slate-100 bg-slate-50/60 overflow-hidden flex items-center justify-center"
+                style="height: 240px"
+              >
+                <img
+                  src="./assets/Campanhas-lucativas.png"
+                  alt="Campanhas lucrativas FasterChat"
+                  class="w-full h-full object-top object-contain"
+                  loading="lazy"
+                  id="campanhas-lucrativas-img"
+                />
               </div>
 
               <h3 class="text-xl font-display font-extrabold text-slate-900 mb-2">Campanhas lucativas</h3>
@@ -2660,8 +2645,8 @@
               </div>
               <h3 class="text-2xl font-display font-extrabold mb-3 text-slate-900">Chega de cliente esquecido na conversa</h3>
               <p class="text-slate-800 leading-relaxed text-base">
-                <strong class="text-slate-800">Quantas vendas você já perdeu porque esqueceu de dar retorno?</strong> Com o funil visual, cada cliente
-                vira um card. Arraste de "Lead" pra "Fechado" e saiba exatamente quem precisa de atenção agora.
+                <strong class="text-slate-800">Quantas vendas você já perdeu porque esqueceu de dar retorno?</strong> Com o funil visual, você tem uma
+                visão clara de todos seus clientes. Arraste de "Negociação" pra "Fechado" e saiba exatamente quem precisa de atenção agora.
               </p>
             </div>
 
@@ -2866,7 +2851,7 @@
               <p class="text-slate-800 leading-relaxed text-base">
                 <strong class="text-slate-800">Você sabe quantos clientes ativos tem hoje? De onde eles vêm? Qual o horário de pico?</strong> Veja
                 tudo em tempo real: clientes por região, taxa de retorno, canais que mais convertem e horários que mais vendem. Dados que transformam
-                achismo em lucro.
+                achismo em lucro real.
               </p>
             </div>
 
@@ -2880,10 +2865,10 @@
             >
               <!-- Ilustração visual do chat personalizado -->
               <div class="mb-4 relative">
-                <div class="flex flex-col gap-2" style="min-height: 210px">
+                <div class="flex flex-col gap-2 w-full" style="min-height: 200px">
                   <!-- Balão cliente 1 — sempre visível -->
                   <div class="flex items-end gap-2 justify-end items-start">
-                    <div class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[180px] border border-emerald-100">
+                    <div class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[230px] border border-emerald-100">
                       <p class="text-emerald-700 text-xs">Olá! Vi que vocês têm o produto. Qual o valor?</p>
                       <p class="text-[10px] text-emerald-400 text-right mt-1 leading-none">14:32</p>
                     </div>
@@ -2985,7 +2970,7 @@
                         transform 0.4s ease;
                     "
                   >
-                    <div class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[180px] border border-emerald-100">
+                    <div class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[230px] border border-emerald-100">
                       <p class="text-emerald-700 text-xs">Sim! Pode reservar, vou pagar agora 🙌</p>
                       <p class="text-[10px] text-emerald-400 text-right mt-1 leading-none">14:32</p>
                     </div>
@@ -3157,8 +3142,9 @@
               </div>
               <h3 class="text-2xl font-display font-extrabold mb-3 text-slate-900">Sua lista de contatos vale dinheiro</h3>
               <p class="text-slate-800 leading-relaxed text-base">
-                <strong class="text-slate-800">Você tem centenas de contatos parados que já compraram ou quase compraram.</strong> Dispare promoções
-                personalizadas e reative quem já conhece sua marca. Um disparo bem feito paga o mês inteiro.
+                <strong class="text-slate-800">Você tem centenas de contatos parados que já compraram ou já tiveram interesse.</strong> Dispare
+                promoções personalizadas e reative quem já conhece sua marca. Um disparo bem feito gera mais recorrência a clientes e capta clientes
+                esquecidos.
               </p>
             </div>
 
@@ -3580,7 +3566,7 @@
                       font-size: 6.5rem;
                       font-weight: 900;
                       line-height: 1;
-                      color: rgba(16, 185, 129, 0.07);
+                      color: rgba(16, 185, 129, 0.2);
                       user-select: none;
                       letter-spacing: -0.05em;
                     "
@@ -3674,15 +3660,15 @@
                     Escaneie o QR code.<br />No WhatsApp e Pronto.
                   </h3>
                   <p style="font-size: 0.95rem; color: #94a3b8; line-height: 1.7; margin: 0 0 1.1rem">
-                    Abra a câmera, leia o QR Code e seu WhatsApp comercial é simples assim. Seus novos clientes já serão atendidos pelo novo Chat
+                    Abra a câmera, leia o QR Code com seu WhatsApp comercial, é simples assim. Seus novos clientes já serão atendidos pelo novo Chat
                     completo.
                   </p>
-                  <div
+                  <!-- <div
                     style="
                       display: inline-flex;
                       align-items: center;
                       gap: 0.45rem;
-                      background: rgba(16, 185, 129, 0.1);
+                      background: rgba(16, 185, 129, 0.2);
                       border: 1px solid rgba(16, 185, 129, 0.2);
                       border-radius: 999px;
                       padding: 0.28rem 0.75rem;
@@ -3696,7 +3682,7 @@
                       />
                     </svg>
                     <span style="font-size: 0.7rem; font-weight: 700; color: #34d399; letter-spacing: 0.02em">Feito em segundos</span>
-                  </div>
+                  </div> -->
                 </div>
               </div>
 
@@ -3746,7 +3732,7 @@
                     z-index: 1;
                   "
                 >
-                  leva menos de 5 min
+                  leva menos de 10 min
                 </span>
 
                 <!-- Illustration panel -->
@@ -3769,7 +3755,7 @@
                       font-size: 6.5rem;
                       font-weight: 900;
                       line-height: 1;
-                      color: rgba(16, 185, 129, 0.1);
+                      color: rgba(16, 185, 129, 0.2);
                       user-select: none;
                       letter-spacing: -0.05em;
                     "
@@ -3860,7 +3846,7 @@
                     Escreva como faria com um funcionário novo: seus produtos, preços, horários e jeito de falar. A IA absorve tudo e responde com a
                     cara do seu negócio.
                   </p>
-                  <div
+                  <!-- <div
                     style="
                       display: inline-flex;
                       align-items: center;
@@ -3878,8 +3864,8 @@
                         clip-rule="evenodd"
                       />
                     </svg>
-                    <span style="font-size: 0.7rem; font-weight: 700; color: #34d399; letter-spacing: 0.02em">Média de 4 min para configurar</span>
-                  </div>
+                    <span style="font-size: 0.7rem; font-weight: 700; color: #34d399; letter-spacing: 0.02em">Média de 7 min para configurar</span>
+                  </div> -->
                 </div>
               </div>
 
@@ -3929,7 +3915,7 @@
                       font-size: 6.5rem;
                       font-weight: 900;
                       line-height: 1;
-                      color: rgba(16, 185, 129, 0.07);
+                      color: rgba(16, 185, 129, 0.2);
                       user-select: none;
                       letter-spacing: -0.05em;
                     "
@@ -4482,10 +4468,10 @@
                   entrar em contato e devolvemos <strong class="text-slate-800">100% do seu investimento</strong>, sem perguntas.
                 </p>
 
-                <p class="text-slate-500 text-sm leading-relaxed">
+                <!-- <p class="text-slate-500 text-sm leading-relaxed">
                   Temos total confiança na qualidade da nossa plataforma e queremos que você se sinta completamente seguro na sua decisão. Coloque o
                   FasterChat à prova, com absolutamente zero risco financeiro.
-                </p>
+                </p> -->
               </div>
             </div>
           </div>
@@ -4672,12 +4658,13 @@
       <section class="py-12 relative overflow-hidden bg-gradient-to-br from-brand-primary to-brand-900" aria-labelledby="cta-title">
         <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100"></div>
 
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-aos="fade-up" data-aos-duration="900" data-aos-offset="60">
+        <div class="max-w-6xl mx-auto px-6 text-center relative z-10" data-aos="fade-up" data-aos-duration="900" data-aos-offset="60">
           <h2 id="cta-title" class="text-3xl lg:text-4xl font-display font-bold mb-4 text-white leading-tight">
             Cada minuto sem IA é um cliente que vai pro concorrente.
           </h2>
           <p class="text-lg text-brand-50 mb-6 font-medium" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100" data-aos-offset="60">
-            Centenas de empresas já pararam de perder vendas por demora. A pergunta é: quanto tempo mais você vai esperar?
+            Centenas de empresas já pararam de perder vendas por falta de estrtura. Essa é sua chance. <br />
+            <span class="text-white uppercase mt-1"> A pergunta é: quanto tempo mais você vai esperar?</span>
           </p>
 
           <div
@@ -4786,7 +4773,6 @@
 
       /* Content visibility para seções fora do viewport */
       section:not(:first-of-type) {
-        content-visibility: auto;
         contain-intrinsic-size: auto 500px;
       }
 
@@ -5822,6 +5808,91 @@
               setTimeout(function () {
                 hideEl("chat-typing-client");
                 showEl("chat-msg-client", 350);
+
+                // Step 5: após 3.5s reinicia o loop
+                setTimeout(runSequence, 3500);
+              }, 3000);
+            }, 1800);
+          }, 3000);
+        }
+
+        var started = false;
+        var obs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting && !started) {
+                started = true;
+                runSequence();
+              }
+            });
+          },
+          { threshold: 0.5 },
+        );
+        obs.observe(card);
+      })();
+    </script>
+
+    <script>
+      // Atendente card chat typing sequence
+      (function () {
+        var card = document.getElementById("atendente-card");
+        if (!card) return;
+
+        function showEl(id, delay) {
+          setTimeout(function () {
+            var el = document.getElementById(id);
+            el.style.transition = "none";
+            el.style.opacity = "0";
+            el.style.transform = "translateY(10px)";
+            el.style.display = "flex";
+            requestAnimationFrame(function () {
+              requestAnimationFrame(function () {
+                el.style.transition = "opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1)";
+                el.style.opacity = "1";
+                el.style.transform = "translateY(0)";
+              });
+            });
+          }, delay || 0);
+        }
+
+        function hideEl(id) {
+          var el = document.getElementById(id);
+          el.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+          el.style.opacity = "0";
+          el.style.transform = "translateY(-6px)";
+          setTimeout(function () {
+            el.style.display = "none";
+          }, 320);
+        }
+
+        function resetAll() {
+          ["atendente-typing-ia", "atendente-msg-ia", "atendente-typing-client", "atendente-msg-client"].forEach(function (id) {
+            var el = document.getElementById(id);
+            el.style.transition = "none";
+            el.style.opacity = "0";
+            el.style.transform = "translateY(5px)";
+            el.style.display = "none";
+          });
+        }
+
+        function runSequence() {
+          resetAll();
+          // Step 1: IA começa a digitar
+          showEl("atendente-typing-ia", 600);
+
+          // Step 2: após 3s envia mensagem IA
+          setTimeout(function () {
+            hideEl("atendente-typing-ia");
+            showEl("atendente-msg-ia", 350);
+
+            // Step 3: após 1.8s cliente começa a digitar
+            setTimeout(function () {
+              showEl("atendente-typing-client", 0);
+
+              // Step 4: após 3s envia mensagem cliente
+              setTimeout(function () {
+                hideEl("atendente-typing-client");
+                showEl("atendente-msg-client", 350);
 
                 // Step 5: após 3.5s reinicia o loop
                 setTimeout(runSequence, 3500);
