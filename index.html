@@ -500,25 +500,23 @@
           <div class="absolute inset-0 bg-hero-pattern pointer-events-none"></div>
 
           <!-- Header: título + subtítulo + CTAs -->
-          <div id="fc-hero-header" class="relative z-10 text-center max-w-4xl mx-auto px-4 md:px-6 mb-2 md:mb-5" style="will-change: transform">
+          <div id="fc-hero-header" class="relative z-10 text-center max-w-5xl mx-auto px-4 md:px-6 mb-2 md:mb-5" style="will-change: transform">
             <h1
               id="hero-title"
               class="text-3xl md:text-4xl lg:text-6xl font-display font-bold tracking-tight leading-[1.1] mb-4 mt-4 lg:mb-4 text-slate-900"
             >
-              Seu WhatsApp perde vendas <br class="hidden lg:block" />
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-dark"
-                >toda vez que você demora pra responder.</span
-              >
+              Transforme o WhatsApp em uma <br class="hidden lg:block" />
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-brand-dark">Máquina de Vendas Incansável</span>
             </h1>
 
             <p class="text-lg lg:text-xl text-slate-800 max-w-2xl mx-auto mb-3 md:mb-6 leading-relaxed font-medium">
-              O FasterChat coloca uma IA no seu WhatsApp que atende, qualifica, agenda e fecha vendas — 24h por dia, 7 dias por semana. Você conecta
-              em 5 minutos e nunca mais perde cliente por demora.
+              Centralize seus números em um CRM poderoso e automatize o atendimento com IA personalizada. Escale sua prospecção com disparos por
+              planilha e gerencie toda a sua operação em um só lugar.
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
               <a
-                href="#precos"
+                href="#o-que-voce-recebe"
                 class="w-full sm:w-auto px-6 py-3 bg-brand-primary text-white text-base font-bold rounded-xl shadow-xl shadow-brand-primary/30 transition-all hover:bg-brand-dark hover:shadow-2xl"
               >
                 Quero parar de perder vendas
@@ -922,6 +920,7 @@
           var heroState = "scroll";
           var accDelta = 0;
           var tickCount = 0;
+          var releasedAt = 0; // timestamp de quando saiu do locked — cooldown contra re-entry
 
           // Calcula scroll exato onde o hero deve travar
           function getHeroLockScroll() {
@@ -941,6 +940,8 @@
 
           function enterLocking() {
             if (heroState !== "scroll") return;
+            // Cooldown: não re-trava se acabou de sair
+            if (Date.now() - releasedAt < 800) return;
             heroState = "locking";
             var mobile = window.innerWidth < 768;
             var l = getSceneLayout();
@@ -972,6 +973,7 @@
           function releaseLock() {
             if (heroState !== "locked") return;
             heroState = "done";
+            releasedAt = Date.now();
             hideHint();
             unlockBodyScroll();
           }
@@ -982,9 +984,25 @@
             heroState = "locked";
             lockBodyScroll();
             scene.style.pointerEvents = "";
+            // SNAP visual: card reto, centralizado, header escondido
+            curRot = 0;
+            tgtRot = 0;
+            var mobile = window.innerWidth < 768;
+            curScl = mobile ? 0.97 : 1.0;
+            tgtScl = curScl;
+            curHTY = -140;
+            tgtHTY = -140;
+            curHOp = 0;
+            tgtHOp = 0;
             curSOp = 1;
             tgtSOp = 1;
             scene.style.opacity = "1";
+            // Aplica transforms imediatamente
+            card.style.transform = "rotateX(0deg) scale(" + curScl + ")";
+            if (header) {
+              header.style.transform = "translateY(-140px)";
+              header.style.opacity = "0";
+            }
             var l = getSceneLayout();
             curTop = l.centerTop;
             tgtTop = l.centerTop;
@@ -1004,20 +1022,17 @@
           function releaseBack() {
             if (heroState !== "locked") return;
             heroState = "scroll";
+            releasedAt = Date.now();
             hideHint();
             unlockBodyScroll();
-            // Restaura header e card ao estado inicial
+            scene.style.pointerEvents = "";
+            // Define targets — o lerp anima suavemente até lá
             tgtRot = 18;
             tgtScl = 1.04;
             tgtHTY = 0;
             tgtHOp = 1;
             tgtSOp = 1;
-            scene.style.pointerEvents = "";
-            // SNAP posição direto para sceneStartT — sem lerp
-            // Evita que o card passe por cima do título do hero durante a animação
-            curTop = sceneStartT;
             tgtTop = sceneStartT;
-            scene.style.top = sceneStartT + "px";
             // Volta o scroll para o topo da seção hero
             window.scrollTo(0, section.offsetTop);
             scheduleRaf();
@@ -1062,12 +1077,34 @@
             var goingUp = scrollY < lastScrollY;
             lastScrollY = scrollY;
 
-            // Re-entry: voltando de 'done' ao scrollar pra cima
-            if (heroState === "done" && goingUp) {
-              var r = section.getBoundingClientRect();
-              // Se o fundo da seção hero voltou a ser visível na tela
-              if (r.bottom > window.innerHeight * 0.7) {
-                reenterLocked();
+            // Estado 'done': scroll livre, sem re-entry automático
+            if (heroState === "done") {
+              // Se scrollou de volta ao topo da seção, volta pro estado 'scroll'
+              // e anima suavemente o card de volta à posição inclinada
+              if (goingUp) {
+                var r = section.getBoundingClientRect();
+                if (r.top >= -10) {
+                  heroState = "scroll";
+                  releasedAt = Date.now();
+                  // Define targets — lerp anima suavemente
+                  tgtRot = 18;
+                  tgtScl = 1.04;
+                  tgtHTY = 0;
+                  tgtHOp = 1;
+                  tgtSOp = 1;
+                  tgtTop = sceneStartT;
+                  scheduleRaf();
+                }
+              }
+              return;
+            }
+
+            // GUARDA: durante locking/locked, força scroll na posição correta
+            // Impede que scroll rápido "escape" da trava
+            if (heroState === "locking" || heroState === "locked") {
+              var lockPos = getHeroLockScroll();
+              if (Math.abs(scrollY - lockPos) > 2) {
+                window.scrollTo(0, lockPos);
               }
               return;
             }
@@ -1097,7 +1134,8 @@
             scheduleRaf();
 
             // Dispara travamento ao final da Phase A
-            if (p >= 0.95) enterLocking();
+            // Threshold mais baixo (0.85) para capturar scroll rápido antes que escape
+            if (p >= 0.85) enterLocking();
           }
 
           window.addEventListener("scroll", onScroll, { passive: true });
@@ -1123,16 +1161,8 @@
           window.addEventListener(
             "wheel",
             function (e) {
-              // Re-entry imediato: scroll pra cima no estado 'done'
-              if (heroState === "done" && e.deltaY < 0) {
-                var r = section.getBoundingClientRect();
-                if (r.bottom > window.innerHeight * 0.7) {
-                  e.preventDefault();
-                  reenterLocked();
-                  lockBodyScroll();
-                  return;
-                }
-              }
+              // Estado 'done': deixa scroll livre, sem re-entry
+              if (heroState === "done") return;
               // INTERCEPTAÇÃO ANTECIPADA: durante scroll, se estamos perto
               // do ponto de trava e scrollando pra baixo, bloqueia o scroll
               // ANTES que o browser execute — impede overshoot em scroll rápido
@@ -1140,7 +1170,7 @@
                 var rect = section.getBoundingClientRect();
                 var extraH = section.offsetHeight - window.innerHeight;
                 var p = extraH > 0 ? clamp(-rect.top / extraH, 0, 1) : 1;
-                if (p >= 0.97) {
+                if (p >= 0.8) {
                   e.preventDefault();
                   enterLocking();
                   return;
@@ -1166,19 +1196,9 @@
           window.addEventListener(
             "touchmove",
             function (e) {
-              // Re-entry touch: arrasta pra baixo (scroll up) no done
+              // Estado 'done': deixa scroll livre, sem re-entry
               if (heroState === "done") {
-                var dy = touchY0 - e.touches[0].clientY;
                 touchY0 = e.touches[0].clientY;
-                if (dy < 0) {
-                  var r = section.getBoundingClientRect();
-                  if (r.bottom > window.innerHeight * 0.7) {
-                    e.preventDefault();
-                    reenterLocked();
-                    lockBodyScroll();
-                    return;
-                  }
-                }
                 return;
               }
               // INTERCEPTAÇÃO ANTECIPADA touch: perto do threshold scrollando pra baixo
@@ -1190,7 +1210,7 @@
                   var rect = section.getBoundingClientRect();
                   var extraH = section.offsetHeight - window.innerHeight;
                   var p = extraH > 0 ? clamp(-rect.top / extraH, 0, 1) : 1;
-                  if (p >= 0.97) {
+                  if (p >= 0.8) {
                     e.preventDefault();
                     enterLocking();
                     return;
@@ -1260,7 +1280,7 @@
       <section
         id="o-que-voce-recebe"
         class="py-14 md:py-20 relative overflow-hidden"
-        style="background: linear-gradient(180deg, #bbf7d0 0%, #d1fae5 6%, #ecfdf5 14%, #f0fdf4 50%, #ecfdf5 92%, #ffffff 100%)"
+        style="scroll-margin-top: 32px; background: linear-gradient(180deg, #bbf7d0 0%, #d1fae5 6%, #ecfdf5 14%, #f0fdf4 50%, #ecfdf5 92%, #ffffff 100%)"
       >
         <!-- Background sutil -->
         <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -2546,6 +2566,7 @@
       <section
         id="funcionalidades"
         class="py-10 md:py-14 bg-gradient-to-b from-white via-slate-50 to-white relative z-20 overflow-hidden"
+        style="scroll-margin-top: 32px"
         aria-labelledby="funcionalidades-title"
       >
         <!-- Background decorativo -->
@@ -3389,7 +3410,7 @@
       </section>
 
       <!-- Seção Como Funciona -->
-      <section id="como-funciona" class="relative py-10 md:py-14 overflow-hidden" aria-labelledby="como-funciona-title" style="background: #0a0f1a">
+      <section id="como-funciona" class="relative py-10 md:py-14 overflow-hidden" aria-labelledby="como-funciona-title" style="scroll-margin-top: 32px; background: #0a0f1a">
         <!-- Grade decorativa de fundo -->
         <div
           aria-hidden="true"
@@ -4028,7 +4049,7 @@
       </section>
 
       <!-- Seção de Preços -->
-      <section id="precos" class="py-10 md:py-14 bg-slate-100 relative overflow-hidden" aria-labelledby="precos-title">
+      <section id="precos" class="py-10 md:py-14 bg-slate-100 relative overflow-hidden" aria-labelledby="precos-title" style="scroll-margin-top: 32px">
         <div class="max-w-7xl mx-auto px-6 relative z-10">
           <div class="text-center mb-4" data-aos="fade-up">
             <h2 id="precos-title" class="text-2xl md:text-3xl lg:text-4xl font-display font-bold mb-6 text-slate-900">
@@ -4093,7 +4114,7 @@
                 <li class="flex gap-3 items-start">
                   <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg
-                  >Flow Builder (automação visual)
+                  >Fluxo de automação
                 </li>
                 <li class="flex gap-3 items-start">
                   <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -4118,17 +4139,7 @@
                 <li class="flex gap-3 items-start text-slate-400">
                   <svg class="w-5 h-5 text-slate-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg
-                  >IA que agenda e fecha pedidos
-                </li>
-                <li class="flex gap-3 items-start text-slate-400">
-                  <svg class="w-5 h-5 text-slate-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg
-                  >Multi-atendentes
-                </li>
-                <li class="flex gap-3 items-start text-slate-400">
-                  <svg class="w-5 h-5 text-slate-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg
-                  >IA com respostas avançadas
+                  >IA Personalizada de atendimento 24h
                 </li>
                 <li class="flex gap-3 items-start text-slate-400">
                   <svg class="w-5 h-5 text-slate-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -4194,12 +4205,12 @@
                 <li class="flex gap-3 items-start">
                   <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg
-                  >IA que agenda e fecha pedidos
+                  >IA personalizda de atendimento 24h
                 </li>
                 <li class="flex gap-3 items-start">
                   <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg
-                  >Flow Builder (automação visual)
+                  >Fluxo de automação
                 </li>
                 <li class="flex gap-3 items-start">
                   <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -4209,22 +4220,12 @@
                 <li class="flex gap-3 items-start">
                   <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg
-                  >Suporte prioritário via WhatsApp
+                  >Suporte via WhatsApp
                 </li>
                 <li class="flex gap-3 items-start text-slate-400">
                   <svg class="w-5 h-5 text-slate-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg
                   >Integração com Google Agenda
-                </li>
-                <li class="flex gap-3 items-start text-slate-400">
-                  <svg class="w-5 h-5 text-slate-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg
-                  >Multi-atendentes
-                </li>
-                <li class="flex gap-3 items-start text-slate-400">
-                  <svg class="w-5 h-5 text-slate-300 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg
-                  >IA com respostas avançadas
                 </li>
               </ul>
               <a
@@ -4291,27 +4292,17 @@
                 <li class="flex gap-3 items-start">
                   <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg
-                  >IA que agenda e fecha pedidos
+                  >IA personalizda de atendimento 24h
                 </li>
                 <li class="flex gap-3 items-start">
                   <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg
-                  >Flow Builder (automação visual)
+                  >Fluxo de automação
                 </li>
                 <li class="flex gap-3 items-start">
                   <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg
                   >Funil de vendas
-                </li>
-                <li class="flex gap-3 items-start">
-                  <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg
-                  >Multi-atendentes ilimitado
-                </li>
-                <li class="flex gap-3 items-start">
-                  <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg
-                  >IA com respostas avançadas
                 </li>
                 <li class="flex gap-3 items-start">
                   <svg class="w-5 h-5 text-brand-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -4479,7 +4470,7 @@
       </section>
 
       <!-- Seção FAQ -->
-      <section id="faq" class="py-10 md:py-14 bg-white" aria-labelledby="faq-title">
+      <section id="faq" class="py-10 md:py-14 bg-white" aria-labelledby="faq-title" style="scroll-margin-top: 32px">
         <div class="max-w-4xl mx-auto px-6">
           <div class="text-center mb-8" data-aos="fade-up" data-aos-duration="800">
             <h2 id="faq-title" class="text-2xl lg:text-3xl font-display font-bold text-slate-900 mb-3">Perguntas frequentes</h2>
