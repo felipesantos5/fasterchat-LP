@@ -749,6 +749,9 @@
           var dots = Array.from(document.querySelectorAll(".fc-dot"));
           if (!section || !card || !scene) return;
 
+          // Mobile: não ativa scroll animation
+          if (window.innerWidth < 768) return;
+
           var SLIDE_COUNT = slides.length; // 3 slides
           var TICKS_PER_SLIDE = 5; // 5 "scrolls" por troca
           var TOTAL_TICKS = (SLIDE_COUNT + 1) * TICKS_PER_SLIDE; // 20 ticks
@@ -1280,7 +1283,10 @@
       <section
         id="o-que-voce-recebe"
         class="py-14 md:py-20 relative overflow-hidden"
-        style="scroll-margin-top: 32px; background: linear-gradient(180deg, #bbf7d0 0%, #d1fae5 6%, #ecfdf5 14%, #f0fdf4 50%, #ecfdf5 92%, #ffffff 100%)"
+        style="
+          scroll-margin-top: 32px;
+          background: linear-gradient(180deg, #bbf7d0 0%, #d1fae5 6%, #ecfdf5 14%, #f0fdf4 50%, #ecfdf5 92%, #ffffff 100%);
+        "
       >
         <!-- Background sutil -->
         <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
@@ -1315,11 +1321,11 @@
 
               <!-- Ilustração visual do chat personalizado -->
               <div class="mb-5 rounded-2xl border border-slate-100 bg-slate-50/60 overflow-hidden relative" style="height: 240px">
-                <div class="flex flex-col gap-2 p-4 h-full justify-center">
+                <div class="flex flex-col gap-2 p-4 h-full justify-start pt-3">
                   <!-- Balão cliente 1 — sempre visível -->
                   <div class="flex items-end gap-2 justify-end items-start">
                     <div class="bg-emerald-50 rounded-2xl rounded-tr-sm px-3 py-2 max-w-[230px] border border-emerald-100">
-                      <p class="text-emerald-700 text-xs">Olá! Vi que vocês têm o produto. Qual o valor?</p>
+                      <p class="text-emerald-700 text-xs">Olá! Quais serviços vocês oferecem?</p>
                       <p class="text-[10px] text-emerald-400 text-right mt-1 leading-none">14:32</p>
                     </div>
                     <div class="w-7 h-7 rounded-full bg-emerald-100 flex-shrink-0 flex items-center justify-center">
@@ -3410,7 +3416,12 @@
       </section>
 
       <!-- Seção Como Funciona -->
-      <section id="como-funciona" class="relative py-10 md:py-14 overflow-hidden" aria-labelledby="como-funciona-title" style="scroll-margin-top: 32px; background: #0a0f1a">
+      <section
+        id="como-funciona"
+        class="relative py-10 md:py-14 overflow-hidden"
+        aria-labelledby="como-funciona-title"
+        style="scroll-margin-top: 32px; background: #0a0f1a"
+      >
         <!-- Grade decorativa de fundo -->
         <div
           aria-hidden="true"
@@ -4049,7 +4060,12 @@
       </section>
 
       <!-- Seção de Preços -->
-      <section id="precos" class="py-10 md:py-14 bg-slate-100 relative overflow-hidden" aria-labelledby="precos-title" style="scroll-margin-top: 32px">
+      <section
+        id="precos"
+        class="py-10 md:py-14 bg-slate-100 relative overflow-hidden"
+        aria-labelledby="precos-title"
+        style="scroll-margin-top: 32px"
+      >
         <div class="max-w-7xl mx-auto px-6 relative z-10">
           <div class="text-center mb-4" data-aos="fade-up">
             <h2 id="precos-title" class="text-2xl md:text-3xl lg:text-4xl font-display font-bold mb-6 text-slate-900">
@@ -4798,84 +4814,25 @@
         }
       }
 
-      /* Hero mobile: compacta espaçamentos e corrige imagem */
+      /* Hero mobile: esconde tablet e remove scroll animation */
       @media (max-width: 767px) {
         #fc-scroll-hero {
-          min-height: calc(100vh + 80px) !important;
+          min-height: auto !important;
         }
 
         #fc-hero-sticky {
+          position: relative !important;
+          height: auto !important;
           padding-top: 2rem !important;
-        }
-
-        .fc-slide img {
-          object-fit: cover !important;
-          object-position: top center !important;
-        }
-      }
-
-      /* Mobile ≤720px: phone mockup em vez de tablet */
-      @media (max-width: 720px) {
-        #fc-hero-sticky {
-          padding-top: 1rem !important;
-          padding-bottom: 0.5rem !important;
-        }
-
-        #fc-hero-header {
-          margin-bottom: 0.5rem !important;
+          padding-bottom: 3rem !important;
         }
 
         #fc-card-scene {
-          max-width: calc(100% - 64px) !important;
-          width: 100% !important;
-          margin-left: auto !important;
-          margin-right: auto !important;
-          padding-left: 0 !important;
-          padding-right: 0 !important;
+          display: none !important;
         }
 
-        #fc-hero-card {
-          border-radius: 32px !important;
-          padding: 8px !important;
-          border-width: 3px !important;
-          position: relative;
-        }
-
-        /* Notch do celular */
-        #fc-hero-card::before {
-          content: "";
-          position: absolute;
-          top: 8px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 80px;
-          height: 22px;
-          background: #0f172a;
-          border-radius: 0 0 14px 14px;
-          z-index: 10;
-        }
-
-        #fc-slides-wrap {
-          border-radius: 24px !important;
-        }
-
-        .fc-slide img {
-          object-fit: cover !important;
-          object-position: top left !important;
-        }
-
-        /* Home indicator */
-        #fc-hero-card::after {
-          content: "";
-          position: absolute;
-          bottom: 6px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 40%;
-          height: 4px;
-          background: #374151;
-          border-radius: 4px;
-          z-index: 10;
+        #fc-lock-hint {
+          display: none !important;
         }
       }
     </style>
