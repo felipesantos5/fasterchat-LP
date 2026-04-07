@@ -1,9 +1,11 @@
 # Robots.txt - FasterChat
 # https://fasterchat.com.br/
 
-# Permitir todos os bots de busca
+# Permitir todos os bots de busca e IA
 User-agent: *
 Allow: /
+Disallow: /admin/
+Disallow: /api/
 
 # Google
 User-agent: Googlebot
@@ -13,13 +15,46 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
-# Bloquear diretórios sensiveis (se existirem)
-Disallow: /admin/
-Disallow: /api/
-Disallow: /*.json$
+# OpenAI / ChatGPT
+User-agent: GPTBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Meta / Llama
+User-agent: meta-externalagent
+Allow: /
+
+# Google Gemini / Bard
+User-agent: Google-Extended
+Allow: /
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+
+# You.com
+User-agent: YouBot
+Allow: /
+
+# Amazon Alexa
+User-agent: Amazonbot
+Allow: /
+
+# Apple
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
 
 # Sitemap
 Sitemap: https://fasterchat.com.br/sitemap.xml
-
-# Crawl-delay para evitar sobrecarga (opcional)
-Crawl-delay: 1
+Sitemap: https://fasterchat.com.br/llms.txt

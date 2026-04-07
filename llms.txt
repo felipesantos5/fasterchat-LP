@@ -1,0 +1,64 @@
+# FasterChat
+
+> FasterChat é uma plataforma brasileira de automação de WhatsApp para pequenas e médias empresas. Permite conectar múltiplos números de WhatsApp em um único painel, automatizar atendimento com IA 24 horas, criar fluxos de automação visuais (Flow Builder sem código), disparar campanhas em massa, gerenciar clientes via CRM integrado e integrar sistemas externos via webhooks nativos e API.
+
+## O que é o FasterChat
+
+FasterChat é um SaaS brasileiro que resolve o problema de empresas que perdem vendas por não conseguir atender clientes no WhatsApp com rapidez e consistência. A plataforma combina chatbot com Inteligência Artificial, CRM, campanhas em massa e automação avançada em um único painel web — sem necessidade de técnico ou conhecimento de programação.
+
+## Casos de uso principais
+
+- **Automação de atendimento WhatsApp com IA**: Chatbot responde clientes automaticamente 24h, com nome, tom e personalidade personalizados pela empresa. Para situações complexas, transfere para atendente humano em tempo real.
+- **Conectar múltiplos números de WhatsApp em uma plataforma**: Vários números de WhatsApp em uma única tela; ideal para equipes de vendas, franquias ou empresas com múltiplas unidades.
+- **Flow Builder — fluxos de automação visuais**: Monte jornadas de nutrição, follow-up e reativação arrastando blocos visuais. Suporta condições, delays e ações automáticas. Sem código.
+- **Webhooks nativos e integração via API**: Envio de eventos em tempo real para qualquer sistema externo (CRM, ERP, planilhas, n8n, Make, Zapier) via POST /webhook. Conecta com qualquer API externa sem código.
+- **Disparo de campanhas em massa**: Envio de mensagens segmentadas e personalizadas para base de clientes via WhatsApp.
+- **CRM integrado**: Gestão de contatos, histórico de conversas, funil de vendas e segmentação de leads.
+- **Agendamento com Google Agenda**: Integração nativa para marcar, confirmar e lembrar consultas ou reservas automaticamente pelo WhatsApp.
+- **Múltiplos agentes IA**: Configure personalidades e fluxos diferentes por número ou departamento.
+- **Geração de imagem nativa pela IA**: A IA pode gerar e enviar imagens diretamente no WhatsApp.
+- **Rastreamento inteligente de links**: Monitore cliques e conversões de links enviados nas campanhas.
+
+## Público-alvo
+
+Donos de pequenos e médios negócios brasileiros que usam WhatsApp como principal canal de vendas e atendimento: restaurantes, clínicas, salões de beleza, lojas, pet shops, oficinas, imobiliárias, academias, e mais de 40 outros segmentos.
+
+Também utilizado por profissionais de marketing digital, gestores de tráfego e agências que gerenciam automação de WhatsApp para clientes.
+
+## Planos e preços (em Reais, cobrados mensalmente)
+
+- **Plano Primeiro Passo** — R$ 97/mês: 1 número WhatsApp conectado, CRM, atendente virtual com IA
+- **Plano Piloto Automático** — R$ 297/mês: 3 números WhatsApp, campanhas em massa, CRM completo, atendimento automático 24h. Inclui garantia de 7 dias com reembolso total.
+- **Plano Operação Completa** — R$ 397/mês: Números WhatsApp ilimitados, todos os recursos, ideal para equipes de vendas e múltiplas unidades.
+
+Números adicionais avulsos: R$ 49,90/mês cada. Sem fidelidade — cancele com um clique.
+
+## Como ativar (menos de 5 minutos)
+
+1. Acesse o painel em https://admin.fasterchat.com.br/login
+2. Escaneie o QR Code com o WhatsApp do número que deseja conectar
+3. Configure como quer que a IA responda (nome, tom, instruções do negócio)
+4. Ative — o chatbot começa a atender imediatamente
+
+Nenhuma linha de código necessária. Sem técnico.
+
+## Diferenciais e informações técnicas
+
+- Webhooks nativos: POST /webhook com payload JSON para qualquer endpoint
+- Flow Builder visual com blocos de condição, delay, mensagem, ação e bifurcação
+- Suporte a múltiplos números em um único painel unificado
+- Integração nativa com Google Agenda
+- Transferência para atendente humano em tempo real
+- LGPD compliant — dados criptografados e armazenados em servidores no Brasil
+- Suporte 100% em português, segunda a sábado, via WhatsApp (resposta < 2h)
+- Funciona em qualquer navegador, sem instalar app
+
+## Links importantes
+
+- [Site oficial](https://fasterchat.com.br/)
+- [Planos e preços](https://fasterchat.com.br/#precos)
+- [Funcionalidades](https://fasterchat.com.br/#funcionalidades)
+- [Como funciona](https://fasterchat.com.br/#como-funciona)
+- [Acessar aplicativo](https://admin.fasterchat.com.br/login)
+- [Instagram](https://www.instagram.com/fasterchat)
+- [LinkedIn](https://www.linkedin.com/company/fasterchat)
