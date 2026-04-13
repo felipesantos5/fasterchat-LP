@@ -67,7 +67,7 @@
             >
               <a href="index.html#funcionalidades" class="hover:text-brand-primary transition-colors">Funcionalidades</a>
               <a href="index.html#precos" class="hover:text-brand-primary transition-colors">Planos</a>
-              <a href="https://admin.fasterchat.com.br/login" class="hover:text-brand-primary transition-colors">Entrar</a>
+              <a href="https://admin.fasterchat.com.br/login?ref=lp" class="hover:text-brand-primary transition-colors">Entrar</a>
             </div>
 
             <div class="hidden md:block" data-aos="fade-down" data-aos-delay="200" data-aos-duration="800">
@@ -82,7 +82,7 @@
             <!-- Botão Acessar App (Mobile) -->
             <div class="md:hidden">
               <a
-                href="https://admin.fasterchat.com.br/login"
+                href="https://admin.fasterchat.com.br/login?ref=lp"
                 class="px-4 py-2 bg-brand-primary text-white rounded-full text-sm font-semibold hover:bg-brand-dark transition-all shadow-md"
               >
                 Acessar App
@@ -276,6 +276,20 @@
         offset: 50,
         duration: 800,
         easing: "ease-out-cubic",
+      });
+    </script>
+    <script>
+      // Fallback: garante que qualquer link futuro para o admin também tenha o parâmetro de tracking
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('a[href*="admin.fasterchat.com.br"]').forEach(link => {
+          try {
+            const url = new URL(link.href);
+            if (!url.searchParams.has('ref')) {
+              url.searchParams.set('ref', 'lp');
+              link.href = url.toString();
+            }
+          } catch (e) {}
+        });
       });
     </script>
   </body>
