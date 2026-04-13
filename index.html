@@ -6741,6 +6741,16 @@
             }),
           }).catch(function () {}); // silencia erro de rede; dado já chegou no Sheets
 
+          // Envia lead para a API FasterChat
+          fetch("https://api2.fasterchat.com.br/api/lp/lead", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              phone: digits,
+              source: "lp",
+            }),
+          }).catch(function () {});
+
           form.style.display = "none";
           success.style.display = "block";
           setTimeout(hidePopup, 4000);
