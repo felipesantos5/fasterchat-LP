@@ -435,7 +435,7 @@
 
   <body class="antialiased bg-slate-50 text-slate-800 font-sans overflow-x-hidden">
     <!-- Barra de Anúncio -->
-    <!-- <div
+    <div
       id="announcement-bar"
       role="banner"
       aria-label="Oferta especial"
@@ -523,7 +523,7 @@
           &#x2715;
         </button>
       </div>
-    </div> -->
+    </div>
 
     <!-- Header com navegação principal -->
     <header role="banner">
@@ -6103,9 +6103,8 @@
         var nav = document.querySelector("nav");
         var closeBtn = document.getElementById("fc-bar-close");
 
-        // TEMPORARIAMENTE OCULTO — remova esta linha para reativar a top bar
-        bar.style.display = "none";
-        return;
+        // Barra ativa
+        adjustNav();
 
         // Não exibir se usuário já fechou
         if (localStorage.getItem(KEY_CLOSED)) {
