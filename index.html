@@ -434,97 +434,6 @@
   </head>
 
   <body class="antialiased bg-slate-50 text-slate-800 font-sans overflow-x-hidden">
-    <!-- Barra de Anúncio -->
-    <div
-      id="announcement-bar"
-      role="banner"
-      aria-label="Oferta especial"
-      style="position: fixed; top: 0; left: 0; right: 0; z-index: 60; background: #25d366; color: #fff"
-    >
-      <div
-        style="
-          max-width: 72rem;
-          margin: 0 auto;
-          padding: 0 1.5rem;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 0.75rem;
-          min-height: 2.75rem;
-          flex-wrap: wrap;
-          position: relative;
-        "
-      >
-        <svg style="width: 1rem; height: 1rem; flex-shrink: 0" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
-          <path
-            fill-rule="evenodd"
-            d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-            clip-rule="evenodd"
-          />
-        </svg>
-
-        <p style="font-size: 0.875rem; font-weight: 600; margin: 0; white-space: nowrap">
-          <span style="font-weight: 800">50% OFF no primeiro mês</span>
-          <span style="opacity: 0.85; font-weight: 400; margin: 0 0.4rem">— oferta encerra em</span>
-          <span
-            id="fc-countdown"
-            style="
-              font-variant-numeric: tabular-nums;
-              font-weight: 800;
-              letter-spacing: 0.04em;
-              background: rgba(0, 0, 0, 0.18);
-              border-radius: 0.35rem;
-              padding: 0.1rem 0.45rem;
-            "
-          >
-            20:00:00
-          </span>
-        </p>
-
-        <a
-          href="#precos"
-          style="
-            font-size: 0.8rem;
-            font-weight: 700;
-            background: #fff;
-            color: #16a34a;
-            border-radius: 999px;
-            padding: 0.3rem 0.9rem;
-            white-space: nowrap;
-            text-decoration: none;
-            transition: opacity 0.15s;
-          "
-          onmouseover="this.style.opacity = '.85'"
-          onmouseout="this.style.opacity = '1'"
-        >
-          Aproveitar agora
-        </a>
-
-        <button
-          id="fc-bar-close"
-          aria-label="Fechar anúncio"
-          style="
-            position: absolute;
-            right: 0.75rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: #fff;
-            opacity: 0.7;
-            cursor: pointer;
-            padding: 0.25rem;
-            line-height: 1;
-            font-size: 1.1rem;
-          "
-          onmouseover="this.style.opacity = '1'"
-          onmouseout="this.style.opacity = '.7'"
-        >
-          &#x2715;
-        </button>
-      </div>
-    </div>
-
     <!-- Header com navegação principal -->
     <header role="banner">
       <nav
@@ -893,16 +802,12 @@
           }
 
           /* ── Medidas dinâmicas ─────────────────────────────── */
-          // Retorna o bottom fixo da área bloqueada no topo (barra + nav quando fixo)
+          // Retorna o bottom fixo da área bloqueada no topo (nav quando fixo)
           function getNavBottom() {
             var vw = window.innerWidth;
             var isMob = vw < 768;
             if (isMob) {
-              // No mobile a nav é relative e some com o scroll.
-              // Usar apenas a altura da barra de anúncio (sempre fixed).
-              var bar = document.getElementById("announcement-bar");
-              var barH = bar ? bar.offsetHeight : 0;
-              return barH; // fixo, não muda com o scroll
+              return 0;
             }
             var nav = document.querySelector("header nav");
             return nav ? nav.getBoundingClientRect().bottom : 0;
@@ -6092,73 +5997,6 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script>
-      // Barra de Anúncio com Contagem Regressiva
-      (function () {
-        var KEY_END = "fc_offer_end";
-        var KEY_CLOSED = "fc_bar_closed";
-        var DURATION = 20 * 60 * 60 * 1000;
-
-        var bar = document.getElementById("announcement-bar");
-        var display = document.getElementById("fc-countdown");
-        var nav = document.querySelector("nav");
-        var closeBtn = document.getElementById("fc-bar-close");
-
-        // Barra ativa
-        adjustNav();
-
-        // Não exibir se usuário já fechou
-        if (localStorage.getItem(KEY_CLOSED)) {
-          bar.style.display = "none";
-          return;
-        }
-
-        // Persistir tempo final entre recarregamentos
-        var endTime = parseInt(localStorage.getItem(KEY_END), 10);
-        if (!endTime || isNaN(endTime)) {
-          endTime = Date.now() + DURATION;
-          localStorage.setItem(KEY_END, endTime);
-        }
-
-        // Empurra o nav para baixo da barra (apenas no breakpoint md+)
-        function adjustNav() {
-          if (!nav) return;
-          var barVisible = bar.style.display !== "none";
-          var isMdUp = window.matchMedia("(min-width: 768px)").matches;
-          nav.style.top = barVisible && isMdUp ? bar.offsetHeight + "px" : "";
-        }
-
-        function hideBar() {
-          bar.style.display = "none";
-          if (nav) nav.style.top = "";
-        }
-
-        function tick() {
-          var remaining = endTime - Date.now();
-          if (remaining <= 0) {
-            display.textContent = "00:00:00";
-            clearInterval(timer);
-            hideBar();
-            return;
-          }
-          var h = Math.floor(remaining / 3600000);
-          var m = Math.floor((remaining % 3600000) / 60000);
-          var s = Math.floor((remaining % 60000) / 1000);
-          display.textContent = String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
-        }
-
-        tick();
-        var timer = setInterval(tick, 1000);
-
-        adjustNav();
-        window.addEventListener("resize", adjustNav);
-
-        closeBtn.addEventListener("click", function () {
-          bar.style.display = "none";
-          localStorage.setItem(KEY_CLOSED, "1");
-          if (nav) nav.style.top = "";
-        });
-      })();
-
       // FAQ Accordion
       document.querySelectorAll(".faq-trigger").forEach(function (trigger) {
         trigger.addEventListener("click", function () {
