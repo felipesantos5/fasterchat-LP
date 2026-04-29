@@ -6609,16 +6609,51 @@
     })();
   </script>
   <script>
-    // Fallback: garante que qualquer link futuro para o admin também tenha o parâmetro de tracking
+    function getUtmData() {
+      const params = new URLSearchParams(window.location.search);
+      const utmSource = params.get('utm_source');
+
+      if (utmSource) {
+        return {
+          utm_source: utmSource,
+          utm_medium: params.get('utm_medium') || undefined,
+          utm_campaign: params.get('utm_campaign') || undefined,
+          utm_content: params.get('utm_content') || undefined,
+          utm_term: params.get('utm_term') || undefined,
+        };
+      }
+
+      try {
+        const referrer = document.referrer;
+        if (!referrer) return { utm_source: 'direct' };
+
+        const host = new URL(referrer).hostname.replace('www.', '');
+        if (host.includes('google.'))    return { utm_source: 'google',    utm_medium: 'organic' };
+        if (host.includes('instagram.')) return { utm_source: 'instagram', utm_medium: 'organic' };
+        if (host.includes('facebook.') || host.includes('fb.com'))
+                                         return { utm_source: 'facebook',  utm_medium: 'organic' };
+        if (host.includes('tiktok.'))    return { utm_source: 'tiktok',    utm_medium: 'organic' };
+        if (host.includes('youtube.'))   return { utm_source: 'youtube',   utm_medium: 'organic' };
+        if (host.includes('linkedin.'))  return { utm_source: 'linkedin',  utm_medium: 'organic' };
+
+        return { utm_source: 'referral', utm_medium: 'referral' };
+      } catch {
+        return { utm_source: 'direct' };
+      }
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
+      const utms = getUtmData();
+
       document.querySelectorAll('a[href*="admin.fasterchat.com.br"]').forEach((link) => {
         try {
           const url = new URL(link.href);
-          if (!url.searchParams.has("ref")) {
-            url.searchParams.set("ref", "lp");
-            link.href = url.toString();
-          }
-        } catch (e) { }
+          if (!url.searchParams.has("ref")) url.searchParams.set("ref", "lp");
+          Object.entries(utms).forEach(([key, value]) => {
+            if (value) url.searchParams.set(key, value);
+          });
+          link.href = url.toString();
+        } catch (e) {}
       });
     });
   </script>
