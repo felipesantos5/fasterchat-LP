@@ -239,41 +239,25 @@
 
     <script>
       (function () {
-        var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.userAgentData && navigator.userAgentData.mobile);
+        var isAndroid = /Android/i.test(navigator.userAgent);
+        var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        var isMobile = isAndroid || isIOS || (navigator.userAgentData && navigator.userAgentData.mobile);
 
         if (!isMobile) return;
 
-        var providers = {
-          gmail: {
-            scheme: "googlegmail://",
-            web: "https://mail.google.com/mail/u/0/#inbox",
-          },
-          outlook: {
-            scheme: "ms-outlook://",
-            web: "https://outlook.live.com/mail/0/",
-          },
-        };
+        var gmailLink = document.querySelector('[data-mail-provider="gmail"]');
+        var outlookLink = document.querySelector('[data-mail-provider="outlook"]');
 
-        document.querySelectorAll("[data-mail-provider]").forEach(function (link) {
-          link.addEventListener("click", function (event) {
-            var provider = providers[link.dataset.mailProvider];
-            if (!provider) return;
+        if (isAndroid) {
+          gmailLink.href = "intent://#Intent;scheme=googlegmail;package=com.google.android.gm;end";
+          outlookLink.href = "intent://#Intent;scheme=ms-outlook;package=com.microsoft.office.outlook;end";
+        } else {
+          gmailLink.href = "googlegmail:///";
+          outlookLink.href = "ms-outlook://";
+        }
 
-            event.preventDefault();
-            var fallbackTimer;
-
-            function cancelFallback() {
-              if (document.hidden) window.clearTimeout(fallbackTimer);
-            }
-
-            document.addEventListener("visibilitychange", cancelFallback, { once: true });
-            fallbackTimer = window.setTimeout(function () {
-              if (!document.hidden) window.location.href = provider.web;
-            }, 1300);
-
-            window.location.href = provider.scheme;
-          });
-        });
+        gmailLink.removeAttribute("target");
+        outlookLink.removeAttribute("target");
       })();
     </script>
   </body>
