@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="60 90.4 570.02 539.67" role="img" aria-label="Microsoft Outlook">
+  <defs>
+    <linearGradient id="outlook-a" x1="149.836" x2="463.983" y1="335.474" y2="140.624" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#20a7fa"/>
+      <stop offset=".4" stop-color="#3bd5ff"/>
+      <stop offset="1" stop-color="#c4b0ff"/>
+    </linearGradient>
+    <linearGradient id="outlook-b" x1="257.958" x2="432.843" y1="401.918" y2="121.886" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#165ad9"/>
+      <stop offset=".5" stop-color="#1880e5"/>
+      <stop offset="1" stop-color="#8587ff"/>
+    </linearGradient>
+    <linearGradient id="outlook-c" x1="360.801" x2="667.65" y1="466.649" y2="270.266" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1a43a6"/>
+      <stop offset=".492" stop-color="#2052cb"/>
+      <stop offset="1" stop-color="#5f20cb"/>
+    </linearGradient>
+    <linearGradient id="outlook-d" x1="629.97" x2="357.776" y1="449.147" y2="449.147" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4dc4ff"/>
+      <stop offset=".196" stop-color="#0fafff"/>
+    </linearGradient>
+    <linearGradient id="outlook-e" x1="90" x2="352.074" y1="568.084" y2="567.896" gradientUnits="userSpaceOnUse">
+      <stop offset=".206" stop-color="#6ce0ff"/>
+      <stop offset=".535" stop-color="#50d5ff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="outlook-f" cx="0" cy="0" r="1" gradientTransform="matrix(-170.86 259.725 -674.018 -443.404 278.562 412.979)" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#49deff"/>
+      <stop offset=".724" stop-color="#29c3ff"/>
+    </radialGradient>
+    <radialGradient id="outlook-g" cx="0" cy="0" r="1" gradientTransform="matrix(215.767 230.769 -230.769 215.767 59.144 354.231)" gradientUnits="userSpaceOnUse">
+      <stop offset=".039" stop-color="#0091ff"/>
+      <stop offset=".919" stop-color="#183dad"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#outlook-a)" d="M463.984 140.145 119.637 358.414l-29.614-46.719v-40.258c0-14.656 7.422-28.316 19.719-36.293L309.91 105.258c30.496-19.79 69.777-19.793 100.277-.008l53.797 34.895Z"/>
+  <path fill="url(#outlook-b)" d="M407.102 103.34c1.035.613 2.062 1.254 3.082 1.914l156.214 101.332-387.336 245.52-59.437-93.77 284.27-180.535c26.925-17.102 28.105-55.57 3.207-74.461Z"/>
+  <path fill="url(#outlook-c)" d="m333.602 498.988-154.536-46.879 328.563-208.273c27.672-17.54 27.601-57.938-.133-75.379l-1.48-.93 104.257 67.516c12.301 7.977 19.723 21.64 19.723 36.3v38.962L333.602 498.988Z"/>
+  <path fill="url(#outlook-d)" d="M315.77 630.05h220.449c51.777 0 93.75-41.972 93.75-93.75V272.14c0 15.3-7.864 29.527-20.82 37.664L281.241 515.695c-17.687 11.11-28.422 30.528-28.422 51.414.004 34.762 28.184 62.942 62.95 62.942Z"/>
+  <path fill="url(#outlook-f)" d="M405.402 630.035H183.738c-51.777 0-93.75-41.973-93.75-93.75v-264.34c0 15.274 7.836 29.477 20.754 37.621l327.582 206.52c17.934 11.305 28.809 31.027 28.809 52.226-.004 34.09-27.64 61.723-61.73 61.723Z"/>
+  <path fill="url(#outlook-e)" d="M405.402 630.035H183.738c-51.777 0-93.75-41.973-93.75-93.75v-264.34c0 15.274 7.836 29.477 20.754 37.621l327.582 206.52c17.934 11.305 28.809 31.027 28.809 52.226-.004 34.09-27.64 61.723-61.73 61.723Z"/>
+  <rect width="240" height="240" x="60" y="345" fill="url(#outlook-g)" rx="48.75"/>
+  <path fill="#fff" d="M179.332 535.848c-19.77 0-36-6.375-48.691-19.13-12.688-12.753-19.036-29.398-19.036-49.929 0-21.684 6.442-39.219 19.325-52.61 12.882-13.394 29.75-20.09 50.601-20.09 19.703 0 35.742 6.411 48.114 19.227 12.437 12.82 18.652 29.72 18.652 50.7 0 21.55-6.442 38.929-19.32 52.128-12.82 13.137-29.368 19.704-49.645 19.704Zm.57-27.067c10.778 0 19.453-3.797 26.02-11.383 6.57-7.59 9.851-18.144 9.851-31.664 0-14.093-3.187-25.058-9.562-32.902-6.379-7.844-14.89-11.766-25.54-11.766-10.972 0-19.804 4.047-26.5 12.149-6.694 8.03-10.042 18.683-10.042 31.945 0 13.457 3.348 24.105 10.043 31.949 6.695 7.781 15.273 11.672 25.73 11.672Z"/>
+</svg>

@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#059669" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Compra aprovada | FasterChat</title>
+    <meta name="description" content="Sua compra do FasterChat foi aprovada. Confira seu e-mail para criar sua senha e acessar a plataforma." />
+
+    <link rel="icon" type="image/webp" href="./assets/logo-fundo-branco.webp" />
+    <link rel="stylesheet" href="./assets/fonts/fonts.css" />
+    <link rel="stylesheet" href="./assets/styles.css" />
+
+    <style>
+      :root {
+        color-scheme: light;
+      }
+
+      body {
+        min-height: 100vh;
+        min-height: 100svh;
+        background: #f8fafc;
+      }
+
+      .page-grid {
+        background-image:
+          linear-gradient(rgba(15, 23, 42, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+        background-size: 42px 42px;
+        mask-image: linear-gradient(to bottom, black, transparent 72%);
+      }
+
+      .success-halo {
+        animation: halo-in 0.7s 0.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .success-circle {
+        animation: circle-in 0.65s 0.15s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      .success-ring {
+        stroke-dasharray: 290;
+        stroke-dashoffset: 290;
+        animation: draw-ring 0.75s 0.3s ease-out forwards;
+      }
+
+      .success-check {
+        stroke-dasharray: 82;
+        stroke-dashoffset: 82;
+        animation: draw-check 0.48s 0.85s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+      }
+
+      .content-in {
+        animation: content-in 0.65s 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+      }
+
+      @keyframes halo-in {
+        from {
+          opacity: 0;
+          transform: scale(0.7);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes circle-in {
+        from {
+          opacity: 0;
+          transform: scale(0.55);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes draw-ring {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes draw-check {
+        to {
+          stroke-dashoffset: 0;
+        }
+      }
+
+      @keyframes content-in {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .success-halo,
+        .success-circle,
+        .content-in {
+          animation: none;
+        }
+
+        .success-ring,
+        .success-check {
+          animation: none;
+          stroke-dashoffset: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="overflow-x-hidden font-sans text-slate-800 antialiased">
+    <div class="page-grid pointer-events-none fixed inset-0" aria-hidden="true"></div>
+
+    <div class="relative flex min-h-screen min-h-[100svh] flex-col">
+      <header class="mx-auto flex w-full max-w-6xl items-center justify-center px-6 py-6 sm:justify-start sm:py-8" aria-label="FasterChat">
+        <a href="./" class="flex items-center gap-2.5 rounded-xl focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-200">
+          <img src="./assets/logo-png.webp" alt="" width="42" height="42" class="h-10 w-10" />
+          <span class="font-display text-xl font-bold tracking-tight text-slate-700"> <span class="text-emerald-700">Faster</span> Chat </span>
+        </a>
+      </header>
+
+      <main class="mx-auto flex w-full max-w-3xl flex-1 items-center px-5 pb-10 pt-2 sm:px-8 sm:pb-16 sm:pt-4">
+        <section class="w-full text-center" aria-labelledby="confirmation-title">
+          <div class="relative mx-auto mb-7 flex h-28 w-28 items-center justify-center sm:mb-8 sm:h-32 sm:w-32" aria-hidden="true">
+            <div class="success-halo absolute inset-0 rounded-full bg-emerald-100/80 ring-1 ring-emerald-200/80"></div>
+            <div class="success-circle absolute inset-3 rounded-full bg-white shadow-[0_16px_45px_-12px_rgba(5,150,105,0.45)] sm:inset-4"></div>
+            <svg class="relative h-[74px] w-[74px] sm:h-20 sm:w-20" viewBox="0 0 104 104" fill="none">
+              <circle class="success-ring" cx="52" cy="52" r="45" stroke="#059669" stroke-width="6" stroke-linecap="round" />
+              <path
+                class="success-check"
+                d="M31 52.5 45.2 67 74 38"
+                stroke="#059669"
+                stroke-width="7"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+
+          <div class="content-in">
+            <h1 id="confirmation-title" class="font-display text-3xl font-bold leading-tight tracking-[-0.035em] text-slate-950 sm:text-5xl">
+              Parabéns! Sua compra<br class="hidden sm:block" />
+              foi aprovada.
+            </h1>
+
+            <div
+              class="mx-auto mt-8 max-w-2xl overflow-hidden rounded-3xl border border-emerald-200/80 bg-white text-left shadow-[0_24px_70px_-30px_rgba(15,23,42,0.28)] sm:mt-10"
+            >
+              <div class="flex gap-4 bg-gradient-to-r from-emerald-50 to-white p-5 sm:gap-5 sm:p-7">
+                <div
+                  class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-lg shadow-emerald-600/20 sm:h-14 sm:w-14"
+                >
+                  <svg class="h-6 w-6 sm:h-7 sm:w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+                    <path d="m4.5 7 6.1 4.7a2.3 2.3 0 0 0 2.8 0L19.5 7"></path>
+                  </svg>
+                </div>
+                <div>
+                  <p class="font-display text-lg font-bold text-slate-950 sm:text-xl">Agora, confira seu e-mail</p>
+                  <p class="mt-1.5 text-sm leading-6 text-slate-600 sm:text-base">
+                    Enviamos as instruções para o e-mail usado na compra. Abra a mensagem e clique no link para criar sua senha.
+                  </p>
+                  <div class="mt-4 flex flex-col gap-2 sm:flex-row" aria-label="Abrir sua caixa de entrada">
+                    <a
+                      href="https://mail.google.com/mail/u/0/#inbox"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-mail-provider="gmail"
+                      class="inline-flex items-center justify-center gap-2.5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-200"
+                    >
+                      <img src="./assets/gmail.svg" alt="" width="20" height="20" class="h-5 w-5 object-contain" />
+                      Abrir Gmail
+                      <svg
+                        class="h-3.5 w-3.5 text-slate-400"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true"
+                      >
+                        <path d="M7 17 17 7M8 7h9v9" />
+                      </svg>
+                    </a>
+                    <a
+                      href="https://outlook.live.com/mail/0/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-mail-provider="outlook"
+                      class="inline-flex items-center justify-center gap-2.5 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-200"
+                    >
+                      <img src="./assets/outlook.svg" alt="" width="20" height="20" class="h-5 w-5 object-contain" />
+                      Abrir Outlook
+                      <svg
+                        class="h-3.5 w-3.5 text-slate-400"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        aria-hidden="true"
+                      >
+                        <path d="M7 17 17 7M8 7h9v9" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-7 flex flex-col items-center justify-center gap-3 sm:mt-8 sm:flex-row">
+              <a
+                href="https://admin.fasterchat.com.br/login"
+                rel="noopener noreferrer"
+                class="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-emerald-600/20 transition hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-xl hover:shadow-emerald-600/25 focus:outline-none focus-visible:ring-4 focus-visible:ring-emerald-200 sm:w-auto"
+              >
+                Acessar o FasterChat
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+
+            <p class="mx-auto mt-6 max-w-xl text-sm leading-6 text-slate-500">
+              Não encontrou a mensagem? Aguarde alguns minutos e confira também as pastas <strong class="font-semibold text-slate-600">Spam</strong> e
+              <strong class="font-semibold text-slate-600">Promoções</strong>.
+            </p>
+          </div>
+        </section>
+      </main>
+
+      <footer class="px-6 pb-6 text-center text-xs text-slate-400 sm:pb-8">© 2026 FasterChat Tecnologia. Todos os direitos reservados.</footer>
+    </div>
+
+    <script>
+      (function () {
+        var isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) || (navigator.userAgentData && navigator.userAgentData.mobile);
+
+        if (!isMobile) return;
+
+        var providers = {
+          gmail: {
+            scheme: "googlegmail://",
+            web: "https://mail.google.com/mail/u/0/#inbox",
+          },
+          outlook: {
+            scheme: "ms-outlook://",
+            web: "https://outlook.live.com/mail/0/",
+          },
+        };
+
+        document.querySelectorAll("[data-mail-provider]").forEach(function (link) {
+          link.addEventListener("click", function (event) {
+            var provider = providers[link.dataset.mailProvider];
+            if (!provider) return;
+
+            event.preventDefault();
+            var fallbackTimer;
+
+            function cancelFallback() {
+              if (document.hidden) window.clearTimeout(fallbackTimer);
+            }
+
+            document.addEventListener("visibilitychange", cancelFallback, { once: true });
+            fallbackTimer = window.setTimeout(function () {
+              if (!document.hidden) window.location.href = provider.web;
+            }, 1300);
+
+            window.location.href = provider.scheme;
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
