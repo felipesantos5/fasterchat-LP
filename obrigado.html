@@ -249,7 +249,8 @@
         var outlookLink = document.querySelector('[data-mail-provider="outlook"]');
 
         if (isAndroid) {
-          gmailLink.href = "intent://#Intent;scheme=googlegmail;package=com.google.android.gm;end";
+          gmailLink.href =
+            "intent://#Intent;action=android.intent.action.MAIN;category=android.intent.category.LAUNCHER;component=com.google.android.gm/.ConversationListActivityGmail;end";
           outlookLink.href = "intent://#Intent;scheme=ms-outlook;package=com.microsoft.office.outlook;end";
         } else {
           gmailLink.href = "googlegmail:///";
