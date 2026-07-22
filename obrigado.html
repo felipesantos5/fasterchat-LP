@@ -250,7 +250,7 @@
 
         if (isAndroid) {
           gmailLink.href =
-            "intent:#Intent;action=android.intent.action.SENDTO;scheme=mailto;package=com.google.android.gm;end";
+            "intent://mail.google.com/mail/u/0/#Intent;scheme=https;package=com.google.android.gm;end";
           outlookLink.href = "intent://#Intent;scheme=ms-outlook;package=com.microsoft.office.outlook;end";
         } else {
           gmailLink.href = "googlegmail:///";
