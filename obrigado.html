@@ -239,18 +239,25 @@
 
     <script>
       (function () {
-        var isAndroid = /Android/i.test(navigator.userAgent);
-        var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+        var userAgent = navigator.userAgent || "";
+        var userAgentPlatform = navigator.userAgentData && navigator.userAgentData.platform;
+        var isAndroid = /Android/i.test(userAgent) || userAgentPlatform === "Android";
+        var isIOS = /iPhone|iPad|iPod/i.test(userAgent);
         var isMobile = isAndroid || isIOS || (navigator.userAgentData && navigator.userAgentData.mobile);
 
         if (!isMobile) return;
 
         var gmailLink = document.querySelector('[data-mail-provider="gmail"]');
         var outlookLink = document.querySelector('[data-mail-provider="outlook"]');
+        var gmailWebUrl = gmailLink.href;
 
         if (isAndroid) {
+          // Gmail does not expose mail.google.com as an Android App Link. Target its
+          // own scheme and keep the web inbox as Chrome's explicit non-Play fallback.
           gmailLink.href =
-            "intent://mail.google.com/mail/u/0/#Intent;scheme=https;package=com.google.android.gm;end";
+            "intent://#Intent;scheme=googlegmail;package=com.google.android.gm;S.browser_fallback_url=" +
+            encodeURIComponent(gmailWebUrl) +
+            ";end";
           outlookLink.href = "intent://#Intent;scheme=ms-outlook;package=com.microsoft.office.outlook;end";
         } else {
           gmailLink.href = "googlegmail:///";
