@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exclusão de Dados - FasterChat</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <link rel="icon" type="image/webp" href="./assets/logo-fundo-branco.webp" />
+    <link rel="apple-touch-icon" href="./assets/logo-fundo-branco.webp" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Plus Jakarta Sans", "sans-serif"],
+            },
+            colors: {
+              brand: {
+                50: "#ECFDF5",
+                100: "#D1FAE5",
+                200: "#A7F3D0",
+                primary: "#10B981", // Verde principal
+                dark: "#059669", // Verde escuro
+                900: "#064E3B",
+              },
+              slate: {
+                850: "#1e293b",
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+
+  <body class="antialiased bg-slate-50 text-slate-800 font-sans">
+    <header role="banner">
+      <nav
+        class="relative md:fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 transition-all duration-300"
+        aria-label="Navegação principal"
+      >
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+          <div class="flex justify-between items-center h-14">
+            <a href="index.html" class="flex items-center gap-2 group" data-aos="fade-down" data-aos-duration="800">
+              <img src="./assets/logo-png.webp" alt="Logo Faster Chat" width="40" height="40" fetchpriority="high" decoding="async" />
+              <span class="text-xl font-bold text-zinc-700 flex"><span class="text-green-700">Faster</span> Chat</span>
+            </a>
+
+            <div
+              class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-800"
+              data-aos="fade-down"
+              data-aos-delay="100"
+              data-aos-duration="800"
+            >
+              <a href="index.html#funcionalidades" class="hover:text-brand-primary transition-colors">Funcionalidades</a>
+              <a href="index.html#precos" class="hover:text-brand-primary transition-colors">Planos</a>
+              <a href="https://admin.fasterchat.com.br/login?ref=lp" rel="noopener noreferrer" class="hover:text-brand-primary transition-colors">Entrar</a>
+            </div>
+
+            <div class="hidden md:block" data-aos="fade-down" data-aos-delay="200" data-aos-duration="800">
+              <a
+                href="index.html#precos"
+                class="px-6 py-2.5 bg-brand-primary text-white rounded-full font-semibold hover:bg-brand-dark transition-all shadow-lg shadow-brand-primary/20 hover:shadow-xl hover:shadow-brand-primary/30 hover:-translate-y-0.5"
+              >
+                Ativar minha IA
+              </a>
+            </div>
+
+            <div class="md:hidden">
+              <a
+                href="https://admin.fasterchat.com.br/login?ref=lp"
+                class="px-4 py-2 bg-brand-primary text-white rounded-full text-sm font-semibold hover:bg-brand-dark transition-all shadow-md"
+              >
+                Acessar App
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="pt-8 md:pt-24 pb-24 px-6 relative overflow-hidden">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-brand-primary/5 rounded-full blur-[100px] -z-10"></div>
+
+      <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-sm border border-slate-100 p-8 md:p-12" data-aos="fade-up" data-aos-duration="1000">
+
+        <!-- Cabeçalho -->
+        <div class="border-b border-slate-100 pb-8 mb-10">
+          <h1 class="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-3">Exclusão de Dados — FasterChat CRM</h1>
+          <p class="text-slate-500">Como pedir a exclusão dos seus dados pessoais e dos dados obtidos pela integração com a Meta (Facebook e WhatsApp).</p>
+          <p class="text-slate-400 text-sm mt-2">Última atualização: 15 de setembro de 2026</p>
+        </div>
+
+        <div class="prose prose-slate prose-lg max-w-none text-slate-700">
+
+          <!-- Resumo -->
+          <div class="bg-slate-50 rounded-2xl p-6 mb-10 border border-slate-100">
+            <h2 class="text-xl font-display font-bold text-slate-900 mb-3">Resumo</h2>
+            <p class="mb-4 leading-relaxed">
+              Você pode pedir a exclusão dos seus dados a qualquer momento, sem custo. Envie um e-mail para
+              <a href="mailto:[dpo@fasterchat.com.br]?subject=Solicita%C3%A7%C3%A3o%20de%20exclus%C3%A3o%20de%20dados" class="font-semibold text-brand-dark underline underline-offset-2 hover:text-brand-primary">[dpo@fasterchat.com.br]</a>
+              com o assunto <strong>"Solicitação de exclusão de dados"</strong>. Respondemos em até 15 dias úteis.
+            </p>
+            <p class="text-sm text-slate-500 mb-5">
+              Esta página complementa a nossa <a href="politica-privacidade.html" class="text-brand-dark underline underline-offset-2 hover:text-brand-primary">Política de Privacidade</a>
+              e atende ao Art. 18 da LGPD (Lei nº 13.709/2018) e aos Termos da Plataforma da Meta, que exigem instruções claras de exclusão
+              para aplicativos que usam o login com o Facebook e a API Oficial do WhatsApp.
+            </p>
+            <a
+              href="mailto:[dpo@fasterchat.com.br]?subject=Solicita%C3%A7%C3%A3o%20de%20exclus%C3%A3o%20de%20dados"
+              class="inline-flex items-center gap-2 px-6 py-2.5 bg-brand-primary text-white rounded-full font-semibold hover:bg-brand-dark transition-all shadow-lg shadow-brand-primary/20 hover:shadow-xl hover:shadow-brand-primary/30 hover:-translate-y-0.5 no-underline"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+              Solicitar exclusão por e-mail
+            </a>
+          </div>
+
+          <!-- Seção 1 -->
+          <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
+            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center font-bold">1</span>
+            Quem Pode Solicitar
+          </h2>
+          <div class="grid md:grid-cols-2 gap-4 mb-8">
+            <div class="bg-brand-50 rounded-xl p-5 border border-brand-100">
+              <p class="font-display font-semibold text-brand-dark mb-2">Clientes e usuários do FasterChat</p>
+              <p class="text-sm leading-relaxed text-slate-600">Empresas contratantes, administradores e colaboradores com acesso ao painel. Somos o Controlador desses dados e atendemos o pedido diretamente.</p>
+            </div>
+            <div class="bg-slate-50 rounded-xl p-5 border border-slate-100">
+              <p class="font-display font-semibold text-slate-800 mb-2">Quem conversou com uma empresa pelo WhatsApp</p>
+              <p class="text-sm leading-relaxed text-slate-600">Seus dados pertencem à empresa com quem você conversou, que é a Controladora. Peça a exclusão diretamente a ela. Se não conseguir contato, escreva para nós informando o seu número de WhatsApp e o nome da empresa, e ajudaremos a encaminhar o pedido.</p>
+            </div>
+          </div>
+
+          <!-- Seção 2 -->
+          <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
+            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center font-bold">2</span>
+            Como Solicitar a Exclusão
+          </h2>
+          <ol class="list-none space-y-4 pl-0 mb-8">
+            <li class="flex gap-4 border border-slate-100 rounded-xl p-5">
+              <span class="w-8 h-8 rounded-full bg-brand-primary text-white text-sm flex items-center justify-center font-bold flex-shrink-0">1</span>
+              <div>
+                <p class="font-display font-semibold text-slate-900 mb-1">Envie um e-mail</p>
+                <p class="text-sm leading-relaxed">Para <strong class="text-slate-800">[dpo@fasterchat.com.br]</strong>, com o assunto <strong class="text-slate-800">"Solicitação de exclusão de dados"</strong>. Se você tem conta no FasterChat, envie a partir do e-mail cadastrado.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 border border-slate-100 rounded-xl p-5">
+              <span class="w-8 h-8 rounded-full bg-brand-primary text-white text-sm flex items-center justify-center font-bold flex-shrink-0">2</span>
+              <div>
+                <p class="font-display font-semibold text-slate-900 mb-2">Informe no e-mail</p>
+                <ul class="list-none space-y-1">
+                  <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Seu nome completo</span></li>
+                  <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>O e-mail cadastrado na plataforma ou, se você foi atendido por uma empresa, o seu número de WhatsApp</span></li>
+                  <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>O nome da empresa no FasterChat</span></li>
+                  <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>O que deseja excluir: a conta inteira, somente a integração com a Meta/WhatsApp ou dados específicos</span></li>
+                </ul>
+              </div>
+            </li>
+            <li class="flex gap-4 border border-slate-100 rounded-xl p-5">
+              <span class="w-8 h-8 rounded-full bg-brand-primary text-white text-sm flex items-center justify-center font-bold flex-shrink-0">3</span>
+              <div>
+                <p class="font-display font-semibold text-slate-900 mb-1">Confirme a sua identidade</p>
+                <p class="text-sm leading-relaxed">Para evitar exclusões indevidas, podemos pedir que você confirme o pedido a partir do e-mail cadastrado ou que um administrador da conta o autorize.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 border border-slate-100 rounded-xl p-5">
+              <span class="w-8 h-8 rounded-full bg-brand-primary text-white text-sm flex items-center justify-center font-bold flex-shrink-0">4</span>
+              <div>
+                <p class="font-display font-semibold text-slate-900 mb-1">Receba a confirmação</p>
+                <p class="text-sm leading-relaxed">Em até 15 dias úteis, enviamos por e-mail a confirmação da exclusão ou, se algum dado precisar ser mantido, o motivo legal e o prazo de guarda.</p>
+              </div>
+            </li>
+          </ol>
+
+          <!-- Seção 3 -->
+          <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
+            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center font-bold">3</span>
+            O Que Você Mesmo Pode Excluir no Painel
+          </h2>
+          <p class="text-sm mb-4 text-slate-500">Usuários com permissão no painel do FasterChat (<a href="https://admin.fasterchat.com.br/login?ref=lp" rel="noopener noreferrer" class="text-brand-dark underline underline-offset-2 hover:text-brand-primary">admin.fasterchat.com.br</a>) podem fazer estas exclusões na hora, sem precisar nos escrever:</p>
+          <div class="space-y-4 mb-8">
+            <div class="border border-slate-100 rounded-xl p-5">
+              <h3 class="font-display font-semibold text-slate-900 mb-2 flex items-center gap-2">
+                <span class="text-brand-primary text-xs font-bold">3.1</span>
+                Excluir um cliente e o histórico dele
+              </h3>
+              <p class="text-sm leading-relaxed"><strong class="text-slate-800">Clientes</strong> → abra o cliente → <strong class="text-slate-800">Excluir</strong>. Remove o cadastro, as conversas, as mensagens e as anotações desse contato.</p>
+            </div>
+            <div class="border border-slate-100 rounded-xl p-5">
+              <h3 class="font-display font-semibold text-slate-900 mb-2 flex items-center gap-2">
+                <span class="text-brand-primary text-xs font-bold">3.2</span>
+                Desconectar a API Oficial do WhatsApp
+              </h3>
+              <p class="text-sm leading-relaxed"><strong class="text-slate-800">WhatsApp</strong> → na linha do número → <strong class="text-slate-800">Desconectar</strong>. O token de acesso concedido pela Meta é descartado imediatamente.</p>
+            </div>
+            <div class="border border-slate-100 rounded-xl p-5">
+              <h3 class="font-display font-semibold text-slate-900 mb-2 flex items-center gap-2">
+                <span class="text-brand-primary text-xs font-bold">3.3</span>
+                Remover um número conectado
+              </h3>
+              <p class="text-sm leading-relaxed"><strong class="text-slate-800">WhatsApp</strong> → ícone de lixeira na linha do número. A conexão é removida; para apagar também o histórico de conversas, exclua os clientes (item 3.1) ou faça a solicitação da seção 2.</p>
+            </div>
+          </div>
+
+          <!-- Seção 4 -->
+          <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
+            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center font-bold">4</span>
+            Dados Obtidos pela Meta (Facebook e WhatsApp)
+          </h2>
+          <div class="grid md:grid-cols-2 gap-4 mb-5">
+            <div class="border border-slate-100 rounded-xl p-5">
+              <p class="text-sm font-semibold text-slate-800 mb-2">Quando você conecta um número pelo login com o Facebook, armazenamos:</p>
+              <ul class="list-none space-y-1">
+                <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Identificadores do Portfólio de Negócios, da conta do WhatsApp Business e do número</span></li>
+                <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Token de acesso e PIN de verificação em duas etapas, criptografados</span></li>
+                <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Classificação de qualidade do número</span></li>
+                <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Mensagens enviadas e recebidas pelo número</span></li>
+              </ul>
+              <p class="text-xs text-slate-500 mt-3">Não recebemos nem armazenamos a sua senha do Facebook.</p>
+            </div>
+            <div class="bg-brand-50 rounded-xl p-5 border border-brand-100">
+              <p class="text-sm font-semibold text-slate-800 mb-2">Para remover o acesso e os dados:</p>
+              <ol class="list-none space-y-2 text-sm text-slate-600">
+                <li class="flex gap-2"><span class="text-brand-primary font-bold flex-shrink-0">1.</span><span><strong class="text-slate-800">No FasterChat:</strong> desconecte o número (item 3.2).</span></li>
+                <li class="flex gap-2"><span class="text-brand-primary font-bold flex-shrink-0">2.</span><span><strong class="text-slate-800">Na Meta:</strong> em <a href="https://business.facebook.com/latest/settings/connected_apps" target="_blank" rel="noopener noreferrer" class="text-brand-dark underline underline-offset-2 hover:text-brand-primary">Meta Business Suite → Configurações → Integrações → Apps conectados</a>, remova o FasterChat.</span></li>
+                <li class="flex gap-2"><span class="text-brand-primary font-bold flex-shrink-0">3.</span><span><strong class="text-slate-800">Para apagar o que já armazenamos:</strong> faça a solicitação da seção 2. Revogar o acesso, sozinho, não apaga o histórico já guardado.</span></li>
+              </ol>
+            </div>
+          </div>
+          <p class="text-sm text-slate-500 mb-8">Também atendemos os pedidos de exclusão que a Meta nos encaminha a partir das configurações do Facebook, da mesma forma e nos mesmos prazos.</p>
+
+          <!-- Seção 5 -->
+          <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
+            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center font-bold">5</span>
+            O Que É Excluído e o Que Pode Ser Mantido
+          </h2>
+          <div class="grid md:grid-cols-2 gap-4 mb-5">
+            <div class="border border-slate-100 rounded-xl p-5">
+              <p class="text-sm font-semibold text-slate-800 mb-2">Excluído no pedido de exclusão da conta:</p>
+              <ul class="list-none space-y-1">
+                <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Dados cadastrais da empresa e dos usuários</span></li>
+                <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Clientes, conversas, mensagens e anotações</span></li>
+                <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Configurações do agente de IA, base de conhecimento, fluxos e campanhas</span></li>
+                <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Conexões com o WhatsApp, incluindo identificadores e tokens da Meta</span></li>
+                <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>Integração com o Google Calendar</span></li>
+              </ul>
+            </div>
+            <div class="border border-amber-100 bg-amber-50 rounded-xl p-5">
+              <p class="text-sm font-semibold text-amber-900 mb-2">Mantido apenas por obrigação legal:</p>
+              <ul class="list-none space-y-1 text-amber-800">
+                <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Registros de acesso (IP, data e hora) por 6 meses, conforme o Art. 15 do Marco Civil da Internet</span></li>
+                <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Documentos fiscais e de faturamento, pelo prazo exigido pela legislação</span></li>
+                <li class="flex items-start gap-2 text-sm"><svg class="w-4 h-4 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg><span>Cópias de segurança, eliminadas no ciclo normal de rotação dos backups</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="bg-slate-50 border border-slate-100 rounded-xl p-4 mb-8 text-sm">
+            <p class="font-semibold text-slate-800 mb-1">Cancelar a assinatura não é o mesmo que excluir</p>
+            <p class="text-slate-600">Sem pedido de exclusão, os dados de uma conta cancelada ficam guardados por 90 dias para exportação e depois são eliminados (<a href="politica-privacidade.html" class="text-brand-dark underline underline-offset-2 hover:text-brand-primary">Política de Privacidade</a>, seção 7). Com o pedido de exclusão, não esperamos esse prazo.</p>
+          </div>
+
+          <!-- Seção 6 -->
+          <h2 class="text-2xl font-display font-bold mt-10 mb-4 text-slate-900 flex items-center gap-2">
+            <span class="w-8 h-8 rounded-full bg-brand-50 text-brand-primary text-sm flex items-center justify-center font-bold">6</span>
+            Contato
+          </h2>
+          <div class="bg-brand-50 rounded-xl p-5 border border-brand-100 mb-5">
+            <p class="text-sm"><strong class="text-slate-800">Responsável:</strong> [RAZÃO SOCIAL DA EMPRESA] — CNPJ [CNPJ]</p>
+            <p class="text-sm mt-1"><strong class="text-slate-800">Encarregado de Proteção de Dados (DPO):</strong> [Nome do DPO ou empresa responsável]</p>
+            <p class="text-sm mt-1"><strong class="text-slate-800">E-mail:</strong> [dpo@fasterchat.com.br]</p>
+            <p class="text-sm mt-1"><strong class="text-slate-800">Horário de atendimento:</strong> Dias úteis, das 9h às 18h (horário de Brasília)</p>
+          </div>
+          <p class="text-sm text-slate-500 mb-8">Se não ficar satisfeito com a resposta, você pode peticionar à Autoridade Nacional de Proteção de Dados (ANPD) pelo site gov.br/anpd.</p>
+
+          <!-- Rodapé do documento -->
+          <div class="mt-12 pt-8 border-t border-slate-100 text-sm text-slate-400 italic">
+            Esta página entra em vigor em 15 de setembro de 2026.
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="pt-10 pb-6 text-slate-400 bg-white" role="contentinfo">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:gap-16 mb-4 text-slate-800">
+          <div class="lg:max-w-sm flex-shrink-0 mb-8 lg:mb-0">
+            <a href="index.html" class="flex items-center gap-2 mb-4">
+              <img src="./assets/logo-png.webp" alt="Logo Faster Chat" width="40" height="40" loading="lazy" decoding="async" />
+              <span class="text-lg font-bold text-zinc-700 flex"><span class="text-green-700">Faster</span> Chat</span>
+            </a>
+            <p class="text-sm leading-relaxed">
+              O FasterChat é a plataforma de automação de WhatsApp para empresas que não podem perder um cliente. Nossa IA
+              atende, agenda e fecha pedidos 24h por dia — enquanto você foca no que importa.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-10 lg:gap-12 lg:justify-end flex-1">
+            <nav aria-label="Links do produto">
+              <h3 class="text-slate-800 font-bold mb-4">Produto</h3>
+              <ul class="space-y-2 text-sm">
+                <li><a href="index.html#funcionalidades" class="hover:text-brand-primary transition-colors">Funcionalidades</a></li>
+                <li><a href="index.html#precos" class="hover:text-brand-primary transition-colors">Planos</a></li>
+              </ul>
+            </nav>
+
+            <nav aria-label="Links legais">
+              <h4 class="text-slate-800 font-bold mb-4">Legal</h4>
+              <ul class="space-y-2 text-sm">
+                <li><a href="termos-de-uso.html" class="hover:text-brand-primary transition-colors">Termos de Uso</a></li>
+                <li><a href="politica-privacidade.html" class="hover:text-brand-primary transition-colors">Política de Privacidade</a></li>
+                <li><a href="exclusao-de-dados.html" class="hover:text-brand-primary transition-colors">Exclusão de Dados</a></li>
+              </ul>
+            </nav>
+
+            <div>
+              <h4 class="text-slate-800 font-bold mb-4">Segurança</h4>
+              <div class="flex flex-col gap-3 align-baseline items-ba">
+                <img src="./assets/footer/site-blindado-png-7.png" alt="SSL Blindado — Site Blindado" width="150" height="50" loading="lazy" decoding="async" style="height: 38px; width: auto; object-fit: contain" />
+                <img src="./assets/footer/google.png" alt="Navegação Segura Google" width="150" height="50" loading="lazy" decoding="async" style="height: 38px; width: auto; object-fit: contain" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-800 gap-4">
+          <p class="text-center">&copy; 2026 FasterChat Tecnologia. Todos os direitos reservados.</p>
+          <div class="flex gap-4">
+            <a href="https://www.instagram.com/fasterchat/" rel="noopener noreferrer" target="_blank"
+              class="hover:text-green-700 transition-colors">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+        offset: 50,
+        duration: 800,
+        easing: "ease-out-cubic",
+      });
+    </script>
+    <script>
+      // Fallback: garante que qualquer link futuro para o admin também tenha o parâmetro de tracking
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('a[href*="admin.fasterchat.com.br"]').forEach(link => {
+          try {
+            const url = new URL(link.href);
+            if (!url.searchParams.has('ref')) {
+              url.searchParams.set('ref', 'lp');
+              link.href = url.toString();
+            }
+          } catch (e) {}
+        });
+      });
+    </script>
+  </body>
+</html>

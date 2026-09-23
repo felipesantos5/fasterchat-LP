@@ -8,13 +8,19 @@
   </url>
   <url>
     <loc>https://fasterchat.com.br/termos-de-uso.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://fasterchat.com.br/politica-privacidade.html</loc>
-    <lastmod>2026-04-06</lastmod>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://fasterchat.com.br/exclusao-de-dados.html</loc>
+    <lastmod>2026-09-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
